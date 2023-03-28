@@ -1,4 +1,5 @@
-import { setUser } from "@/app/userSlice";
+import { setUser } from "@/context/userSlice";
+import { Dispatch } from "react";
 import axios from "./axios";
 
 interface UserData {
@@ -6,10 +7,11 @@ interface UserData {
   token: string;
 }
 
-export async function getHello(state: (data: any) => void) {
+export async function getHello(state: Dispatch<any>) {
   try {
     const petition = await axios.get("/");
     state(petition.data);
+    return
   } catch (error) {
     // Handle error here
     console.log(error);

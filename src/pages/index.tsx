@@ -1,14 +1,17 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
+import React, { useEffect } from "react"
+import { getHello } from "./api/apiPetitions";
 
-const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  const [state, setState] = React.useState<any>("");
+  useEffect(() => {
+    getHello(setState)
+  },[])
   return (
     <>
      <h1>hola</h1>
+     <br />
+     <h2>{state}</h2>
     </>
   )
 }
