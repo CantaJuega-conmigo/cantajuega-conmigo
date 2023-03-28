@@ -1,0 +1,110 @@
+
+.Container{
+    position: absolute;
+    height: 95%;
+    width: 97%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;    
+}
+.secondContainer{
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    height: 550px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+}
+.secondContainer h1{
+   
+    margin:0;
+    margin-left: 15px;
+    font-size: 28px;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+.aux{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.aux section{
+    background-color: aqua;
+    border-bottom: 1px solid rgb(77, 77, 77);
+    width: 100%;
+    height: 0px;
+}
+
+.inputsContainer{
+    display: flex;
+    flex-direction: column;
+  padding: 5px;
+  height: 85%;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 10px;
+
+}
+.inputsContainer input{
+    margin: 5px;
+    padding: 8px;
+    border-radius:5px ;
+    border: 1px solid;
+}
+.inputsContainer label{
+ margin-left: 14px;
+ font-weight: 600;
+ font-size: 12px;
+}
+.loginButton{
+    background-color: rgb(255, 196, 0);
+    width: 45%;
+    padding: 10px;
+    margin: 0 auto;
+    border: none;
+    margin-top: 20px;
+    border-radius: 5px;
+    font-size: 17px;
+
+}
+
+
+.paswwordSection label{
+    font-weight: 300;
+    font-size: 15px;
+    color: rgba(7, 4, 0, 0.719);
+}
+.paswwordSection input{
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+.paswwordSection span{
+    font-weight: 300;
+    font-size: 15px;
+    color: rgba(7, 4, 0, 0.719);
+    margin-left:10px ;
+}
+.googleButton{
+ background-color: white;
+ border: 1px solid;
+ border-radius: 10px;
+ height: 20%;
+ width: 98%;
+ margin: 0 auto;
+ cursor: pointer;
+}
+.googleButton:hover{
+    background-color: rgb(241, 241, 241);
+}
+.Registerbutton{
+    background-color: yellow;
+    width: 100%;
+    height: 15%;
+    border: none;
+}
