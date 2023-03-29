@@ -1,19 +1,21 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
-import NewsletterSuscription from '@/components/NewsletterSuscription'
-import Login from '@/components/Login'
-
+import Head from "next/head";
+import NewsletterSuscription from "@/components/home/NewsletterSuscription";
+import Hero from "@/components/home/Hero";
+import ImageSection from "@/components/home/ImageSection";
+import Trailer from "@/components/home/Trailer";
+import Metodologia from "@/components/home/Metodologia";
+import React from "react";
 
 export default function Home() {
-  const [state, setState] = React.useState<any>("");
-  useEffect(() => {
-    getHello(setState)
-  },[])
+  const [open, setOpen] = React.useState(false);
   return (
     <div>
-       <NewsletterSuscription/>
+      <Hero />
+      <ImageSection images={'sad'} />
+      <Trailer />
+      <ImageSection images={'asd'} />
+      <Metodologia />
+      <NewsletterSuscription />
     </div>
-  )
+  );
 }
