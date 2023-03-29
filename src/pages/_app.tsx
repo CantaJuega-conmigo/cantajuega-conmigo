@@ -1,3 +1,4 @@
+import Navbar from "@/components/global/Navbar";
 import { wrapper } from "@/context/store";
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
@@ -13,7 +14,7 @@ function App({ Component, pageProps }: AppProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={`bg-light w-full min-h-screen`}>
-        {/* <NavBar /> */}
+        <Navbar />
         <Component {...pageProps} />
       </main>
     </>
