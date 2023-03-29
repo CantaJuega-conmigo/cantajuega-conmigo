@@ -10,12 +10,13 @@ export default function Home() {
   const [open, setOpen] = React.useState(false);
   return (
     <div>
+
       <Hero />
       <ImageSection images={'sad'} />
       <Trailer />
       <ImageSection images={'asd'} />
       <Metodologia />
-      <NewsletterSuscription />
+      {/* <NewsletterSuscription /> */}
     </div>
   );
 }
