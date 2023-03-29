@@ -2,7 +2,11 @@ import React from 'react'
 
 const Hero = () => {
   return (
-    <div>Hero</div>
+    <main className='flex justify-center w-full bg-cream h-96'>
+      <div className='w-full mx-20 border border-black'>
+
+      </div>
+    </main>
   )
 }
 
