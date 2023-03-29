@@ -4,6 +4,9 @@ export default function Login(){
         <div className={styles.Container}>
           
            <section className={styles.secondContainer}>
+            <article>
+            <button className={styles.Close}>X</button>
+            </article>
             <h1>INICIA SESIÓN:</h1>
                 <div className={styles.inputsContainer}>
                      
