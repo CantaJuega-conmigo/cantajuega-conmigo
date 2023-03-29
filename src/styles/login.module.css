@@ -18,6 +18,20 @@
     justify-content: space-between;
     overflow: hidden;
 }
+.Close{
+    width: fit-content;
+    color: rgb(0, 0, 0);
+    border: none;
+    background-color: transparent;
+    font-size:20px;
+    font-weight:600;
+    float: right;
+    font-family: "Open Sans", sans-serif;
+    cursor: pointer;
+}
+.Close:hover{
+    color: rgb(126, 0, 0);
+}
 .secondContainer h1{
    
     margin:0;
@@ -39,7 +53,10 @@
     width: 100%;
     height: 0px;
 }
-
+.aux h5{
+    margin-left:2px ;
+    margin-right:2px ;
+}
 .inputsContainer{
     display: flex;
     flex-direction: column;
@@ -62,7 +79,7 @@
  font-size: 12px;
 }
 .loginButton{
-    background-color: rgb(255, 196, 0);
+    background-color:#f1d245 ;
     width: 45%;
     padding: 10px;
     margin: 0 auto;
@@ -70,7 +87,10 @@
     margin-top: 20px;
     border-radius: 5px;
     font-size: 17px;
-
+     cursor: pointer;
+}
+.loginButton:hover{
+  background-color: #d3b638 ;;
 }
 
 
@@ -103,8 +123,13 @@
     background-color: rgb(241, 241, 241);
 }
 .Registerbutton{
-    background-color: yellow;
+    background-color:#f1d245 ;
     width: 100%;
     height: 15%;
     border: none;
+    cursor: pointer;
+}
+.Registerbutton:hover{
+    background-color: #d3b638 ;;
+
 }
