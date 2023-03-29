@@ -17,7 +17,7 @@ export default function Home() {
       <Trailer />
       <ImageSection images={'asd'} /> 
       <Metodologia />
-      {/* <NewsletterSuscription /> */}
+      <NewsletterSuscription />
       </Layout>
     </main>
   );
