@@ -12,12 +12,12 @@ export default function Home() {
   return (
     <main className="flex text-black overflow-x-hidden min-h-screen m-0">
       <Layout className="p-0">
-        <Hero />
-        <ImageSection images={'sad'} />
-        <Trailer />
-        <ImageSection images={'asd'} />
-        <Metodologia />
-        <NewsletterSuscription />
+      <Hero />
+      <ImageSection images={'sad'} />
+      <Trailer />
+      <ImageSection images={'asd'} /> 
+      <Metodologia />
+      <NewsletterSuscription />
       </Layout>
     </main>
   );
