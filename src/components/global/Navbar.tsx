@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { BiSearch } from "react-icons/bi";
 import { HiOutlineMenu } from "react-icons/hi";
 import { AiOutlineMobile, AiOutlineClose } from "react-icons/ai";
 import { TiMail } from "react-icons/ti";
@@ -17,8 +16,6 @@ const items = [
   { name: "Cursos", href: "/cursos" },
   { name: "Contacto", href: "/contacto" },
 ];
-
-
 
 // MOVER A OTRO LADO
 const useMediaQuery = (query: string) => {
@@ -44,48 +41,41 @@ const Navbar = () => {
   const isDesktop = useMediaQuery("(min-width: 768px)");
 
   return (
-    <nav className="z-40 w-full top-0 py-6 ">
+    <nav className="sticky z-40 w-full top-0 py-2 bg-white ">
       {/* TOP */}
       {isDesktop && (
-        <div className="flex fixed  top-0 w-full px-4 py-2 items-center justify-between bg-gray-100  border-b-2 border-dashed  border-amber-500">
+        <div className="flex top-0 w-full px-4 py-2 items-center justify-between bg-gray-100  border-b-2 border-dashed  border-amber-500">
           <div className=""></div>
 
-          <div className="flex justify-between items-center">
-            <a href="#" className="mr-6">
-              ALGUNA PREGUNTA?{" "}
-            </a>
+          <div className="flex justify-between items-center md:text-xs">
+            <span className="mr-6">ALGUNA PREGUNTA? </span>
 
             <AiOutlineMobile className="fill-current h-4 w-4 flex-shrink-0 mr-2 text-yellow-300" />
-            <a href="#" className="mr-6">
-              +502 5430-1174{" "}
-            </a>
+            <span className="mr-6">+502 5430-1174 </span>
 
             <TiMail className="fill-current h-4 w-4 flex-shrink-0 mr-2  text-yellow-300" />
-            <a href="#" className="mr-6">
-              info@cantajuegaconmigo
-            </a>
+            <span className="mr-6">info@cantajuegaconmigo</span>
           </div>
           <div className="flex items-center justify-end border space-x-4 font-semibold text-lg gap-2 px-6">
-            <a href="#" className="mr-6">
+            <span className="mr-6 hover:text-[#FFC172] cursor-pointer">
               Iniciar Sesion
-            </a>
+            </span>
             <div className="border border-gray-400 h-6 w-0"></div>
-            <a href="#" className="">
+            <span className="hover:text-[#FFC172] cursor-pointer">
               Registrarse
-            </a>
+            </span>
           </div>
         </div>
       )}
 
-
-      <div className="flex justify-between mt-4  items-center mx-auto w-full">
+      <div className="flex justify-between mt-2  items-center mx-auto w-full">
         <div className="flex items-center">
           <Image
             src="https://www.cantajuegaconmigo.com/wp-content/uploads/2021/11/NUEVO-LOGO.png"
             alt=""
             width={250}
             height={50}
-            className=" gap-6 px-6 py-6 "
+            className=" gap-6 px-2 py-2 "
           />
         </div>
 
@@ -93,27 +83,12 @@ const Navbar = () => {
           <div className="flex gap-6 w-auto py-4 px-6">
             <div className="flex justify-between w-full md:gap-6 lg:gap-10 md:text-lg lg:text-2xl font-semibold">
               {items.map((item, index) => (
-                <Link
-                  href={item.href}
-                  className="cursor-pointer"
-                  key={index}
-                >
-                  <span>{item.name}</span>
+                <Link href={item.href} className="cursor-pointer" key={index}>
+                  <span className="hover:text-[#FFC172]">{item.name}</span>
                 </Link>
               ))}
             </div>
             {/* SEARCH */}
-            <div className="flex w-auto h-[30px] md:w-[300px] md:h-auto ml-4">
-              <input
-                placeholder="Search"
-                className="w-full border-none px-4 py-2 text-zinc-500 bg-teal-100 border-[1px] border-zinc-700 placeholder:text-zinc-400  rounded-tl-lg rounded-bl-lg focus:outline-none"
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-              />
-              <div className="bg-teal-500 px-5 py-3 rounded-tr-lg rounded-br-lg cursor-pointer text-white ">
-                <BiSearch size={20} />
-              </div>
-            </div>
           </div>
         ) : (
           <button
@@ -149,4 +124,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
