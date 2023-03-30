@@ -10,7 +10,7 @@ import Layout from "@/components/global/Layaout";
 export default function Home() {
   const [open, setOpen] = React.useState(false);
   return (
-    <main className="flex text-black w-full min-h-screen m-0">
+    <main className="flex text-black overflow-x-hidden min-h-screen m-0">
       <Layout className="p-0">
         <Hero />
         <ImageSection images={'sad'} />
