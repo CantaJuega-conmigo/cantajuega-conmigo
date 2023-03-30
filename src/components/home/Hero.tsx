@@ -37,7 +37,7 @@ const Hero = () => {
     setCurrentIndex(slideIndex);
   };
   return (
-    <section className="h-[80vh] w-full mb-8 xl:mb-24 bg-gradient-to-r from-[#6EC1E4] via-[#73ddeb] to-[#61CE70] border-2 border-black">
+    <section className="h-[80vh] w-full mb-8 xl:mb-24 bg-gradient-to-r from-[#6EC1E4] via-[#73ddeb] to-[#61CE70]">
       <div className="flex flex-col md:flex-row md:items-center md:justify-center py-10">
         <div className="lg:ml-8 xl:ml-[135px] flex  items-center lg:items-center text-center lg:text-left justify-center flex-1 px-4 lg:px-0 text-white">
           <button
