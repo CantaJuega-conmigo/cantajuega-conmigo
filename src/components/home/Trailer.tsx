@@ -13,7 +13,7 @@ const Trailer = () => {
         <h2 className="font-bold text-4xl md:text-6xl text-center absolute top-10 md:top-16 left-0 md:left-32 right-0 md:right-auto z-10">
           Descubre <br /> CantaJuega Conmigo
         </h2>
-        <h3 className="text-lg md:text-4xl text-blue font-semibold text-center absolute top-44 md:top-64 left-0 md:right-auto right-0 md:left-auto z-10">
+        <h3 className="text-lg w-full flex justify-center md:text-4xl text-blue font-semibold text-center absolute top-44 md:top-64 left-0 md:right-auto right-0 md:left-auto z-10">
           Una experiencia única <br /> para quien te hace <br /> muy feliz
         </h3>
 

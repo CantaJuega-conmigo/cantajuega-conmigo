@@ -7,6 +7,8 @@ import { TiMail } from "react-icons/ti";
 
 import Link from "next/link";
 import Image from "next/image";
+import Login from "./Login";
+import Resgister from "./Register";
 
 const items = [
   { name: "Nosotros", href: "/nosotros" },
@@ -16,6 +18,8 @@ const items = [
   { name: "Cursos", href: "/cursos" },
   { name: "Contacto", href: "/contacto" },
 ];
+
+
 
 // MOVER A OTRO LADO
 const useMediaQuery = (query: string) => {
@@ -35,12 +39,31 @@ const useMediaQuery = (query: string) => {
 };
 
 const Navbar = () => {
-  const [input, setInput] = useState("");
+  // const [input, setInput] = useState("");
+  interface OpenInterface {
+    login: boolean;
+    register: boolean;
+  }
+  const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
+  const [open, setOpen] = useState<OpenInterface>({
+    login: false,
+    register: false,
+  });
 
-  const [isMenuToggled, setIsMenuToggled] = useState(false);
+  const handleOpen = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const name = e.currentTarget.id as keyof OpenInterface;
+    setOpen((prevOpen) => ({
+      ...prevOpen,
+      [name]: !prevOpen[name],
+    }));
+  };
+
   const isDesktop = useMediaQuery("(min-width: 768px)");
 
+
+
   return (
+    <>
     <nav className="sticky z-40 w-full top-0 py-2 bg-white ">
       {/* TOP */}
       {isDesktop && (
@@ -57,11 +80,17 @@ const Navbar = () => {
             <span className="mr-6">info@cantajuegaconmigo</span>
           </div>
           <div className="flex items-center justify-end border space-x-4 font-semibold text-lg gap-2 px-6">
-            <span className="mr-6 hover:text-[#FFC172] cursor-pointer">
+            <span className="mr-6 hover:text-[#FFC172] cursor-pointer"
+                id="login"
+            onClick={handleOpen}
+            >
               Iniciar Sesion
             </span>
             <div className="border border-gray-400 h-6 w-0"></div>
-            <span className="hover:text-[#FFC172] cursor-pointer">
+            <span className="hover:text-[#FFC172] cursor-pointer"
+            id="register"
+             onClick={handleOpen}
+            >
               Registrarse
             </span>
           </div>
@@ -84,7 +113,7 @@ const Navbar = () => {
             <div className="flex justify-between w-full md:gap-6 lg:gap-10 md:text-lg lg:text-2xl font-semibold">
               {items.map((item, index) => (
                 <Link href={item.href} className="cursor-pointer" key={index}>
-                  <span className="hover:text-[#FFC172]">{item.name}</span>
+                  <span className="hover:text-orange">{item.name}</span>
                 </Link>
               ))}
             </div>
@@ -120,6 +149,10 @@ const Navbar = () => {
         )}
       </div>
     </nav>
+    {open.login && <Login handleOpen={handleOpen} />}
+    {open.register && <Resgister handleOpen={handleOpen} />}
+    {}
+    </>
   );
 };
 

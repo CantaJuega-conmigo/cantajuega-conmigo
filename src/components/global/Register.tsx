@@ -1,5 +1,10 @@
-import styles from '../styles/login.module.css'
-export default function Resgister(){
+import styles from '../../styles/login.module.css'
+
+interface RegisterProps {
+   handleOpen: (event: React.MouseEvent<HTMLButtonElement>) => void;
+ }
+ 
+ const Register: React.FC<RegisterProps> = ({ handleOpen }) => {
    return (
     <div className={styles.Container}>
           
@@ -23,10 +28,7 @@ export default function Resgister(){
                  <section></section>
                </div>
                <button type='button' className={styles.googleButton} >Login with google</button>
-      
-            <span>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas omnis rerum similique fuga, aperiam asperiores exercitationem consequatur ex delectus error? Commodi perspiciatis accusantium ipsam! Asperiores maxime vero voluptatum recusandae reiciendis.
-            </span>
+
          </div>
    
         
@@ -35,3 +37,5 @@ export default function Resgister(){
  </div>
    )
 }
+
+export default Register;
