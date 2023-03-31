@@ -1,10 +1,56 @@
 import styles from '../../styles/login.module.css'
+import { useState } from 'react'
 
 interface RegisterProps {
    handleOpen: (event: React.MouseEvent<HTMLButtonElement>) => void;
  }
- 
+ interface InputProps {
+  email: string;
+  password: string;
+  lastname: "",
+  firstname: "",
+}
+interface ErrorProps {
+  email?: string;
+  password?: string;
+  global?: string;
+  lastname?: "",
+  firstname?: "",
+}
+
+
+
  const Register: React.FC<RegisterProps> = ({ handleOpen }) => {
+
+  const [input, setInput] = useState<InputProps>({
+    email: "",
+    password: "",
+    lastname: "",
+    firstname: "",
+  });
+
+  const [error, setError] = useState<ErrorProps>({});
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setInput((prevInput) => ({
+      ...prevInput,
+      [name]: value,
+    }));
+
+    // setError(loginError({
+    //   ...input,
+    //   [name]: value,
+    // }));
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if(Object.keys(error).length) return console.log(error);
+    ;
+    // loginUser(input);
+  };
+
    return (
     <div className={styles.Container}>
           

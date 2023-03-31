@@ -38,7 +38,8 @@ export async function loginUser(
   body: any,
 ) {
   try {
-    const petition = await axios.post<UserData>("/users/login", body);
+    const petition = await axios.post<UserData>("/user/login", body);
+    console.log(petition);
     localStorage.setItem("tkn", petition?.data.token);
   } catch (error) {
     // Handle error here
