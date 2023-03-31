@@ -5,12 +5,13 @@ interface RegisterProps {
  }
  
  const Register: React.FC<RegisterProps> = ({ handleOpen }) => {
+
    return (
     <div className={styles.Container}>
           
     <section className={styles.secondContainer}>
     <article>
-          <button className={styles.Close} id="login" onClick={handleOpen}>
+          <button className={styles.Close} id="register" onClick={handleOpen}>
             X
           </button>
         </article>
