@@ -55,6 +55,11 @@ interface ErrorProps {
     <div className={styles.Container}>
           
     <section className={styles.secondContainer}>
+    <article>
+          <button className={styles.Close} id="login" onClick={handleOpen}>
+            X
+          </button>
+        </article>
      <h1>CREA UN USUARIO:</h1>
          <div className={styles.inputsContainer}>
               
