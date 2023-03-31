@@ -1,14 +1,43 @@
 import { BsGoogle } from "react-icons/bs";
 import styles from "../../styles/login.module.css";
+import { useState } from "react";
+import { loginUser } from "@/pages/api/apiPetitions";
 
 interface LoginProps {
   handleOpen: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
+interface InputProps {
+  email: string;
+  password: string;
+}
+
 const Login: React.FC<LoginProps> = ({ handleOpen }) => {
+
+  const [input, setInput] = useState<InputProps>({
+    email: "",
+    password: "",
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setInput((prevInput) => ({
+      ...prevInput,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log(input);
+    loginUser(input);
+  }
+
+
+
   return (
-    <div className={styles.Container}>
-      <div className={styles.secondContainer}>
+    <div className={`${styles.Container}`}>
+      <div className={`${styles.secondContainer}`}>
         <article>
           <button className={styles.Close} id="login" onClick={handleOpen}>
             X
@@ -17,18 +46,26 @@ const Login: React.FC<LoginProps> = ({ handleOpen }) => {
 
         <h1>INICIA SESIÓN:</h1>
 
-        <div className={styles.inputsContainer}>
+        <form className={styles.inputsContainer}>
           <label htmlFor="">USUARIO / CORREO ELECTRÓNICO</label>
-          <input type="text" />
+          <input type="text"
+          name="email"
+          value={input.email}
+          onChange={handleChange}
+          />
           <label htmlFor="">CONTRASEÑA</label>
-          <input type="text" />
+          <input type="text"
+          name="password"
+          value={input.password}
+          onChange={handleChange}
+          />
 
           <section className={styles.paswwordSection}>
             <input
               type="checkbox"
               name=""
               className={styles.checkBox}
-              id="Passwordvisible"
+              id="recurdame"
             />
             <label htmlFor="">recuerdame </label>
             <span>Olvidaste tu contraseña</span>
@@ -44,7 +81,7 @@ const Login: React.FC<LoginProps> = ({ handleOpen }) => {
           <button type="button" className={styles.googleButton}>
             Login with google
           </button>
-        </div>
+        </form>
 
         <button className={styles.Registerbutton}>o Registrate</button>
       </div>

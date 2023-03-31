@@ -36,11 +36,9 @@ export async function registerUser(
 
 export async function loginUser(
   body: any,
-  state: (data: any) => void
 ) {
   try {
     const petition = await axios.post<UserData>("/users/login", body);
-    state(setUser(petition?.data.user));
     localStorage.setItem("tkn", petition?.data.token);
   } catch (error) {
     // Handle error here

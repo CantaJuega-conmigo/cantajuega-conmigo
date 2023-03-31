@@ -10,6 +10,11 @@ import Image from "next/image";
 import Login from "./Login";
 import Resgister from "./Register";
 
+import {motion} from "framer-motion"
+import {navVariants} from "../../utils/motion";
+
+
+
 const items = [
   { name: "Nosotros", href: "/nosotros" },
   { name: "Metodología", href: "/metodologia" },
@@ -64,7 +69,7 @@ const Navbar = () => {
 
   return (
     <>
-    <nav className="sticky z-40 w-full top-0 py-2 bg-white ">
+    <motion.nav variants={navVariants} initial="hidden" whileInView="show" className="sticky z-40 w-full top-0 py-2 bg-white ">
       {/* TOP */}
       {isDesktop && (
         <div className="flex top-0 w-full px-4 py-2 items-center justify-between bg-gray-100  border-b-2 border-dashed  border-amber-500">
@@ -148,7 +153,7 @@ const Navbar = () => {
           </div>
         )}
       </div>
-    </nav>
+    </motion.nav>
     {open.login && <Login handleOpen={handleOpen} />}
     {open.register && <Resgister handleOpen={handleOpen} />}
     {}
