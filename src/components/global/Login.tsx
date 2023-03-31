@@ -2,6 +2,7 @@ import { BsGoogle } from "react-icons/bs";
 import styles from "../../styles/login.module.css";
 import { useState } from "react";
 import { loginUser } from "@/pages/api/apiPetitions";
+import { loginError } from "./FormsErrors";
 
 interface LoginProps {
   handleOpen: (event: React.MouseEvent<HTMLButtonElement>) => void;
@@ -11,13 +12,19 @@ interface InputProps {
   email: string;
   password: string;
 }
+interface ErrorProps {
+  email?: string;
+  password?: string;
+  global?: string;
+}
 
 const Login: React.FC<LoginProps> = ({ handleOpen }) => {
-
   const [input, setInput] = useState<InputProps>({
     email: "",
     password: "",
   });
+
+  const [error, setError] = useState<ErrorProps>({});
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -25,15 +32,19 @@ const Login: React.FC<LoginProps> = ({ handleOpen }) => {
       ...prevInput,
       [name]: value,
     }));
+
+    setError(loginError({
+      ...input,
+      [name]: value,
+    }));
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(input);
+    if(Object.keys(error).length) return console.log(error);
+    ;
     loginUser(input);
-  }
-
-
+  };
 
   return (
     <div className={`${styles.Container}`}>
@@ -46,18 +57,22 @@ const Login: React.FC<LoginProps> = ({ handleOpen }) => {
 
         <h1>INICIA SESIÓN:</h1>
 
-        <form className={styles.inputsContainer}>
+        <form className={styles.inputsContainer}
+           onSubmit={handleSubmit}
+        >
           <label htmlFor="">USUARIO / CORREO ELECTRÓNICO</label>
-          <input type="text"
-          name="email"
-          value={input.email}
-          onChange={handleChange}
+          <input
+            type="text"
+            name="email"
+            value={input.email}
+            onChange={handleChange}
           />
           <label htmlFor="">CONTRASEÑA</label>
-          <input type="text"
-          name="password"
-          value={input.password}
-          onChange={handleChange}
+          <input
+            type="text"
+            name="password"
+            value={input.password}
+            onChange={handleChange}
           />
 
           <section className={styles.paswwordSection}>
@@ -70,7 +85,9 @@ const Login: React.FC<LoginProps> = ({ handleOpen }) => {
             <label htmlFor="">recuerdame </label>
             <span>Olvidaste tu contraseña</span>
           </section>
-          <button type="button" className={styles.loginButton}>
+          <button type="submit" className={styles.loginButton}
+       
+          >
             LOGIN
           </button>
           <div className={styles.aux}>
