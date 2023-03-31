@@ -1,14 +1,18 @@
+import { BsGoogle } from 'react-icons/bs'
 import styles from '../styles/login.module.css'
 export default function Login(){
     return (
         <div className={styles.Container}>
           
-           <section className={styles.secondContainer}>
+           <div className={styles.secondContainer}>
+
             <article>
-            <button className={styles.Close}>X</button>
+              <button className={styles.Close}>X</button>
             </article>
+
             <h1>INICIA SESIÓN:</h1>
-                <div className={styles.inputsContainer}>
+
+             <div className={styles.inputsContainer}>
                      
                     <label htmlFor="">USUARIO / CORREO ELECTRÓNICO</label>
                     <input type="text" /> 
@@ -27,6 +31,7 @@ export default function Login(){
                         <section></section>
                       </div>
                       <button type='button' className={styles.googleButton} >Login with google</button>
+                
                 </div>
           
 
@@ -34,7 +39,7 @@ export default function Login(){
                     o Registrate
                 </button>
       
-           </section>
+           </div>
 
         </div>
     )

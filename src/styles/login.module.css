@@ -48,7 +48,6 @@
     align-items: center;
 }
 .aux section{
-    background-color: aqua;
     border-bottom: 1px solid rgb(77, 77, 77);
     width: 100%;
     height: 0px;
@@ -65,6 +64,8 @@
   width: 90%;
   margin: 0 auto;
   margin-top: 10px;
+  flex-direction: column;
+    justify-content:space-evenly;
 
 }
 .inputsContainer input{
@@ -92,7 +93,10 @@
 .loginButton:hover{
   background-color: #d3b638 ;;
 }
-
+.paswwordSection{
+    display: flex;
+    align-items: center;
+}
 
 .paswwordSection label{
     font-weight: 300;
@@ -132,4 +136,67 @@
 .Registerbutton:hover{
     background-color: #d3b638 ;;
 
+}
+@media (max-width:500px){
+    .Container{
+        height: 100%;
+        width: 100%;
+        z-index: 40;
+        top: 0;
+        background-color: white;
+    }
+    .Close{
+        font-size: 9vw;
+    }
+    
+  .secondContainer{
+
+   width: 100%;
+   height: 100%;
+  }
+
+  .secondContainer h1{
+    margin: 0 auto;
+    font-size: 8vw;
+  
+  }
+  .inputsContainer{
+    height: 70%;
+   
+  }
+  .inputsContainer label{
+    font-size: 4vw;
+    font-weight: 200;
+    margin: 0;
+  }
+  .inputsContainer input{
+    padding: 2vw;
+    margin: 0;
+  }
+  .paswwordSection {
+      justify-content: space-between;
+  }
+  .paswwordSection span{
+    font-weight: 300;
+    font-size: 4vw;
+    color: rgba(7, 4, 0, 0.719);
+}
+.paswwordSection label{
+    font-size: 4vw;
+   
+}
+ 
+.loginButton{
+    font-size: 4vw;
+    width: 70%;
+}
+  .googleButton{
+    height: 16%;
+    cursor: pointer;
+    font-size: 5vw;
+   }
+   .Registerbutton{
+    height: 12%;
+    font-size: 5vw;
+   }
 }
