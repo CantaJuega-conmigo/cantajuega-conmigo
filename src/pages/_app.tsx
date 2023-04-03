@@ -1,3 +1,4 @@
+import Footer from "@/components/global/Footer";
 import Navbar from "@/components/global/Navbar";
 import { wrapper } from "@/context/store";
 import "@/styles/globals.css";
@@ -16,6 +17,7 @@ function App({ Component, pageProps }: AppProps) {
       <main className={`bg-light w-full min-h-screen`}>
         <Navbar />
         <Component {...pageProps} />
+        <Footer />
       </main>
     </>
   );
