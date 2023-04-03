@@ -51,9 +51,10 @@
     height: 100%;
     background-color: #FFC172;
     background-image:url("../../public/img/img-2.png");
+    background-size: cover;
     background-repeat: no-repeat;
-    background-size:379px;
-    background-position:center ;
+    background-position: right;
+    
 }
 .Pasos span{
     color: white;
@@ -68,4 +69,33 @@
     border-style: dashed;
     border-left:none ;
     border-right:none ;
+}
+
+@media (max-width:767px){
+  
+    .Container{
+        height: auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .SectionsContainer{
+        display: flex;
+        flex-direction: column;
+        width: auto;
+    }
+  
+    .Content h1{
+        font-size: 5vw;
+        width: auto;
+    }
+
+    .Content p{
+      margin-top: 0px;
+      font-size:3vw;
+    }
+
+    .Pasos{
+        background-size:40vb;
+        background-position:right bottom;
+    }
 }
