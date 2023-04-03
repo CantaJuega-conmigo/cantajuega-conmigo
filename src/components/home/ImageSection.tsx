@@ -11,6 +11,7 @@ const ImageSection = (props:ImageSectionProps) => {
   return (
     <div>
       <div className={styles.Container}>
+
           <div className={styles.SectionsContainer}>
             <section className={styles.Content}>
               <article>
@@ -24,6 +25,7 @@ const ImageSection = (props:ImageSectionProps) => {
                 consequat. 
               </p>
             </section>
+            
             <section  className={styles.Content}>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti commodi doloribus amet atque esse laboriosam a ipsam optio dolore porro quod officia rem, sunt nulla quia. Accusantium et saepe ex!</section>
           
             <section className={styles.Content}>
