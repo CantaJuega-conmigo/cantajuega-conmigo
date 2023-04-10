@@ -11,7 +11,7 @@ import Acerca from "@/components/home/Acerca";
 export default function Home() {
   const [open, setOpen] = React.useState(false);
   return (
-    <main className="flex text-black overflow-x-hidden min-h-screen m-0">
+    <main className="flex text-black overflow-x-hidden min-h-screen m-0 bg-blue-200">
       <Layout className="p-0">
         <Hero />
         <Acerca />

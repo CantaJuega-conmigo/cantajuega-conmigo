@@ -16,9 +16,11 @@ Etiam id nulla a turpis sagittis vestibulum. Lorem ipsum dolor sit amet, consect
             </section>
 
             <section className={styles.ThirdSection}>
+               
               <article className={styles.ThirdSectionTitle}>
                <h1 className={styles.TitleM}>Membresías Canta Juega Conmigo</h1>
                </article>
+
                <main className={styles.Container2}>
                   <div className={styles.MembershipsContainers} >
                      <header>
