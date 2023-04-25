@@ -1,7 +1,7 @@
 import { BsGoogle } from "react-icons/bs";
 import styles from "../../styles/login.module.css";
 import { useState } from "react";
-import { loginUser } from "@/pages/api/apiPetitions";
+import { loginUser } from "@/functions/user.query";
 import { loginError } from "./FormsErrors";
 
 interface LoginProps {

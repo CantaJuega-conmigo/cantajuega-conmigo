@@ -1,7 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { User } from "../types";
 
-const initialState = {
-  user:null
+const initialState : User = {
+  id: "",
+  email: "",
+  firstName: "",
+  lastName: "",
 };
 
 const userSlice = createSlice({
@@ -9,7 +13,7 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     setUser(state, { payload }) {
-      state.user = payload;
+      state = payload;
       console.log(state);
     },
   },
