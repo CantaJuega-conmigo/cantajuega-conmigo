@@ -12,6 +12,7 @@ import Resgister from "./Register";
 
 import { motion } from "framer-motion"
 import { navVariants } from "../../utils/motion";
+import { AUTH_MODAL_TYPE } from "@/utils";
 
 
 
@@ -46,17 +47,16 @@ const useMediaQuery = (query: string) => {
 const Navbar = () => {
   // const [input, setInput] = useState("");
   interface OpenInterface {
-    login: boolean;
-    register: boolean;
+    LOGIN: boolean;
+    REGISTER: boolean;
   }
   const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
   const [open, setOpen] = useState<OpenInterface>({
-    login: false,
-    register: false,
+    LOGIN: false,
+    REGISTER: false,
   });
 
-  const handleOpen = (e: React.MouseEvent<HTMLButtonElement>) => {
-    const name = e.currentTarget.id as keyof OpenInterface;
+  const handleOpen = (name : AUTH_MODAL_TYPE) => {
     setOpen((prevOpen) => ({
       ...prevOpen,
       [name]: !prevOpen[name],
@@ -86,15 +86,13 @@ const Navbar = () => {
             </div>
             <div className="flex items-center justify-end border space-x-4 font-semibold text-lg gap-2 px-6">
               <span className="mr-6 hover:text-[#FFC172] cursor-pointer"
-                id="login"
-                onClick={handleOpen}
+                onClick={()=> handleOpen(AUTH_MODAL_TYPE.LOGIN)}
               >
                 Iniciar Sesion
               </span>
               <div className="border border-gray-400 h-6 w-0"></div>
               <span className="hover:text-[#FFC172] cursor-pointer"
-                id="register"
-                onClick={handleOpen}
+                       onClick={()=> handleOpen(AUTH_MODAL_TYPE.REGISTER)}
               >
                 Registrarse
               </span>
@@ -154,8 +152,8 @@ const Navbar = () => {
           )}
         </div>
       </motion.nav>
-      {open.login && <Login handleOpen={handleOpen} />}
-      {open.register && <Resgister handleOpen={handleOpen} />}
+      {open.LOGIN && <Login handleOpen={handleOpen} />}
+      {open.REGISTER && <Resgister handleOpen={handleOpen} />}
       { }
     </>
   );

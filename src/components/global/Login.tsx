@@ -3,9 +3,10 @@ import styles from "../../styles/login.module.css";
 import { useState } from "react";
 import { loginUser } from "@/functions/user.query";
 import { loginError } from "./FormsErrors";
+import { AUTH_MODAL_TYPE } from "@/utils";
 
 interface LoginProps {
-  handleOpen: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  handleOpen: (name: AUTH_MODAL_TYPE) => void;
 }
 
 interface InputProps {
@@ -42,15 +43,19 @@ const Login: React.FC<LoginProps> = ({ handleOpen }) => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if(Object.keys(error).length) return console.log(error);
-    ;
-    loginUser(input);
+    loginUser(input)
+    .then((res) => {
+      handleOpen(AUTH_MODAL_TYPE.LOGIN);
+    })
+
   };
 
   return (
     <div className={`${styles.Container}`}>
       <div className={`${styles.secondContainer}`}>
         <article>
-          <button className={styles.Close} id="login" onClick={handleOpen}>
+          <button className={styles.Close}
+           onClick={()=> handleOpen(AUTH_MODAL_TYPE.LOGIN)}>
             X
           </button>
         </article>
@@ -60,7 +65,7 @@ const Login: React.FC<LoginProps> = ({ handleOpen }) => {
         <form className={styles.inputsContainer}
            onSubmit={handleSubmit}
         >
-          <label htmlFor="">USUARIO / CORREO ELECTRÓNICO</label>
+          <label htmlFor="">CORREO ELECTRÓNICO</label>
           <input
             type="text"
             name="email"

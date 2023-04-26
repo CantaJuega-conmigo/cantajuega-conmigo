@@ -1,8 +1,9 @@
+import { AUTH_MODAL_TYPE } from '@/utils';
 import styles from '../../styles/login.module.css'
 import { useState } from 'react'
 
 interface RegisterProps {
-   handleOpen: (event: React.MouseEvent<HTMLButtonElement>) => void;
+   handleOpen: (name: AUTH_MODAL_TYPE) => void;
  }
  interface InputProps {
   email: string;
@@ -56,7 +57,9 @@ interface ErrorProps {
           
     <section className={styles.secondContainer}>
      <article>
-          <button className={styles.Close} id="register" onClick={handleOpen}>
+          <button className={styles.Close}
+            onClick={()=> handleOpen(AUTH_MODAL_TYPE.REGISTER)} 
+          >
             X
           </button>
         </article>

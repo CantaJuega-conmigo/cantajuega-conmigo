@@ -5,7 +5,7 @@ import { RegisterBody, UserQueryResponse, loginBody } from "@/types/user.type";
 
 export async function registerUser(body: RegisterBody) : Promise<void> {
   try {
-    const query: UserQueryResponse = await axios.post("/users/register", body);
+    const query: UserQueryResponse = await axios.post("/user/register", body);
     if ("error" in query.data) throw new Error(query.data.error);
     localStorage.setItem("tkn", query?.data.token);
     store.dispatch(setUser(query?.data.user));
@@ -34,7 +34,7 @@ export async function authUser(): Promise<void> {
   if (!token) return;
 
   try {
-    const query : UserQueryResponse  = await axios.get('/users/auth');
+    const query : UserQueryResponse  = await axios.get('/user/auth');
     if ('error' in query.data) throw new Error(query.data.error);
     store.dispatch(setUser(query.data.user));
     localStorage.setItem('token', query.data.token);
