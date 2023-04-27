@@ -10,6 +10,8 @@ import Link from "next/link";
 import Image from "next/image";
 import Login from "./Login";
 import Resgister from "./Register";
+import { AUTH_MODAL_TYPE } from "@/utils";
+
 
 
 
@@ -44,17 +46,16 @@ const useMediaQuery = (query: string) => {
 const Navbar = () => {
   // const [input, setInput] = useState("");
   interface OpenInterface {
-    login: boolean;
-    register: boolean;
+    LOGIN: boolean;
+    REGISTER: boolean;
   }
   const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
   const [open, setOpen] = useState<OpenInterface>({
-    login: false,
-    register: false,
+    LOGIN: false,
+    REGISTER: false,
   });
 
-  const handleOpen = (e: React.MouseEvent<HTMLButtonElement>) => {
-    const name = e.currentTarget.id as keyof OpenInterface;
+  const handleOpen = (name : AUTH_MODAL_TYPE) => {
     setOpen((prevOpen) => ({
       ...prevOpen,
       [name]: !prevOpen[name],
@@ -83,6 +84,7 @@ const Navbar = () => {
               <TiMail className="fill-current h-4 w-4 flex-shrink-0 mr-2  text-yellow-300" />
               <span className="mr-6">info@cantajuegaconmigo</span>
             </div>
+
             <div className="flex justify-end space-x-4 font-semibold text-base ">
 
 
@@ -93,8 +95,7 @@ const Navbar = () => {
               <AiOutlineUserAdd className="text-blue rounded-full" size={25} />
 
               <span className="hover:text-[#FFC172] cursor-pointer"
-                id="register"
-                onClick={handleOpen}
+                       onClick={()=> handleOpen(AUTH_MODAL_TYPE.LOGIN)}
               >
                 Iniciar Sesión
               </span>
@@ -157,9 +158,8 @@ const Navbar = () => {
           )}
         </div>
       </nav>
-      {open.login && <Login handleOpen={handleOpen} />}
-      {open.register && <Resgister handleOpen={handleOpen} />}
-      { }
+      {open.LOGIN && <Login handleOpen={handleOpen} />}
+      {open.REGISTER && <Resgister handleOpen={handleOpen} />}
     </>
   );
 };
