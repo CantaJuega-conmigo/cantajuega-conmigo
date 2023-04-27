@@ -8,15 +8,15 @@ interface RegisterProps {
  interface InputProps {
   email: string;
   password: string;
-  lastname: "",
-  firstname: "",
+  lastName: "",
+  firstName: "",
 }
 interface ErrorProps {
   email?: string;
   password?: string;
   global?: string;
-  lastname?: "",
-  firstname?: "",
+  lastName?: "",
+  firstName?: "",
 }
 
 
@@ -26,8 +26,8 @@ interface ErrorProps {
   const [input, setInput] = useState<InputProps>({
     email: "",
     password: "",
-    lastname: "",
-    firstname: "",
+    lastName: "",
+    firstName: "",
   });
 
   const [error, setError] = useState<ErrorProps>({});
@@ -66,7 +66,11 @@ interface ErrorProps {
      <h1>CREA UN USUARIO:</h1>
          <div className={styles.inputsContainer}>
               
-             <label htmlFor="">USUARIO / CORREO ELECTRÓNICO</label>
+             <label htmlFor="">NOMBRE</label>
+             <input type="text" /> 
+             <label htmlFor="">APELLIDO</label>
+             <input type="text" /> 
+             <label htmlFor="">CORREO ELECTRÓNICO</label>
              <input type="text" /> 
              <label htmlFor="">CONTRASEÑA</label>
              <input type="text" />

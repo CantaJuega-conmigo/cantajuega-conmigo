@@ -2,7 +2,7 @@ import { IoMdClose } from "react-icons/io";
 import { FcGoogle } from "react-icons/fc";
 import styles from "../../styles/login.module.css";
 import { useState } from "react";
-import { loginUser } from "@/functions/user.query";
+import { loginUser, loginwithGoogle } from "@/functions/user.query";
 import { loginError } from "./FormsErrors";
 import { AUTH_MODAL_TYPE } from "@/utils";
 
@@ -107,8 +107,9 @@ const Login: React.FC<LoginProps> = ({ handleOpen }) => {
           </div>
           <button
             type="button"
-            className={`${styles.googleButton} flex items-center font-bold justify-center mb-24
+            className={`${styles.googleButton} flex items-center font-bold justify-center mb-32
           py-3 w-3/4`}
+          onClick={loginwithGoogle}
           >
             <FcGoogle className="text-3xl mr-2" />
             Login with google

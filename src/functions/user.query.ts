@@ -44,3 +44,29 @@ export async function authUser(): Promise<void> {
     console.log(error);
   }
 }
+
+export async function logoutUser(): Promise<void> {
+  localStorage.removeItem('token');
+  store.dispatch(setUser(null));
+  return;
+}
+
+export async function updateUser(body: RegisterBody): Promise<void> {
+  try {
+    const query: UserQueryResponse = await axios.patch("/user/update", body);
+    if ("error" in query.data) throw new Error(query.data.error);
+    store.dispatch(setUser(query.data));
+    return;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function loginwithGoogle(): Promise<void> {
+  try {
+    window.location.href = `${process.env.NEXT_PUBLIC_API_URL}/auth/google`;
+    return;
+  } catch (error) {
+    console.log(error);
+  }
+}
