@@ -3,13 +3,7 @@ import { motion } from "framer-motion"
 
 
 
-// interface Animations {
-//   staggerContainer: object;
-//   fadeIn: object;
-//   planetVariants: object;
-//   textContainer: object;
-//   textVariant2: object;
-// }
+
 
 interface TypeText {
   title?: string | any;
@@ -21,8 +15,9 @@ interface TypeText {
 
 
 const Acerca = () => {
+  const [isActive, setIsActive] = React.useState(false);
   return (
-    <section className="sm:p-16 xs:p-8 px-6 py-12 relative z-10 bg-slate-100">
+    <section id='metodologia' className="sm:p-16 xs:p-8 px-6 py-12 relative z-10  bg-white">
       <motion.div
         initial={{
           x: 200,
@@ -67,14 +62,35 @@ const Acerca = () => {
           }}
           className='flex-[0.75] flex justify-center flex-col'
         >
-          <TypingText title="| ¿Como Funciona?" />
-          <TitleText title={<>Metodologia</>} />
-          <div className="mt-[31px] flex flex-col max-w-[370px] gap-[24px]">
+
+          {/* TITULO*/}
+
+          <motion.h2
+            initial={{
+              x: 200,
+              opacity: 0,
+            }}
+            transition={{
+              duration: 1,
+            }}
+            whileInView={{
+              opacity: 1,
+              x: 0,
+            }}
+            className={`mt-[8px] font-bold md:text-[64px] text-[40px] text-yellow-500`}
+          >
+            Metodología
+          </motion.h2>
+
+          {/* CONTENIDO */}
+
+          <div className="mt-[31px] flex flex-col  gap-[24px]">
             {startingFeatures.map((feature, index) => (
               <StartSteps
                 key={feature}
                 number={index + 1}
                 text={feature}
+                isActive={isActive}
               />
             ))}
           </div>
@@ -84,74 +100,24 @@ const Acerca = () => {
   )
 }
 
-export const TypingText: React.FC<TypeText> = ({ title }) => (
-  <motion.p
-    initial={{
-      x: 200,
-      opacity: 0,
-    }}
-    transition={{
-      duration: 1,
-    }}
-    whileInView={{
-      opacity: 1,
-      x: 0,
-    }}
-
-
-    className={`font-normal text-[14px] text-secondary-white`}
-  >
-    {Array.from(title).map((letter: any, index) => (
-      <motion.span initial={{
-        x: 200,
-        opacity: 0,
-      }}
-        transition={{
-          duration: 1,
-        }}
-        whileInView={{
-          opacity: 1,
-          x: 0,
-        }}
-        key={index}>
-        {letter === ' ' ? '\u00A0' : letter}
-      </motion.span>
-    ))}
-  </motion.p>
-);
-
-const TitleText: React.FC<TypeText> = ({ title, }) => (
-  <motion.h2
-    initial={{
-      x: 200,
-      opacity: 0,
-    }}
-    transition={{
-      duration: 1,
-    }}
-    whileInView={{
-      opacity: 1,
-      x: 0,
-    }}
-    className={`mt-[8px] font-bold md:text-[64px] text-[40px] text-yellow-500`}
-  >
-    {title}
-  </motion.h2>
-);
 
 
 
 
 const startingFeatures = [
-  'Cantando y jugando',
-  'Etapas de desarrollo',
-  'Aprendizaje integral',
+  'Neuroeducación',
+  'Música y arte',
+  'Video Modelling',
 ];
 
 
 
-const StartSteps: React.FC<TypeText> = ({ number, text }) => (
-  <div className="flex justify-center items-center flex-row">
+
+
+
+const StartSteps = ({ number, text, isActive }: any) => (
+  <div className="flex justify-center items-center flex-row cursor-pointer">
+
     <div
       className="flex justify-center items-center w-[70px] h-[70px] rounded-[24px] bg-[#26798E]"
     >
@@ -159,9 +125,9 @@ const StartSteps: React.FC<TypeText> = ({ number, text }) => (
         {number}
       </p>
     </div>
-    <p className="flex-1 ml-[30px] font-normal text-[18px] text-[#B0B0B0] leading-[32.4px]">
+    <h4 className="flex-1 ml-[30px] font-bold text-[18px] text-[#26798E] leading-[32.4px]">
       {text}
-    </p>
+    </h4>
   </div>
 );
 

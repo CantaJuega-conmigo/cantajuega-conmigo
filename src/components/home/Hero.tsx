@@ -10,7 +10,7 @@ const Hero = () => {
     {
       title: "Jugando",
       text: "Entendemos la importancia del juego para desarrollar habilidades",
-      url: "https://www.cantajuegaconmigo.com/wp-content/uploads/2022/02/Untitled_Artwork-4-6.png",
+      // url: "https://www.cantajuegaconmigo.com/wp-content/uploads/2022/02/Untitled_Artwork-4-6.png",
     },
     {
       title: "Cantando",
@@ -92,7 +92,7 @@ const Hero = () => {
           className="flex-1 lg:flex md:justify-end md:items-end flex-col lg:items-center lg:justify-between"
         >
           <Image
-            src={slides[currentIndex].url}
+            src={"https://www.cantajuegaconmigo.com/wp-content/uploads/2022/02/Untitled_Artwork-4-6.png"}
             alt=""
             height={600}
             width={600}
