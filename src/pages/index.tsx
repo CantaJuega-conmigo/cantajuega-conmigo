@@ -52,10 +52,10 @@ export default function Home() {
       <Layout className="p-0">
         <Hero />
         <Acerca />
-        <ImageSection images={'sad'} />
+        {/* <ImageSection images={'sad'} /> */}
         <Trailer />
         <ImageSection images={'asd'} />
-        <Metodologia />
+        {/* <Metodologia /> */}
         <NewsletterSuscription />
       </Layout>
     </main>

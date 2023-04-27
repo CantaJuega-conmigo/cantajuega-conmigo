@@ -157,7 +157,7 @@ const Navbar = () => {
             </div>
           )}
         </div>
-      </motion.nav>
+      </nav>
       {open.LOGIN && <Login handleOpen={handleOpen} />}
       {open.REGISTER && <Resgister handleOpen={handleOpen} />}
     </>
