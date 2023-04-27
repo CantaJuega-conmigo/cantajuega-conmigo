@@ -96,7 +96,7 @@ const Login: React.FC<LoginProps> = ({ handleOpen }) => {
             <span className="absolute right-12 cursor-pointer">Olvidaste tu contraseña</span>
           </section>
           <div className="w-full flex justify-center">
-          <button type="submit" className='bg-secondOrange mt-2 rounded-lg p-1 w-3/6'>
+          <button type="submit" className='bg-secondOrange mt-2 rounded-lg p-1 w-3/6 hover:bg-secondOrange/75'>
             LOGIN
           </button>
           </div>
@@ -117,7 +117,11 @@ const Login: React.FC<LoginProps> = ({ handleOpen }) => {
         </form>
 
         <button
-          className={`${styles.Registerbutton} border font-bold text-2xl absolute left-0 bottom-0 rounded-b-lg m-0`}
+          className={`${styles.Registerbutton} border font-bold text-2xl absolute left-0 bottom-0 rounded-b-xl m-0`}
+          onClick={() => {
+            handleOpen(AUTH_MODAL_TYPE.LOGIN)
+            handleOpen(AUTH_MODAL_TYPE.REGISTER)
+          }}
         >
           o Registrate
         </button>
