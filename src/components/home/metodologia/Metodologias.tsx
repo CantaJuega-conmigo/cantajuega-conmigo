@@ -18,7 +18,7 @@ const metodologies = [
 
 const Metodologias = () => {
   const [animationComplete, setAnimationComplete] = React.useState(true);
-  const [selectedTitle, setSelectedTitle] = React.useState("Neuroeducación");
+  const [selectedTitle, setSelectedTitle] = React.useState("Música y arte");
 
   const handleClick = (title: string) => {
     // console.log(title);
@@ -130,9 +130,9 @@ const StartSteps = ({
     onClick={() => handleClick(title)}
     className={`flex py-4 px-6 ${
       selectedTitle ? "flex-col" : "flex-row"
-    } container-2xl border-2 rounded-md border-yellow-500 bg-white gap-4 justify-center items-center`}
+    } container-2xl border-2 rounded-md border-yellow-500 bg-white gap-4 justify-center items-center cursor-pointer`}
   >
-    <h4 className="flex-1 justify-center ml-[30px] font-bold text-[18px] text-[#26798E] leading-[32.4px] uppercase">
+    <h4 className="flex-1 justify-center ml-[30px] font-bold text-[18px] text-blue hover:text-yellow-500 leading-[32.4px] uppercase">
       {title}
     </h4>
 
