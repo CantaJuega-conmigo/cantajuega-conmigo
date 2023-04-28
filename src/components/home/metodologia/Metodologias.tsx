@@ -22,7 +22,8 @@ const Metodologias = () => {
 
   const handleClick = (title: string) => {
     // console.log(title);
-    selectedTitle === title ? setSelectedTitle("") : setSelectedTitle(title);
+    // selectedTitle === title ? setSelectedTitle("") : setSelectedTitle(title);
+    setSelectedTitle(title);
   };
 
   const initial = {
@@ -47,7 +48,7 @@ const Metodologias = () => {
           duration: 1,
         }}
         onAnimationComplete={() => setAnimationComplete(true)}
-        className="2xl:max-w-[1440] w-full mx-auto flex lg:flex-row flex-col gap-8"
+        className="2xl:max-w-[1280px] w-full mx-auto flex lg:flex-row flex-col gap-8"
       >
         <motion.div
           initial={initial}
@@ -97,7 +98,7 @@ const Metodologias = () => {
               duration: 1,
             }}
             onAnimationComplete={() => setAnimationComplete(true)}
-            className="mt-[31px] flex flex-col  gap-[24px]"
+            className="mt-[31px] flex flex-col justify-center  gap-[24px]"
           >
             {metodologies.map((feature, index) => (
               <StartSteps
@@ -127,9 +128,9 @@ const StartSteps = ({
 }: any) => (
   <div
     onClick={() => handleClick(title)}
-    className={`flex py-4 px-6 justify-between items-center ${
+    className={`flex py-4 px-6 ${
       selectedTitle ? "flex-col" : "flex-row"
-    } container-2xl border-2 rounded-md border-yellow-500 bg-white gap-4`}
+    } container-2xl border-2 rounded-md border-yellow-500 bg-white gap-4 justify-center items-center`}
   >
     <h4 className="flex-1 justify-center ml-[30px] font-bold text-[18px] text-[#26798E] leading-[32.4px] uppercase">
       {title}
