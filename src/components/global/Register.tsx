@@ -1,6 +1,7 @@
 import { AUTH_MODAL_TYPE } from '@/utils';
-import styles from '../../styles/login.module.css'
+import styles from '../../styles/register.module.css'
 import { useState } from 'react'
+import { registerError } from './FormsErrors';
 
 interface RegisterProps {
    handleOpen: (name: AUTH_MODAL_TYPE) => void;
@@ -8,15 +9,15 @@ interface RegisterProps {
  interface InputProps {
   email: string;
   password: string;
-  lastName: "",
-  firstName: "",
+  lastName: string,
+  firstName: string,
 }
 interface ErrorProps {
   email?: string;
   password?: string;
   global?: string;
-  lastName?: "",
-  firstName?: "",
+  lastName?: string,
+  firstName?:string,
 }
 
 
@@ -39,19 +40,30 @@ interface ErrorProps {
       [name]: value,
     }));
 
-    // setError(loginError({
-    //   ...input,
-    //   [name]: value,
-    // }));
+    console.log(input);
+    
+    setError(registerError({
+      ...input,
+      [name]: value,
+    }));
+    console.log(error)
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if(Object.keys(error).length) return console.log(error);
-    ;
-    // loginUser(input);
+     console.log('Creado')
   };
 
+  function showPassword(): void {
+    const passwordInput = document.getElementById("password") as HTMLInputElement;
+    if (passwordInput.type === "password") {
+      passwordInput.type = "text";
+    } else {
+      passwordInput.type = "password";
+    }
+  }
+  
    return (
     <div className={styles.Container}>
           
@@ -64,30 +76,35 @@ interface ErrorProps {
           </button>
         </article>
      <h1>CREA UN USUARIO:</h1>
-         <div className={styles.inputsContainer}>
+         <form className={styles.inputsContainer} onSubmit={handleSubmit}>
               
              <label htmlFor="">NOMBRE</label>
-             <input type="text" /> 
+             <input type="text" onChange={handleChange} name='firstName' /> 
              <label htmlFor="">APELLIDO</label>
-             <input type="text" /> 
+             <input type="text" onChange={handleChange} name='lastName' /> 
              <label htmlFor="">CORREO ELECTRÓNICO</label>
-             <input type="text" /> 
-             <label htmlFor="">CONTRASEÑA</label>
-             <input type="text" />
-
+             <input type="text" onChange={handleChange} name='email'/> 
+             <label htmlFor="">CONTRASEÑA</label> 
+             <input type="password" onChange={handleChange} name='password' id='password' />
+               <section><label  >mostrar contraseña</label> <input type="checkbox" onChange={showPassword} /></section> 
             <section className={styles.paswwordSection}>
              <input type="checkbox" name="" className={styles.checkBox} id="Passwordvisible" />
-             <label htmlFor="">recuerdame </label>
+             <label htmlFor="">recuerdame </label>   
+             <span className={styles.Modal} onClick={() => {
+            handleOpen(AUTH_MODAL_TYPE.LOGIN)
+            handleOpen(AUTH_MODAL_TYPE.REGISTER)
+          }}>ya tengo cuenta</span>
             </section>
-             <button type='button' className={styles.loginButton}>Crear</button>
+             <button type='submit' className={styles.loginButton} >Crear</button>
+          
                <div className={styles.aux}>
                  <section></section>
                  <h5>O</h5>
                  <section></section>
                </div>
                <button type='button' className={styles.googleButton} >Login with google</button>
-
-         </div>
+  
+         </form>
    
         
     </section>
