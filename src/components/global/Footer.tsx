@@ -6,9 +6,10 @@ const Footer = () => {
   return (
     <footer className='"sm:px-16 px-6 py-8 relative"'>
       <div className="footer-gradient" />
+      
       <div className="2xl:max-w-[1280px] w-full mx-auto flex flex-col gap-8">
         <div className="flex items-center justify-between flex-wrap gap-5">
-          <h4 className="font-bold md:text-[64px] text-[44px] text-gray-700">
+          <h4 className="font-bold text-4xl sm:text-4xl md:text-xl lg:text-5xl text-gray-700 ">
             Unete Ahora!
           </h4>
           <button
@@ -29,18 +30,28 @@ const Footer = () => {
         </div>
 
         <div className="flex flex-col">
-          <div className="mb-[50px] h-[2px] bg-white opacity-10" />
+          {/* <div className="mb-[50px] h-[2px] bg-red opacity-10" /> */}
 
           <div className="flex items-center justify-between flex-wrap gap-4">
-            <h4 className="font-extrabold text-[24px] text-gray-700">info@cantajuegaconmigo.com</h4>
+            <h4 className="font-extrabold text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700">
+              <a href="mailto:info@cantajuegaconmigo.com">
+              info@cantajuegaconmigo.com
+              </a>
+            </h4>
             <p className="font-normal text-[14px] text-gray-700 opacity-50">
               Copyright © 2023 - 2023 no se que poner aca. All rights reserved.
             </p>
 
             <div className="flex gap-4">
-              <BsFacebook className="w-[24px] h-[24px] object-contain cursor-pointer" />
+              <a href="https://www.facebook.com/cantajuegaconmigo">
+                <BsFacebook className="w-[24px] h-[24px] object-contain cursor-pointer" />
+              </a>
+              <a href="https://www.youtube.com/@cantajuegaconmigo1543">
               <BsYoutube className="w-[24px] h-[24px] object-contain cursor-pointer" />
+              </a>
+              <a href="https://www.instagram.com/cantajuega_conmigo/">
               <BsInstagram className="w-[24px] h-[24px] object-contain cursor-pointer" />
+              </a>
             </div>
           </div>
         </div>

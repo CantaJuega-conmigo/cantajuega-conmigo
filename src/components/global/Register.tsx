@@ -1,21 +1,22 @@
+import { AUTH_MODAL_TYPE } from '@/utils';
 import styles from '../../styles/login.module.css'
 import { useState } from 'react'
 
 interface RegisterProps {
-   handleOpen: (event: React.MouseEvent<HTMLButtonElement>) => void;
+   handleOpen: (name: AUTH_MODAL_TYPE) => void;
  }
  interface InputProps {
   email: string;
   password: string;
-  lastname: "",
-  firstname: "",
+  lastName: "",
+  firstName: "",
 }
 interface ErrorProps {
   email?: string;
   password?: string;
   global?: string;
-  lastname?: "",
-  firstname?: "",
+  lastName?: "",
+  firstName?: "",
 }
 
 
@@ -25,8 +26,8 @@ interface ErrorProps {
   const [input, setInput] = useState<InputProps>({
     email: "",
     password: "",
-    lastname: "",
-    firstname: "",
+    lastName: "",
+    firstName: "",
   });
 
   const [error, setError] = useState<ErrorProps>({});
@@ -56,14 +57,20 @@ interface ErrorProps {
           
     <section className={styles.secondContainer}>
      <article>
-          <button className={styles.Close} id="register" onClick={handleOpen}>
+          <button className={styles.Close}
+            onClick={()=> handleOpen(AUTH_MODAL_TYPE.REGISTER)} 
+          >
             X
           </button>
         </article>
      <h1>CREA UN USUARIO:</h1>
          <div className={styles.inputsContainer}>
               
-             <label htmlFor="">USUARIO / CORREO ELECTRÓNICO</label>
+             <label htmlFor="">NOMBRE</label>
+             <input type="text" /> 
+             <label htmlFor="">APELLIDO</label>
+             <input type="text" /> 
+             <label htmlFor="">CORREO ELECTRÓNICO</label>
              <input type="text" /> 
              <label htmlFor="">CONTRASEÑA</label>
              <input type="text" />
