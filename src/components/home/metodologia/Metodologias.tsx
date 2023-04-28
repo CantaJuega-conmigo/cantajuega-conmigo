@@ -48,7 +48,7 @@ const Metodologias = () => {
           duration: 1,
         }}
         onAnimationComplete={() => setAnimationComplete(true)}
-        className="2xl:max-w-[1280px] w-full mx-auto flex lg:flex-row flex-col gap-8"
+        className="2xl:max-w-[1360px] w-full mx-auto flex lg:flex-row flex-col gap-8"
       >
         <motion.div
           initial={initial}
