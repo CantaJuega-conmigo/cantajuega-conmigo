@@ -6,7 +6,7 @@ import Trailer from "@/components/home/Trailer";
 import Metodologia from "@/components/home/Metodologia";
 import React from "react";
 import Layout from "@/components/global/Layaout";
-import Acerca from "@/components/home/Acerca";
+import Metodologias from "@/components/home/metodologia/Metodologias";
 
 export default function Home() {
   const [open, setOpen] = React.useState(false);
@@ -14,8 +14,8 @@ export default function Home() {
     <main className="flex text-black overflow-x-hidden min-h-screen m-0">
       <Layout className="p-0">
         <Hero />
-        <Acerca />
-        <ImageSection images={'sad'} />
+        <Metodologias />
+        {/* <ImageSection images={'sad'} /> */}
         <Trailer />
         <ImageSection images={'asd'} />
         <Metodologia />

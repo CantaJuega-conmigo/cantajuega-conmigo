@@ -23,7 +23,7 @@ const Footer = () => {
               width={20}
             />
             <span className="font-normal text-[16px] text-white">
-              Back to Home
+              Mas informacion!
             </span>
           </button>
         </div>
