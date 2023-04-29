@@ -13,14 +13,13 @@
     border: 1px solid rgb(0, 0, 0);
     border-radius: 10px;
     height: auto;
-    width: 350px;
+    width: 400px;
     display: flex;
     flex-direction: column;
-    background-color:white;
     justify-content: space-between;
     overflow: hidden;
 }
-.Close{
+/* .Close{
     width: fit-content;
     color: rgb(0, 0, 0);
     border: none;
@@ -30,18 +29,14 @@
     float: right;
     font-family: "Open Sans", sans-serif;
     cursor: pointer;
-}
-.Close:hover{
-    color: rgb(126, 0, 0);
-}
+} */
+
 .secondContainer h1{
    
     margin:0;
     margin-left: 15px;
-    font-size: 28px;
-    margin-top: 15px;
-    margin-bottom: 30px;
-    font-weight: 300;
+  
+   
 }
 
 .aux{
@@ -83,7 +78,7 @@
 }
 .loginButton{
     background-color:#f1d245 ;
-    width: 45%;
+    width: 60%;
     padding: 10px;
     margin: 0 auto;
     border: none;
@@ -152,26 +147,22 @@
         z-index: 40;
         top: 0;
     }
-    .Close{
-        font-size: 9vw;
-    }
+  
     
   .secondContainer{
-   width: 85%;
-   height: 90%;
+   width: 80%;
+  
   }
 
   .secondContainer h1{
     margin: 0 auto;
-    font-size: 8vw;
-  
   }
   .inputsContainer{
     height: 70%;
    
   }
   .inputsContainer label{
-    font-size: 4vw;
+    font-size: 3vw;
     font-weight: 200;
     margin: 0;
   }
