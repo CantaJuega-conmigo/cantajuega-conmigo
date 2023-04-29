@@ -8,7 +8,7 @@ export default function Membresias() {
       <main>
          <header>
             <div className="h-60 bg-[#fada4d]">
-               <div className='w-full h-full bg-cover lg:bg-center flex justify-center items-center' style={{ backgroundImage: "url('img/Untitled_Artwork 1.png'), url('img/Untitled_Artwork 5.png')" }}>
+               <div className='w-full h-full bg-cover sm:bg-center flex justify-center items-center' style={{ backgroundImage: "url('img/Untitled_Artwork 1.png'), url('img/Untitled_Artwork 5.png')" }}>
                   <h1 className='font-[Kidz] text-6xl text-white'>MEMBRESÍAS</h1>
                </div>
             </div>
@@ -16,19 +16,19 @@ export default function Membresias() {
 
          <section>
 
-            <div className='px-4'>
+            <div className='container mx-auto px-4 lg:px-2 '>
 
 
                <header className="my-6">
                   <h1 className="font-[Kidz] text-center text-5xl text-blue">Membresías Canta Juega Conmigo</h1>
                </header>
 
-               <div className='flex flex-col gap-y-6 lg:flex-row lg:gap-x-3 lg:max-w-7xl lg:mx-auto'>
+               <div className='flex flex-col gap-y-6 sm:flex-row sm:gap-x-3 sm:flex-wrap xl:flex-nowrap justify-center'>
 
-                  <article className='bg-[#f08d0d] p-1 rounded-2xl h-96 lg:basis-1/4'>
+                  <article className='bg-[#f08d0d] p-1 rounded-2xl h-96 sm:basis-80'>
 
                      <header className=' w-11/12 mx-auto h-14 flex items-end justify-between'>
-                        <h1 className='font-[Kidz] text-5xl text-white'>MENSUAL</h1>
+                        <h1 className='font-[Kidz] text-5xl text-white self-center'>MENSUAL</h1>
                         <Image height={100} width={100} src={firstbackground} alt="" />
                      </header>
 
@@ -46,10 +46,10 @@ export default function Membresias() {
 
                   </article>
 
-                  <article className='bg-[#39a1bb] p-1 rounded-2xl h-96 lg:basis-1/4'>
+                  <article className='bg-[#39a1bb] p-1 rounded-2xl h-96 sm:basis-80'>
 
                      <header className=' w-11/12 mx-auto h-14 flex items-end justify-between'>
-                        <h1 className='font-[Kidz] text-5xl text-white'>SEMESTRAL</h1>
+                        <h1 className='font-[Kidz] text-5xl text-white self-center'>SEMESTRAL</h1>
                         <Image height={100} width={100} src={secondbackground} alt="" />
                      </header>
 
@@ -67,10 +67,10 @@ export default function Membresias() {
 
                   </article>
 
-                  <article className='bg-[#5e139c] p-1 rounded-2xl h-96 lg:basis-1/4'>
+                  <article className='bg-[#5e139c] p-1 rounded-2xl h-96 sm:basis-80'>
 
                      <header className=' w-11/12 mx-auto h-14 flex items-end justify-between'>
-                        <h1 className='font-[Kidz] text-5xl text-white'>ANUAL</h1>
+                        <h1 className='font-[Kidz] text-5xl text-white self-center'>ANUAL</h1>
                         <Image height={100} width={100} src={firstbackground} alt="" />
                      </header>
 
@@ -88,10 +88,10 @@ export default function Membresias() {
 
                   </article>
 
-                  <article className='bg-[#eb2f06] p-1 rounded-2xl h-96 lg:basis-1/4'>
+                  <article className='bg-[#eb2f06] p-1 rounded-2xl h-96 sm:basis-80'>
 
                      <header className=' w-11/12 mx-auto h-14 flex items-end justify-between'>
-                        <h1 className='font-[Kidz] text-4xl text-white'>CANTA CONMIGO</h1>
+                        <h1 className='font-[Kidz] text-4xl text-white self-center'>CANTA CONMIGO</h1>
                         <Image height={100} width={100} src={secondbackground} alt="" />
                      </header>
 
@@ -114,8 +114,8 @@ export default function Membresias() {
          </section>
 
          <footer className='bg-[#fdc273] lg:h-60'>
-            <div className="p-8 my-8 bg-cover bg-top lg:bg-center lg:h-full flex items-center" style={{ backgroundImage: "url('img/Untitled_Artwork 2.png')" }}>
-               <p className='font-[Kidz] text-white text-4xl text-center lg:max-w-xl lg:mx-auto'>
+            <div className="p-8 my-8 bg-cover bg-top sm:bg-center lg:h-full flex items-center" style={{ backgroundImage: "url('img/Untitled_Artwork 2.png')" }}>
+               <p className='font-[Kidz] text-white text-4xl text-center sm:max-w-lg lg:max-w-xl sm:mx-auto'>
                   Diviertete aprendiendo con los videos y canciones que Canta Juega ha desarrollado para tus hij@!
                </p>
             </div>
