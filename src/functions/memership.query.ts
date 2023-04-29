@@ -9,6 +9,8 @@ export async function getAllMebreships(
     const query = await axios.get("/membership");
     if ("error" in query.data) throw new Error(query.data.error);
     const data: Membership[] = query.data;
+    console.log(data);
+    
     state(data);
     return;
   } catch (error) {

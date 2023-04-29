@@ -1,127 +1,187 @@
-import styles from '../styles/Membresias.module.css'
-import firstbackground from '../../public/img/Untitled_Artwork 3.png'
-import secondbackground from '../../public/img/Untitled_Artwork 5.png'
-import Image from 'next/image'
-export default function Membresias() {
+import styles from "../styles/Membresias.module.css";
+import firstbackground from "../../public/img/Untitled_Artwork 3.png";
+import secondbackground from "../../public/img/Untitled_Artwork 5.png";
+import Image from "next/image";
+import { getAllMebreships } from "@/functions/memership.query";
+import { useEffect, useState } from "react";
+import { Membership } from "@/types/membership.type";
+import MembershipCard from "@/components/membership/MembershipCard";
 
-   return (
-      <main>
-         <header>
-            <div className="h-60 bg-[#fada4d]">
-               <div className='w-full h-full bg-cover lg:bg-center flex justify-center items-center' style={{ backgroundImage: "url('img/Untitled_Artwork 1.png'), url('img/Untitled_Artwork 5.png')" }}>
-                  <h1 className='font-[Kidz] text-6xl text-white'>MEMBRESÍAS</h1>
-               </div>
-            </div>
-         </header>
+export default function Membresias( ) {
+   const [ memberships, setMemberships ] = useState<Membership[]>([]);
+   useEffect(() => {
+      getAllMebreships(setMemberships)
+   }, [])
+   const images = [firstbackground, secondbackground, firstbackground, secondbackground];
+   const colors = ['#f08d0d', '#39a1bb', '#5e139c', '#eb2f06'];
 
-         <section>
+  return (
+    <main>
+      <header>
+        <div className="h-60 bg-[#fada4d]">
+          <div
+            className="w-full h-full bg-cover lg:bg-center flex justify-center items-center"
+            style={{
+              backgroundImage:
+                "url('img/Untitled_Artwork 1.png'), url('img/Untitled_Artwork 5.png')",
+            }}
+          >
+            <h1 className="font-[Kidz] text-6xl text-white">MEMBRESÍAS</h1>
+          </div>
+        </div>
+      </header>
 
-            <div className='px-4'>
+      <section>
+        <div className="px-4">
+          <header className="my-6">
+            <h1 className="font-[Kidz] text-center text-5xl text-blue">
+              Membresías Canta Juega Conmigo
+            </h1>
+          </header>
 
+          <div className="flex flex-col gap-y-6 lg:flex-row lg:gap-x-3 lg:max-w-7xl lg:mx-auto">
+            {
+               memberships.map((membership, index) => (
+                  <MembershipCard key={membership.id} 
+                  membership={membership}
+                  color={colors[index]}
+                  image={images[index]}
+                   />
+               ))
+            }
+            {/* <article className="bg-[#f08d0d] p-1 rounded-2xl h-96 lg:basis-1/4">
+              <header className=" w-11/12 mx-auto h-14 flex items-end justify-between">
+                <h1 className="font-[Kidz] text-5xl text-white">MENSUAL</h1>
+                <Image height={100} width={100} src={firstbackground} alt="" />
+              </header>
 
-               <header className="my-6">
-                  <h1 className="font-[Kidz] text-center text-5xl text-blue">Membresías Canta Juega Conmigo</h1>
-               </header>
+              <div className="bg-white h-[85%] rounded-b-2xl p-3 text-gray-500 flex flex-col justify-between items-center">
+                <div>
+                  <p className="text-base py-2 border-b-2 border-dashed border-gray-400">
+                    Todas las herramientas terapéuticas para niñas y niños de 0
+                    a 6 años.
+                  </p>
+                  <p className="text-base py-2 border-b-2 border-dashed border-gray-400">
+                    Material de apoyo audiovisual.
+                  </p>
+                  <p className="text-base py-2 border-b-2 border-dashed border-gray-400">
+                    Canciones del programa.
+                  </p>
+                  <p className="text-lg py-2 ">
+                    Precio: <b>Q49.99 al mes</b>.
+                  </p>
+                </div>
+                <div>
+                  <button className="bg-blue text-white p-3 font-semibold rounded-xl w-60">
+                    SELECCIONA &gt;
+                  </button>
+                </div>
+              </div>
+            </article>
 
-               <div className='flex flex-col gap-y-6 lg:flex-row lg:gap-x-3 lg:max-w-7xl lg:mx-auto'>
+            <article className="bg-[#39a1bb] p-1 rounded-2xl h-96 lg:basis-1/4">
+              <header className=" w-11/12 mx-auto h-14 flex items-end justify-between">
+                <h1 className="font-[Kidz] text-5xl text-white">SEMESTRAL</h1>
+                <Image height={100} width={100} src={secondbackground} alt="" />
+              </header>
 
-                  <article className='bg-[#f08d0d] p-1 rounded-2xl h-96 lg:basis-1/4'>
+              <div className="bg-white h-[85%] rounded-b-2xl p-3 text-gray-500 flex flex-col justify-between items-center">
+                <div>
+                  <p className="text-base py-2 border-b-2 border-dashed border-gray-400">
+                    Todas las herramientas terapéuticas para niñas y niños de 0
+                    a 6 años.
+                  </p>
+                  <p className="text-base py-2 border-b-2 border-dashed border-gray-400">
+                    Material de apoyo audiovisual.
+                  </p>
+                  <p className="text-base py-2 border-b-2 border-dashed border-gray-400">
+                    Canciones del programa.
+                  </p>
+                  <p className="text-lg py-2 ">
+                    Precio: <b>Q199.99 cada 6 meses</b>.
+                  </p>
+                </div>
+                <div>
+                  <button className="bg-blue text-white p-3 font-semibold rounded-xl w-60">
+                    SELECCIONA &gt;
+                  </button>
+                </div>
+              </div>
+            </article>
 
-                     <header className=' w-11/12 mx-auto h-14 flex items-end justify-between'>
-                        <h1 className='font-[Kidz] text-5xl text-white'>MENSUAL</h1>
-                        <Image height={100} width={100} src={firstbackground} alt="" />
-                     </header>
+            <article className="bg-[#5e139c] p-1 rounded-2xl h-96 lg:basis-1/4">
+              <header className=" w-11/12 mx-auto h-14 flex items-end justify-between">
+                <h1 className="font-[Kidz] text-5xl text-white">ANUAL</h1>
+                <Image height={100} width={100} src={firstbackground} alt="" />
+              </header>
 
-                     <div className='bg-white h-[85%] rounded-b-2xl p-3 text-gray-500 flex flex-col justify-between items-center'>
-                        <div>
-                           <p className='text-base py-2 border-b-2 border-dashed border-gray-400'>Todas las herramientas terapéuticas para niñas y niños de 0 a 6 años.</p>
-                           <p className='text-base py-2 border-b-2 border-dashed border-gray-400'>Material de apoyo audiovisual.</p>
-                           <p className='text-base py-2 border-b-2 border-dashed border-gray-400'>Canciones del programa.</p>
-                           <p className='text-lg py-2 '>Precio: <b>Q49.99 al mes</b>.</p>
-                        </div>
-                        <div>
-                           <button className='bg-blue text-white p-3 font-semibold rounded-xl w-60'>SELECCIONA &gt;</button>
-                        </div>
-                     </div>
+              <div className="bg-white h-[85%] rounded-b-2xl p-3 text-gray-500 flex flex-col justify-between items-center">
+                <div>
+                  <p className="text-base py-2 border-b-2 border-dashed border-gray-400">
+                    Todas las herramientas terapéuticas para niñas y niños de 0
+                    a 6 años.
+                  </p>
+                  <p className="text-base py-2 border-b-2 border-dashed border-gray-400">
+                    Material de apoyo audiovisual.
+                  </p>
+                  <p className="text-base py-2 border-b-2 border-dashed border-gray-400">
+                    Canciones del programa.
+                  </p>
+                  <p className="text-lg py-2 ">
+                    Precio: <b>Q299.99 cada año</b>.
+                  </p>
+                </div>
+                <div>
+                  <button className="bg-blue text-white p-3 font-semibold rounded-xl w-60">
+                    SELECCIONA &gt;
+                  </button>
+                </div>
+              </div>
+            </article>
 
-                  </article>
+            <article className="bg-[#eb2f06] p-1 rounded-2xl h-96 lg:basis-1/4">
+              <header className=" w-11/12 mx-auto h-14 flex items-end justify-between">
+                <h1 className="font-[Kidz] text-4xl text-white">
+                  CANTA CONMIGO
+                </h1>
+                <Image height={100} width={100} src={secondbackground} alt="" />
+              </header>
 
-                  <article className='bg-[#39a1bb] p-1 rounded-2xl h-96 lg:basis-1/4'>
+              <div className="bg-white h-[85%] rounded-b-2xl p-3 text-gray-500 flex flex-col justify-between items-center">
+                <div>
+                  <p className="text-base py-2 border-b-2 border-dashed border-gray-400">
+                    Todas las canciones infantiles por etapa de desarrollo.
+                  </p>
+                  <p className="text-base py-2 border-b-2 border-dashed border-gray-400">
+                    Cancioneros digitales disponibles.
+                  </p>
+                  <p className="text-lg py-2 ">
+                    Precio: <b>Q99.99 cada 6 meses</b>.
+                  </p>
+                </div>
+                <div>
+                  <button className="bg-blue text-white p-3 font-semibold rounded-xl w-60">
+                    SELECCIONA &gt;
+                  </button>
+                </div>
+              </div>
+            </article> */}
+          </div>
+        </div>
+      </section>
 
-                     <header className=' w-11/12 mx-auto h-14 flex items-end justify-between'>
-                        <h1 className='font-[Kidz] text-5xl text-white'>SEMESTRAL</h1>
-                        <Image height={100} width={100} src={secondbackground} alt="" />
-                     </header>
-
-                     <div className='bg-white h-[85%] rounded-b-2xl p-3 text-gray-500 flex flex-col justify-between items-center'>
-                        <div>
-                           <p className='text-base py-2 border-b-2 border-dashed border-gray-400'>Todas las herramientas terapéuticas para niñas y niños de 0 a 6 años.</p>
-                           <p className='text-base py-2 border-b-2 border-dashed border-gray-400'>Material de apoyo audiovisual.</p>
-                           <p className='text-base py-2 border-b-2 border-dashed border-gray-400'>Canciones del programa.</p>
-                           <p className='text-lg py-2 '>Precio: <b>Q199.99 cada 6 meses</b>.</p>
-                        </div>
-                        <div>
-                           <button className='bg-blue text-white p-3 font-semibold rounded-xl w-60'>SELECCIONA &gt;</button>
-                        </div>
-                     </div>
-
-                  </article>
-
-                  <article className='bg-[#5e139c] p-1 rounded-2xl h-96 lg:basis-1/4'>
-
-                     <header className=' w-11/12 mx-auto h-14 flex items-end justify-between'>
-                        <h1 className='font-[Kidz] text-5xl text-white'>ANUAL</h1>
-                        <Image height={100} width={100} src={firstbackground} alt="" />
-                     </header>
-
-                     <div className='bg-white h-[85%] rounded-b-2xl p-3 text-gray-500 flex flex-col justify-between items-center'>
-                        <div>
-                           <p className='text-base py-2 border-b-2 border-dashed border-gray-400'>Todas las herramientas terapéuticas para niñas y niños de 0 a 6 años.</p>
-                           <p className='text-base py-2 border-b-2 border-dashed border-gray-400'>Material de apoyo audiovisual.</p>
-                           <p className='text-base py-2 border-b-2 border-dashed border-gray-400'>Canciones del programa.</p>
-                           <p className='text-lg py-2 '>Precio: <b>Q299.99 cada año</b>.</p>
-                        </div>
-                        <div>
-                           <button className='bg-blue text-white p-3 font-semibold rounded-xl w-60'>SELECCIONA &gt;</button>
-                        </div>
-                     </div>
-
-                  </article>
-
-                  <article className='bg-[#eb2f06] p-1 rounded-2xl h-96 lg:basis-1/4'>
-
-                     <header className=' w-11/12 mx-auto h-14 flex items-end justify-between'>
-                        <h1 className='font-[Kidz] text-4xl text-white'>CANTA CONMIGO</h1>
-                        <Image height={100} width={100} src={secondbackground} alt="" />
-                     </header>
-
-                     <div className='bg-white h-[85%] rounded-b-2xl p-3 text-gray-500 flex flex-col justify-between items-center'>
-                        <div>
-                           <p className='text-base py-2 border-b-2 border-dashed border-gray-400'>Todas las canciones infantiles por etapa de desarrollo.</p>
-                           <p className='text-base py-2 border-b-2 border-dashed border-gray-400'>Cancioneros digitales disponibles.</p>
-                           <p className='text-lg py-2 '>Precio: <b>Q99.99 cada 6 meses</b>.</p>
-                        </div>
-                        <div>
-                           <button className='bg-blue text-white p-3 font-semibold rounded-xl w-60'>SELECCIONA &gt;</button>
-                        </div>
-                     </div>
-
-                  </article>
-
-               </div>
-
-            </div>
-         </section>
-
-         <footer className='bg-[#fdc273] lg:h-60'>
-            <div className="p-8 my-8 bg-cover bg-top lg:bg-center lg:h-full flex items-center" style={{ backgroundImage: "url('img/Untitled_Artwork 2.png')" }}>
-               <p className='font-[Kidz] text-white text-4xl text-center lg:max-w-xl lg:mx-auto'>
-                  Diviertete aprendiendo con los videos y canciones que Canta Juega ha desarrollado para tus hij@!
-               </p>
-            </div>
-
-         </footer>
-
-      </main>
-   )
+      <footer className="bg-[#fdc273] lg:h-60">
+        <div
+          className="p-8 my-8 bg-cover bg-top lg:bg-center lg:h-full flex items-center"
+          style={{ backgroundImage: "url('img/Untitled_Artwork 2.png')" }}
+        >
+          <p className="font-[Kidz] text-white text-4xl text-center lg:max-w-xl lg:mx-auto">
+            Diviertete aprendiendo con los videos y canciones que Canta Juega ha
+            desarrollado para tus hij@!
+          </p>
+        </div>
+      </footer>
+    </main>
+  );
 }
+
