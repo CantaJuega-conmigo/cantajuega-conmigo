@@ -4,7 +4,7 @@ import YouTube from "react-youtube";
 import img from "../../../public/img/img.png";
 import img_2 from "../../../public/img/img-2.png";
 
-const videoId = "Jq57zqfqF6s";
+const videoId = "jqLaRv0fuXc";
 
 const Trailer = () => {
   return (

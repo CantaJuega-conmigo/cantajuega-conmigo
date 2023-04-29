@@ -14,26 +14,35 @@ const ImageSection = (props:ImageSectionProps) => {
 
           <div className={styles.SectionsContainer}>
             <section className={styles.Content}>
-              <article>
               <h1>ACERCA DE NOSOTROS</h1>
+              <article>
+                <p className={styles.TextAbout}>
+                CantaJuega Conmigo ha sido creado a partir del interés por el desarrollo y
+                estimulación oportuna de la primera infancia con dificultades de aprendizaje 
+                y socialización debidos a una condición que afecta o altera su capacidad de hablar 
+                y comunicar; con el afán de entender, acompañar y apoyar aquellos padres de familia
+                que necesitan una guía, técnicas y herramientas profesionales para potenciar el 
+                desarrollo de sus hijos e hijas, 
+                </p>
               </article>
-              <p>
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam 
-                nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam 
-                erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci 
-                tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo 
-                consequat. 
-              </p>
-            </section>
-            
-            <section  className={styles.Content}>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti commodi doloribus amet atque esse laboriosam a ipsam optio dolore porro quod officia rem, sunt nulla quia. Accusantium et saepe ex!</section>
+              
+            </section>   
           
             <section className={styles.Content}>
-              <article className={styles.Pasos}>
-                <span>PASO 1</span>
-                <span>PASO 2</span>
-                <span>PASO 3</span>
-                <span>PASO 4</span>
+              <section className={styles.Pasos}>
+                
+              </section>
+            </section>
+            <section  className={styles.Content}>
+              <article>
+                <p className={styles.TextAbout} style={{marginTop:'22%'}}>
+                  hemos sido elegidos para entender, apoyar y crear 
+                  juntos un mejor futuro para quienes ahora son el presente; a través del juego, el amor,
+                  la música y el arte. Teniendo como sueño grupal proporcionar un novedoso método 
+                  terapéutico especializado, con el más alto nivel en neuroeducación, música, arte y 
+                  el modelado de video para la atención de niños y niñas con dificultades en 
+                  el desarrollo del lenguaje y/o aprendizaje.
+                </p>
               </article>
             </section>
           

@@ -1,6 +1,6 @@
 .Container{
     background-color: ghostwhite;
-    height: 400px;
+    height: 450px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -15,7 +15,7 @@
     background-color:#26798e;
     display: flex;
     align-items: center;
-    width: 85%;
+    width: 100%;
     height: 85%;
 }
 .SectionsContainer section{
@@ -31,17 +31,23 @@
     flex-direction: column;
     align-items: center;
 }
+.Content article{
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .Content h1{
     color: white;
-    font-size: 28px;
+    font-size: 25px;
     font-weight: 700;
-    width: 75%;
 }
-.Content p{
+.TextAbout{
     color: rgb(209, 208, 208);
   width: 85%;
   margin-top: 5px;
-  font-size: 11px;
+  font-size: 0.9rem;
 }
 .Pasos{
     display: flex;
@@ -89,7 +95,7 @@
         width: auto;
     }
 
-    .Content p{
+    .TextAbout{
       margin-top: 0px;
       font-size:3vw;
     }
