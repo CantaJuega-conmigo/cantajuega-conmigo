@@ -1,3 +1,4 @@
+import { goToSubscribeMembreship } from "@/functions/memership.query";
 import { Membership } from "@/types/membership.type";
 import Image from "next/image";
 import React from "react";
@@ -9,6 +10,10 @@ interface Props {
 }
 
 const MembershipCard = ({ membership, color, image }: Props) => {
+
+    const handleSelectMembership = () => {
+        goToSubscribeMembreship(membership.id)
+    }
   return (
     <article className={`bg-[${color}] p-1.5 rounded-2xl h-[25rem] lg:basis-1/4`}>
       <header className=" w-11/12 mx-auto h-20 flex items-end justify-between">
@@ -47,7 +52,9 @@ const MembershipCard = ({ membership, color, image }: Props) => {
           </p>
         </div>
         <div>
-          <button className="bg-blue text-white p-3 font-semibold rounded-xl w-60">
+          <button className="bg-blue text-white p-3 font-semibold rounded-xl w-60"
+          onClick={handleSelectMembership}
+          >
             SELECCIONA &gt;
           </button>
         </div>
