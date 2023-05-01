@@ -6,7 +6,7 @@ import ImageSection from "@/components/home/ImageSection";
 import Trailer from "@/components/home/Trailer";
 import Metodologia from "@/components/home/Metodologia";
 import Layout from "@/components/global/Layaout";
-import Acerca from "@/components/home/Acerca";
+import Metodologias from "@/components/home/metodologia/Metodologias";
 import { authUser } from "@/functions/user.query";
 
 export default function Home() {
@@ -49,7 +49,7 @@ export default function Home() {
       <main className="flex text-black overflow-x-hidden min-h-screen m-0">
         <Layout className="p-0">
           <Hero />
-          <Acerca />
+          <Metodologias />
           {/* <ImageSection images={'sad'} /> */}
           <Trailer />
           <ImageSection images={"asd"} />
