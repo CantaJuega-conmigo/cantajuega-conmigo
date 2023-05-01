@@ -30,17 +30,15 @@ export async function loginUser(body: loginBody) : Promise<void> {
 }
 
 export async function authUser(): Promise<void> {
-  const token = localStorage.getItem('token') ?? false;
-  if (!token) return;
-
   try {
-    const query : UserQueryResponse  = await axios.get('/user/auth');
+    const query : UserQueryResponse = await axios.get('/user/auth');
+    
     if ('error' in query.data) throw new Error(query.data.error);
     store.dispatch(setUser(query.data.user));
-    localStorage.setItem('token', query.data.token);
+    localStorage.setItem('tkn', query.data.token);
     return;
   } catch (error) {
-    localStorage.removeItem('token');
+    localStorage.removeItem('tkn');
     console.log(error);
   }
 }
