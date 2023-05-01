@@ -27,6 +27,7 @@ const Login: React.FC<LoginProps> = ({ handleOpen }) => {
   });
 
   const [error, setError] = useState<ErrorProps>({});
+  const [visibleErrors,setVisibleErrors]=useState<boolean>(false)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -45,7 +46,11 @@ const Login: React.FC<LoginProps> = ({ handleOpen }) => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (Object.keys(error).length) return console.log(error);
+    if (Object.keys(error).length){
+      error.global&&alert(error.global)
+       return setVisibleErrors(true)
+      
+      }
     loginUser(input).then((res) => {
       handleOpen(AUTH_MODAL_TYPE.LOGIN);
     });
@@ -77,6 +82,7 @@ const Login: React.FC<LoginProps> = ({ handleOpen }) => {
             value={input.email}
             onChange={handleChange}
           />
+            {visibleErrors&&error.email&&<span className='text-red-500'>{error.email}</span>}
           <label htmlFor="">CONTRASEÑA</label>
           <input
             type="password"
@@ -84,7 +90,7 @@ const Login: React.FC<LoginProps> = ({ handleOpen }) => {
             value={input.password}
             onChange={handleChange}
           />
-
+            {visibleErrors&&error.password&&<span className="text-red-500">{error.password}</span>}
           <section className={styles.paswwordSection}>
             <input
               type="checkbox"
