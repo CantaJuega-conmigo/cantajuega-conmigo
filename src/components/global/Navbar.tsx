@@ -1,166 +1,139 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { HiOutlineMenu } from "react-icons/hi";
-import { AiOutlineMobile, AiOutlineClose, AiOutlineUserAdd } from "react-icons/ai";
-import { BsFacebook, BsYoutube } from "react-icons/bs";
-import { TiMail } from "react-icons/ti";
-
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+
+// USER
 import Login from "./Login";
 import Resgister from "./Register";
 import { AUTH_MODAL_TYPE } from "@/utils";
 
-
-
-
-const items = [
-  { name: "Nosotros", href: "/nosotros" },
-  { name: "Metodología", href: "#metodologia" },
-  { name: "Cancionero", href: "/cancionero" },
-  { name: "Membresías", href: "/membresias" },
-  { name: "Cursos", href: "/cursos" },
-  { name: "Contacto", href: "/contacto" },
-];
-
-
-
-// MOVER A OTRO LADO
-const useMediaQuery = (query: string) => {
-  const [matches, setMatches] = useState(false);
-
-  useEffect(() => {
-    const media = window.matchMedia(query);
-    if (media.matches !== matches) {
-      setMatches(media.matches);
-    }
-    const listener = () => setMatches(media.matches);
-    window.addEventListener("resize", listener);
-    return () => window.removeEventListener("resize", listener);
-  }, [matches, query]);
-
-  return matches;
-};
+//ICONS
+import { HiOutlineMenu } from "react-icons/hi";
+import {
+  AiOutlineMobile,
+  AiOutlineClose,
+  AiOutlineUserAdd,
+} from "react-icons/ai";
+import { BsFacebook, BsYoutube } from "react-icons/bs";
+import { TiMail } from "react-icons/ti";
 
 const Navbar = () => {
-  // const [input, setInput] = useState("");
+  const items = [
+    { name: "Nosotros", href: "/nosotros" },
+    { name: "Metodología", href: "#metodologia" },
+    { name: "Cancionero", href: "/cancionero" },
+    { name: "Membresías", href: "/membresias" },
+    { name: "Cursos", href: "/cursos" },
+    { name: "Contacto", href: "/contacto" },
+  ];
+
   interface OpenInterface {
     LOGIN: boolean;
     REGISTER: boolean;
   }
-  const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
+  const [openMenu, setOpenMenu] = useState(false); // -> Menu hamburguesa
+  // const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
   const [open, setOpen] = useState<OpenInterface>({
     LOGIN: false,
     REGISTER: false,
   });
 
-  const handleOpen = (name : AUTH_MODAL_TYPE) => {
+  const handleOpen = (name: AUTH_MODAL_TYPE) => {
     setOpen((prevOpen) => ({
       ...prevOpen,
       [name]: !prevOpen[name],
     }));
   };
 
-  const isDesktop = useMediaQuery("(min-width: 768px)");
-
-
-
-
   return (
-    <>
-      <nav className=" z-40 w-full top-0  bg-white uppercase">
-        {/* TOP */}
-        {isDesktop && (
-          <div className="flex top-0 w-full px-4 py-2 justify-between items-center bg-gray-100  border-b-2 border-dashed  border-amber-500">
-            <div className=""></div>
+    <nav className="shadow-md w-full h-auto  top-0 left-0">
+      {/* top nav */}
+      <div className="hidden md:flex md:top-0 md:w-auto md:px-4 md:py-2 md:justify-between md:items-center md:bg-gray-100  md:border-b-2 md:border-dashed  md:border-amber-500">
+        <div className=""></div>
 
-            <div className="flex justify-start md:text-xs">
-              <span className="mr-6">ALGUNA PREGUNTA? </span>
+        <div className="flex justify-start md:text-xs">
+          <span className="mr-6">ALGUNA PREGUNTA? </span>
 
-              <AiOutlineMobile className="fill-current h-4 w-4 flex-shrink-0 mr-2 text-yellow-300" />
-              <span className="mr-6">+502 5430-1174 </span>
+          <AiOutlineMobile className="fill-current h-4 w-4 flex-shrink-0 mr-2 text-yellow-300" />
+          <span className="mr-6">+502 5430-1174 </span>
 
-              <TiMail className="fill-current h-4 w-4 flex-shrink-0 mr-2  text-yellow-300" />
-              <span className="mr-6">info@cantajuegaconmigo</span>
-            </div>
+          <TiMail className="fill-current h-4 w-4 flex-shrink-0 mr-2  text-yellow-300" />
+          <span className="mr-6">info@cantajuegaconmigo</span>
+        </div>
 
-            <div className="flex justify-end space-x-4 font-semibold text-base ">
+        <div className="flex justify-end space-x-4 font-semibold text-base cursor-pointer">
+          <BsFacebook className="text-[#3b5998] rounded-full" size={25} />
+          <BsYoutube className="text-[#c4302b] rounded-full" size={25} />
+          <div className="border border-gray-400 h-6 w-0"></div>
+          <AiOutlineUserAdd className="text-blue rounded-full" size={25} />
+          <span
+            className="hover:text-[#FFC172] cursor-pointer"
+            onClick={() => handleOpen(AUTH_MODAL_TYPE.LOGIN)}
+          >
+            Iniciar Sesión
+          </span>
+        </div>
+      </div>
+      {/* top nav */}
+      <div className="md:flex items-center justify-between bg-white py-4 md:px-10 px-7">
+        <div
+          className="font-bold text-2xl cursor-pointer flex items-center 
+      text-gray-800"
+        >
+          <Link href={"/"}>
+            <Image
+              src="https://www.cantajuegaconmigo.com/wp-content/uploads/2021/11/NUEVO-LOGO.png"
+              alt=""
+              width={200}
+              height={50}
+              className=" gap-4 px-2 py-2"
+            />
+          </Link>
+        </div>
 
-
-              <BsFacebook className="text-[#3b5998] rounded-full" size={25} />
-              <BsYoutube className="text-[#c4302b] rounded-full" size={25} />
-
-              <div className="border border-gray-400 h-6 w-0"></div>
-              <AiOutlineUserAdd className="text-blue rounded-full" size={25} />
-
-              <span className="hover:text-[#FFC172] cursor-pointer"
-                       onClick={()=> handleOpen(AUTH_MODAL_TYPE.LOGIN)}
-              >
-                Iniciar Sesión
-              </span>
-
-            </div>
-          </div>
-        )}
-
-        <div className="flex justify-between mt-2  items-center mx-auto w-full">
-          <div className="flex items-center">
-            <Link href={"/"} className="cursor-pointer">
-              <Image
-                src="https://www.cantajuegaconmigo.com/wp-content/uploads/2021/11/NUEVO-LOGO.png"
-                alt=""
-                width={200}
-                height={50}
-                className=" gap-4 px-2 py-2"
-              />
-            </Link>
-          </div>
-
-          {isDesktop ? (
-            <div className="flex gap-6 w-auto py-4 px-6">
-              <div className="flex justify-between w-full md:gap-6 lg:gap-10 md:text-lg lg:text-xl font-semibold">
-                {items.map((item, index) => (
-                  <Link href={item.href} className="cursor-pointer" key={index}>
-                    <span className="hover:text-orange">{item.name}</span>
-                  </Link>
-                ))}
-              </div>
-              {/* SEARCH */}
-            </div>
+        <div className="text-3xl absolute right-8 top-6 cursor-pointer md:hidden ">
+          {openMenu ? (
+            <AiOutlineClose
+              className="cursor-pointer"
+              onClick={() => setOpenMenu(false)}
+            />
           ) : (
-            <button
-              className="rounded-full p-2"
-              onClick={() => setIsMenuToggled(!isMenuToggled)}
-            >
-              <HiOutlineMenu size={40} />
-            </button>
-          )}
-
-          {/* MOBILE MENU POPUP */}
-          {!isDesktop && isMenuToggled && (
-            <div className="flex right-0 bottom-0 h-full bg-cyan-500 w-[300px]">
-              {/* CLOSE ICON */}
-              <div className="flex justify-end p-6 text-[#111a44]">
-                <button onClick={() => setIsMenuToggled(!isMenuToggled)}>
-                  <AiOutlineClose size={40} />
-                </button>
-              </div>
-              {items.map((item, index) => (
-                <div
-                  className="flex flex-col gap-10 p-4 ml-[15%] text-2xl text-[#111a44]"
-                  key={index}
-                >
-                  <Link href={item.href}>{item.name}</Link>
-                </div>
-              ))}
-            </div>
+            <HiOutlineMenu
+              className="cursor-pointer"
+              onClick={() => setOpenMenu(true)}
+            />
           )}
         </div>
-      </nav>
+
+        <ul
+          className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static bg-white md:z-auto z-[20] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${
+            openMenu ? "top-20 " : "top-[-490px]"
+          }`}
+        >
+          {items.map((item) => (
+            <li key={item.name} className="md:ml-8 text-2xl md:my-0 my-7">
+              <Link
+                href={item.href}
+                className="text-gray-800 hover:text-yellow-500 duration-500"
+              >
+                {item.name}
+              </Link>
+            </li>
+          ))}
+          <button
+            onClick={() => handleOpen(AUTH_MODAL_TYPE.LOGIN)}
+            className="md:hidden bg-yellow-600 text-white  py-2 px-6 rounded md:ml-8 hover:bg-yellow-400 
+                duration-500"
+          >
+            Iniciar sesión
+          </button>
+        </ul>
+      </div>
       {open.LOGIN && <Login handleOpen={handleOpen} />}
       {open.REGISTER && <Resgister handleOpen={handleOpen} />}
-    </>
+    </nav>
   );
 };
 

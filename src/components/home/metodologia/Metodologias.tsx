@@ -1,6 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Modal from "./Modal";
+import Image from "next/image";
+import artwork from "../../../../public/img/Untitled_Artwork-3-1.png";
 
 const Metodologias = () => {
   const [showModal, setShowModal] = React.useState(false);
@@ -58,8 +60,10 @@ const Metodologias = () => {
           }}
           className="flex-1 flex justify-center items-center"
         >
-          <img
-            src="https://www.cantajuegaconmigo.com/wp-content/uploads/2022/02/Untitled_Artwork-3-1.png"
+          <Image
+            src={artwork}
+            height={1200}
+            width={1200}
             alt="CJ"
             className="w-[90%] object-contain"
           />
@@ -145,11 +149,11 @@ const StartSteps = ({
   selectedTitle,
 }: any) => (
   <div className="flex justify-center items-center flex-row cursor-pointer">
-    <div className="flex justify-center items-center w-[70px] h-[70px] rounded-[24px] bg-[#26798E]">
+    <div className="flex justify-center items-center w-[70px] h-[70px] rounded-[24px] bg-[#26798E] ">
       <p className="font-bold text-[20px] text-white">{number}</p>
     </div>
     <h4
-      className="flex-1 ml-[30px] font-bold text-[18px] text-[#26798E] leading-[32.4px]"
+      className="flex-1 ml-[30px] font-bold text-[18px] text-[#26798E] leading-[32.4px] hover:text-yellow-500"
       onClick={() => openModal({ title: title, text: text })}
     >
       {title}
