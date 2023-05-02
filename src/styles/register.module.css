@@ -7,20 +7,18 @@
     top: 0;
     display: flex;
    justify-content: center;
-   
+   align-items: center;
  
 }
 .secondContainer{
-  
-     margin-top: 50px;
     border: 1px solid rgb(0, 0, 0);
     border-radius: 10px;
-    height: auto;
-    width: 400px;
     height: fit-content;
+    width: 400px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content:center;
+
     overflow: hidden;
 }
 /* .Close{
@@ -35,18 +33,17 @@
     cursor: pointer;
 } */
 
-.secondContainer h1{
-   
+.secondContainer h1{   
     margin:0;
     margin-left: 15px;
-  
-   
+
 }
 
 .aux{
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 .aux section{
     border-bottom: 1px solid rgb(77, 77, 77);
@@ -58,19 +55,15 @@
     margin-right:2px ;
 }
 .inputsContainer{
-    display: flex;
-    flex-direction: column;
+  display: flex;
   padding: 5px;
-  height: 85%;
   width: 90%;
   margin: 0 auto;
   margin-top: 10px;
   flex-direction: column;
-    justify-content:space-evenly;
 
 }
 .inputsContainer input{
-    margin: 5px;
     padding: 8px;
     border-radius:5px ;
     border: 1px solid;
@@ -86,7 +79,7 @@
     padding: 10px;
     margin: 0 auto;
     border: none;
-    margin-top: 20px;
+   
     border-radius: 5px;
     font-size: 17px;
      cursor: pointer;
@@ -116,7 +109,7 @@
     margin-left:10px ;
 }
 .googleButton{
- background-color: white;
+
  border: 1px solid;
  border-radius: 10px;
  height: 20%;
@@ -154,24 +147,26 @@
     
   .secondContainer{
    width: 80%;
-   
+   height: fit-content;
+ 
   }
 
   .secondContainer h1{
     margin: 0 auto;
-    
+    font-size:1.2rem;
   }
-  /* .inputsContainer{
-    background-color: aqua;
-    
-  } */
+  .inputsContainer{
+
+    height: fit-content;
+    max-height: 65vh;
+  }
   .inputsContainer label{
     font-size: 3vw;
     font-weight: 200;
     margin: 0;
   }
   .inputsContainer input{
-    padding: 2vw;
+    padding: 1vh;
     margin: 0;
   }
   .paswwordSection {
@@ -188,24 +183,26 @@
 }
  
 .loginButton{
- 
+  
     width: 70%;
     margin: 0 auto;
 }
   .googleButton{
  
     cursor: pointer;
-    font-size: 5vw;
-
+    font-size: 4vw;
+   
    }
    .Registerbutton{
     height: 12%;
-    background-color: black;
+   
     font-size: 5vw;
    }
 }
-@media (max-width:320px){
+@media (max-width:375px){
  .secondContainer{
-    height: fit-content;
+    height: fit-content
+  
  }
+
 }

@@ -77,19 +77,21 @@ interface ErrorProps {
     <div className={styles.Container}>
           
     <section className={`${styles.secondContainer} bg-white`}>
-     <article className='flex justify-end'>
-     <button
-          className={'m-1'}
-          onClick={() => handleOpen(AUTH_MODAL_TYPE.REGISTER)}
-        > 
-          <IoMdClose
-            className="text-3xl cursor-pointer hover:text-blue hover:scale-110
-             ease-in-out transition-all"
-          />
-        </button>
-        </article>
-     <h1 className='m-5 mb-7 text-2xl'>CREA UN USUARIO:</h1>
+      
+        <article className='flex justify-end '>
+        <button
+              className={'m-1'}
+              onClick={() => handleOpen(AUTH_MODAL_TYPE.REGISTER)}
+            > 
+              <IoMdClose
+                className="text-3xl cursor-pointer hover:text-blue hover:scale-110
+                ease-in-out transition-all"
+              />
+            </button>
+          </article>
+
          <form className={styles.inputsContainer} onSubmit={handleSubmit}>
+         <h1 className='m-5 mb-7 text-2xl'>CREA UN USUARIO:</h1>
               
              <label htmlFor="">NOMBRE</label>
              <input type="text" onChange={handleChange} name='firstName' /> 
@@ -115,7 +117,10 @@ interface ErrorProps {
             handleOpen(AUTH_MODAL_TYPE.REGISTER)
           }}>ya tengo cuenta</span>
             </section>
-             <button type='submit' className={styles.loginButton} >Crear</button>
+
+             <button type='submit' className={styles.loginButton} >
+              Crear
+              </button>
           
                <div className={styles.aux}>
                  <section></section>
@@ -132,8 +137,6 @@ interface ErrorProps {
             Login with google
           </button>
          </form>
-   
-        
     </section>
 
  </div>
