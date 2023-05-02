@@ -61,10 +61,11 @@ const Login: React.FC<LoginProps> = ({ handleOpen }) => {
       className={`fixed h-full w-full z-50 top-0 flex justify-center items-center`}
     >
       <div
-        className={`rounded-xl p-3 shadow-2xl border border-black bg-white flex flex-col w-2/6 h-3/4 relative`}
-      >
+        className={`rounded-xl p-3 h-90 shadow-2xl w-80 border border-black bg-white flex flex-col  `}
+      > 
+      <div className='flex justify-end'>
         <button
-          className="absolute top-3 right-3"
+          className=" "
           onClick={() => handleOpen(AUTH_MODAL_TYPE.LOGIN)}
         >
           <IoMdClose
@@ -72,7 +73,8 @@ const Login: React.FC<LoginProps> = ({ handleOpen }) => {
              ease-in-out transition-all"
           />
         </button>
-        <h1 className="m-5 mb-7 text-2xl">INICIA SESIÓN:</h1>
+      </div>
+        <h1 className="m-5 mb-1 text-2xl">INICIA SESIÓN:</h1>
 
         <form className={`${styles.inputsContainer}`} onSubmit={handleSubmit}>
           <label htmlFor="">CORREO ELECTRÓNICO</label>
@@ -92,15 +94,20 @@ const Login: React.FC<LoginProps> = ({ handleOpen }) => {
           />
             {visibleErrors&&error.password&&<span className="text-red-500">{error.password}</span>}
           <section className={styles.paswwordSection}>
-            <input
-              type="checkbox"
-              name=""
-              className={styles.checkBox}
-              id="recurdame"
-            />
-            <label htmlFor="">recuerdame </label>
-            <span className="absolute right-12 cursor-pointer">Olvidaste tu contraseña</span>
+            <div className={styles.pasword1}>
+              <input
+                type="checkbox"
+                name=""
+                className={styles.checkBox}
+                id="recurdame"
+              />
+              <label htmlFor="">recuerdame </label>
+            </div>
+            <div  className={styles.pasword2}>
+            <span className="  cursor-pointer">Olvidaste tu contraseña</span>
+            </div>
           </section>
+
           <div className="w-full flex justify-center">
           <button type="submit" className='bg-secondOrange mt-2 rounded-lg p-1 w-3/6 hover:bg-secondOrange/75'>
             LOGIN
@@ -111,19 +118,19 @@ const Login: React.FC<LoginProps> = ({ handleOpen }) => {
             <h5>O</h5>
             <section></section>
           </div>
+          
           <button
             type="button"
-            className={`${styles.googleButton} flex items-center font-bold justify-center mb-32
-          py-3 w-3/4`}
+            className={`${styles.googleButton} `}
           onClick={loginwithGoogle}
           >
-            <FcGoogle className="text-3xl mr-2" />
+            <FcGoogle className={styles.googlelogo} />
             Login with google
           </button>
         </form>
 
         <button
-          className={`${styles.Registerbutton} border font-bold text-2xl absolute left-0 bottom-0 rounded-b-xl m-0`}
+          className={`${styles.Registerbutton} border font-bold text-2xl  left-0 bottom-0 rounded-b-xl m-0`}
           onClick={() => {
             handleOpen(AUTH_MODAL_TYPE.LOGIN)
             handleOpen(AUTH_MODAL_TYPE.REGISTER)
