@@ -11,10 +11,11 @@ import { authUser } from "@/functions/user.query";
 
 export default function Home() {
   useEffect(() => {
-    setTimeout(() => {
-      const params = new URLSearchParams(window.location.search);
-      const token = params.get("token");
-      if (token) {
+    const params = new URLSearchParams(window.location.search);
+    const token = params.get("token");
+    if (token) {
+      localStorage.setItem("tkn", token);
+      setTimeout(() => {
         authUser()
           .then(() => {
             // Obtener la URL actual
@@ -33,10 +34,9 @@ export default function Home() {
               window.history.replaceState(null, "", url);
             }
           })
-          .then(() => window.location.reload())
           .catch((e) => console.log("Auth failed", e));
-      }
-    }, 50);
+      }, 200);
+    }
   }, []);
   return (
     <>
