@@ -14,7 +14,6 @@ const userSlice = createSlice({
   reducers: {
     setUser(state, { payload }) {
       state = payload;
-      console.log(state);
     },
   },
 });
