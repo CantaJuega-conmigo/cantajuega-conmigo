@@ -7,9 +7,23 @@ export async function getAllMebreships(
 ): Promise<void> {
   try {
     const query = await axios.get("/membership");
+    console.log(query.data);
+    
     if ("error" in query.data) throw new Error(query.data.error);
     const data: Membership[] = query.data;
     state(data);
+    return;
+  } catch (error) {
+    // Handle error here
+    console.log(error);
+  }
+}
+
+export async function goToSubscribeMembreship (id: string): Promise<void> {
+  try {
+    const query = await axios.get("/payment/subscribe/" + id);
+    // if ("error" in query.data) throw new Error(query.data.error);
+    window.open(query.data, "_blank");
     return;
   } catch (error) {
     // Handle error here
