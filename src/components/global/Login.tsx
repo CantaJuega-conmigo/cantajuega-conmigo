@@ -57,88 +57,73 @@ const Login: React.FC<LoginProps> = ({ handleOpen }) => {
   };
 
   return (
-    <div
-      className={`fixed h-full w-full z-50 top-0 flex justify-center items-center`}
-    >
-      <div
-        className={`rounded-xl p-3 h-90 shadow-2xl w-80 border border-black bg-white flex flex-col  `}
-      > 
-      <div className='flex justify-end'>
-        <button
-          className=" "
-          onClick={() => handleOpen(AUTH_MODAL_TYPE.LOGIN)}
-        >
-          <IoMdClose
-            className="text-3xl cursor-pointer hover:text-blue hover:scale-110
-             ease-in-out transition-all"
-          />
-        </button>
-      </div>
-        <h1 className="m-5 mb-1 text-2xl">INICIA SESIÓN:</h1>
-
-        <form className={`${styles.inputsContainer}`} onSubmit={handleSubmit}>
-          <label htmlFor="">CORREO ELECTRÓNICO</label>
-          <input
-            type="text"
-            name="email"
-            value={input.email}
-            onChange={handleChange}
-          />
-            {visibleErrors&&error.email&&<span className='text-red-500'>{error.email}</span>}
-          <label htmlFor="">CONTRASEÑA</label>
-          <input
-            type="password"
-            name="password"
-            value={input.password}
-            onChange={handleChange}
-          />
-            {visibleErrors&&error.password&&<span className="text-red-500">{error.password}</span>}
-          <section className={styles.paswwordSection}>
-            <div className={styles.pasword1}>
-              <input
-                type="checkbox"
-                name=""
-                className={styles.checkBox}
-                id="recurdame"
-              />
-              <label htmlFor="">recuerdame </label>
-            </div>
-            <div  className={styles.pasword2}>
-            <span className="  cursor-pointer">Olvidaste tu contraseña</span>
-            </div>
-          </section>
-
-          <div className="w-full flex justify-center">
-          <button type="submit" className='bg-secondOrange mt-2 rounded-lg p-1 w-3/6 hover:bg-secondOrange/75'>
-            LOGIN
+    <div className='fixed h-full w-full z-50 flex top-0 justify-center items-center overflow-auto' >
+       <div className= { `${styles.FormContainer}  bg-slate-300 border border-solid border-black rounded-xl overflow-hidden  flex flex-col items-center `}>
+         
+       <div className='flex justify-end w-full'>
+          <button className='text-black'  onClick={() => handleOpen(AUTH_MODAL_TYPE.LOGIN)}>
+            <IoMdClose
+              className="text-3xl cursor-pointer hover:text-blue hover:scale-110
+              ease-in-out transition-all"
+            />
           </button>
-          </div>
-          <div className={styles.aux}>
-            <section></section>
+        </div>
+
+          <section className='w-full p-2'>
+            <h1 className='text-3xl text-black ml-3'>Inicia sesion: </h1>
+          </section>
+          <form className={`${styles.Form}  flex flex-col  w-5/6 justify-evenly`} onSubmit={handleSubmit}>
+             <label className='text-black' htmlFor="">CORREO ELECTRÓNICO</label>
+             <input className='' type="text" name="email"  value={input.email} onChange={handleChange} />
+
+            {visibleErrors&&error.email&&<span className='text-red-500'>{error.email}</span>}
+            <label className='text-black' htmlFor="">CONTRASEÑA</label>
+            <input className='' type="password" name="password" value={input.password} onChange={handleChange}/>
+            {visibleErrors&&error.password&&<span className="text-red-500">{error.password}</span>}
+            
+             <section className='flex justify-between'>
+              <article >  
+                <input type="checkbox" name="" id="recurdame"/>
+                <label htmlFor="">recuerdame </label>
+              </article>
+              <article className={`${styles.pwforgot} flex items-center`}>
+              <span className="cursor-pointer ">Olvidaste tu contraseña</span>
+              </article>
+             </section>
+
+             <section className={`${styles.SubmitSection} flex justify-center items-center h-1/6`}>
+              <button type="submit" className='bg-secondOrange w-3/4 h-full rounded-md hover:bg-yellow-300'> LOGIN </button>
+             </section>
+          </form>
+
+          <div className='flex justify-center items-center w-3/4'>
+            <section className=" border-b border-solid w-full  border-black"></section>
             <h5>O</h5>
-            <section></section>
+            <section className=" border-b border-solid w-full  border-black"></section>
           </div>
           
-          <button
-            type="button"
-            className={`${styles.googleButton} `}
-          onClick={loginwithGoogle}
-          >
-            <FcGoogle className={styles.googlelogo} />
-            Login with google
-          </button>
-        </form>
+          <section className={ `${styles.googleButtonSection} w-full flex justify-center h-1/6 items-center`}>
+            <button  type="button" className='border border-solid rounded-md border-black w-7/12 h-3/4 flex justify-center items-center ' onClick={loginwithGoogle}>
+              <FcGoogle className='text-3xl' /> 
+              <span className='text-black font-bold'>
+                Login with google
+              </span> 
+            </button>
+          </section>
 
-        <button
-          className={`${styles.Registerbutton} border font-bold text-2xl  left-0 bottom-0 rounded-b-xl m-0`}
-          onClick={() => {
-            handleOpen(AUTH_MODAL_TYPE.LOGIN)
-            handleOpen(AUTH_MODAL_TYPE.REGISTER)
-          }}
-        >
-          o Registrate
+          <section className=' bg-secondOrange w-full flex justify-center h-16  hover:bg-yellow-300'>
+            <button
+            className=''
+            onClick={() => {
+              handleOpen(AUTH_MODAL_TYPE.LOGIN)
+              handleOpen(AUTH_MODAL_TYPE.REGISTER)
+            }}
+          >
+          <span className='text-black text-3xl'> o Registrate</span>
         </button>
-      </div>
+          </section>
+
+       </div>
     </div>
   );
 };
