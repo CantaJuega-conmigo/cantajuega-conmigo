@@ -3,6 +3,9 @@
     height: 35rem;
     overflow: auto;
 }
+.Form input[type="password"]::-ms-reveal {/* para desactivar el icono de mostrar contraseña por defecto del navegador microsoft edge */
+  display: none;
+}
 .FormContainer > :nth-child(1) {
     /* Estilos para el cuarto hijo */
     height: fit-content;
