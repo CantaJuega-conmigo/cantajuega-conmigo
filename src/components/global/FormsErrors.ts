@@ -35,17 +35,26 @@ export const registerError = (input: any) => {
     error.global = "Todos los campos son obligatorios";
   }
 
-  if (!Regex.email.test(input.email)) {
+  if (!input.email.length) {
+    error.email='Ingrese email.';
+  }else if (!Regex.email.test(input.email)) {
     error.email = "El email no es valido";
   }
-
-  if (!Regex.password.test(input.password)) {
+  if(!input.password){
+    error.password='Ingrese una contraseña.'
+  }else if (!Regex.password.test(input.password)) {
     error.password = "La contraseña no es segura";
   }
-  if (!Regex.firstName.test(input.firstName)) {
+
+  if (!input.firstName) {
+    error.firstName = "Ingrese su nombre.";
+  }else if (!Regex.firstName.test(input.firstName)) {
     error.firstName = "Nombre solo debe tener letras";
   }
-  if (!Regex.lastName.test(input.lastName)) {
+  
+  if (!input.lastName) {
+    error.lastName = "Ingrese su apellido.";
+  }else if (!Regex.lastName.test(input.lastName)) {
     error.lastName = "Apellido solo debe tener letras";
   }
   return error;

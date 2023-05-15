@@ -1,208 +1,261 @@
-
-.Container{
-    position: fixed;
-    height: 100vh;
-    width: 100%;
-    z-index: 120;
-    top: 0;
-    display: flex;
-   justify-content: center;
-   align-items: center;
- 
+.FormContainer{
+    width: 26rem;
+    height: 35rem;
+    overflow: auto;
 }
-.secondContainer{
-    border: 1px solid rgb(0, 0, 0);
-    border-radius: 10px;
+.FormContainer > :nth-child(1) {
+    /* Estilos para el cuarto hijo */
     height: fit-content;
-    width: 400px;
-    display: flex;
-    flex-direction: column;
-    justify-content:center;
-
-    overflow: hidden;
-}
-/* .Close{
-    width: fit-content;
-    color: rgb(0, 0, 0);
-    border: none;
-    background-color: transparent;
-    font-size:20px;
-    font-weight:600;
-    float: right;
-    font-family: "Open Sans", sans-serif;
-    cursor: pointer;
-} */
-
-.secondContainer h1{   
-    margin:0;
-    margin-left: 15px;
-
-}
-
-.aux{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-}
-.aux section{
-    border-bottom: 1px solid rgb(77, 77, 77);
-    width: 100%;
-    height: 0px;
-}
-.aux h5{
-    margin-left:2px ;
-    margin-right:2px ;
-}
-.inputsContainer{
-  display: flex;
-  padding: 5px;
-  width: 90%;
-  margin: 0 auto;
-  margin-top: 10px;
-  flex-direction: column;
-
-}
-.inputsContainer input{
-    padding: 8px;
-    border-radius:5px ;
-    border: 1px solid;
-}
-.inputsContainer label{
- margin-left: 14px;
- font-weight: 600;
- font-size: 12px;
-}
-.loginButton{
-    background-color:#f1d245 ;
-    width: 60%;
-    padding: 10px;
-    margin: 0 auto;
-    border: none;
-   
-    border-radius: 5px;
-    font-size: 17px;
-     cursor: pointer;
-}
-.loginButton:hover{
-  background-color: #d3b638 ;;
-}
-.paswwordSection{
-    display: flex;
-    align-items: center;
-}
-
-.paswwordSection label{
-    font-weight: 300;
-    font-size: 15px;
-    color: rgba(7, 4, 0, 0.719);
-}
-.paswwordSection input{
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
-}
-.paswwordSection span{
-    font-weight: 300;
-    font-size: 15px;
-    color: rgba(7, 4, 0, 0.719);
-    margin-left:10px ;
-}
-.googleButton{
-
- border: 1px solid;
- border-radius: 10px;
- height: 20%;
- width: 98%;
- margin: 0 auto;
- cursor: pointer;
-}
-.googleButton:hover{
-    background-color: rgb(241, 241, 241);
-}
-.Registerbutton{
-    width: 100%;
-    height: 15%;
-    border: none;
-    cursor: pointer;
-}
-.Registerbutton:hover{
-    background-color: #d3b638 ;;
-
-}
-.Modal{ 
- cursor: pointer; 
-}
-.Modal:hover{
-    color: blue;
-}
-@media (max-width:500px){
-    .Container{
-        height: 100%;
-        width: 100%;
-        z-index: 40;
-        top: 0;
-    }
-  
-    
-  .secondContainer{
-   width: 80%;
+  }
+.FormContainer > :nth-child(1) button {
+    /* Estilos para el cuarto hijo */
    height: fit-content;
- 
   }
-
-  .secondContainer h1{
-    margin: 0 auto;
-    font-size:1.2rem;
+.FormContainer > :nth-child(2) {
+    /* Estilos para el cuarto hijo */
+    height: 10%;
   }
-  .inputsContainer{
-
+.FormContainer > :nth-child(3) {
+    /* Estilos para el cuarto hijo */
+    height: 68%;
+  }
+.FormContainer > :nth-child(4) {
+    /* Estilos para el cuarto hijo */
     height: fit-content;
-    max-height: 65vh;
   }
-  .inputsContainer label{
-    font-size: 3vw;
-    font-weight: 200;
-    margin: 0;
+.FormContainer > :nth-child(5) {
+    /* Estilos para el cuarto hijo */
+    height: 15%;
   }
-  .inputsContainer input{
-    padding: 1vh;
-    margin: 0;
-  }
-  .paswwordSection {
-      justify-content: space-between;
-  }
-  .paswwordSection span{
-    font-weight: 300;
-    font-size: 4vw;
-    color: rgba(7, 4, 0, 0.719);
-}
-.paswwordSection label{
-    font-size: 4vw;
-
-}
- 
-.loginButton{
   
+.Form input{
+    padding: 5px;
+   }
+/*-----------------------------------------------------------------------*/
+/* Estilos para pantallas  en modo vertical */
+@media (max-width: 915px) and (orientation: portrait) {
+    /* Estilos para modo vertical */
+    .FormContainer{
+     margin-top: -30%;
+    }
+  }
+  
+  /* Estilos para pantallas  en modo horizontal */
+  @media (max-width: 930px) and (orientation: landscape) {
+    /* Estilos para modo horizontal */
+    .Container{
+      padding-bottom:4% ;
+      padding-top:0 ;
+    }
+    .FormContainer{
+        height: auto;
+        width: 25rem;
+        overflow: auto;
+        margin-top: 30%;
+     }
+    .FormContainer h1{
+       margin-top: 5px;
+       margin-bottom: 5px;
+     }
+     .Form input{
+      margin-top: 5px;
+      margin-bottom: 5px;
+     }
+     .Form button{
+       height: 2.5rem;
+     }
+     .googleButtonSection button{
+      margin-top: 10px;
+      margin-bottom: 10px;
+      height: 2.8rem;
+     }
+  }
+/*-----------------------------------------------------------------------*/
+/* Estilos para pantallas  en modo vertical */
+@media (max-width: 768px) and (orientation: portrait) {
+    /* Estilos para modo vertical */
+    .FormContainer{
+    width: 22rem;
+    height: 35rem;
+    
+    }
+  }
+  
+  /* Estilos para pantallas  en modo horizontal */
+  @media (max-width: 768px) and (orientation: landscape) {
+    /* Estilos para modo horizontal */
+    .FormContainer{
+        margin-top: 60%;
+        width: 22rem;
+        overflow: auto;
+        }
+  }
+/*-----------------------------------------------------------------------*/
+/* Estilos para pantallas  en modo vertical */
+@media (max-width: 740px) and (orientation: portrait) {
+    /* Estilos para modo vertical */
+    
+    .FormContainer{
+    width: 20rem;
+   margin-top: 0%;
+       
+    }
+  }
+  
+  /* Estilos para pantallas  en modo horizontal */
+  @media (max-width: 740px) and (orientation: landscape) {
+    /* Estilos para modo horizontal */
+    .Container {
+      padding-top: 17%;
+      padding-bottom: 17%;
+    }
+    .FormContainer{
+      margin-top:8%;
+      height: auto;
+      overflow: auto;
+     } 
+     
+     .FormContainer h1{
+       font-size: 20px;
+     }
+     .CloseButton {
+      font-size: 24px;
+     }
+     .Container{
+      padding-bottom: 5px;
+     }
+     
+     .FormContainer button{
+       height: 40px;
+     }
+      .FormContainer input{
+        padding: 3px;
+        margin-top: 2px;
+        margin-bottom: 2px;
+      }
+      .FormContainer label{
+        font-size: 12px;
+      }
+      .Form span{
+        font-size: 12px;
+      }
+      .googleButtonSection button{
+      height: 50px;
+      width: 65%;
+      }
+  }
+/*-----------------------------------------------------------------------*/
+/* Estilos para pantallas  en modo vertical */
+@media (max-width: 720px) and (orientation: portrait) {
+    /* Estilos para modo vertical */
+    .FormContainer{
+    width: 20rem;
+    
+    }
+  }
+  
+  /* Estilos para pantallas  en modo horizontal */
+  @media (max-width: 725px) and (orientation: landscape) {
+    /* Estilos para modo horizontal */
+    
+    /* .FormContainer{
+     margin-top:0;
+     }  */
+  }
+/*-----------------------------------------------------------------------*/
+/* Estilos para pantallas  en modo vertical */
+@media (max-width: 655px) and (orientation: portrait) {
+    /* Estilos para modo vertical */
+        
+    .FormContainer{
+      margin-top: 20%;
+    width: 20rem;
+ 
+    
+
+    }
+  }
+  
+  /* Estilos para pantallas  en modo horizontal */
+  @media (max-width: 655px) and (orientation: landscape) {
+    /* Estilos para modo horizontal */
+    .Container{
+      padding-top: 15%;
+     
+    }
+    .FormContainer{
+      margin-top: 25%;
+      }
+    .Form input{
+      padding: 1px;
+    }
+    .Form button{
+      height: 34px;
+    }
+    .googleButtonSection button{
+      height: 38px;
+      font-size: 15px;
+   
+    }
+    .googleButtonSection button  > :nth-child(1){   
+      font-size:25px
+    }
+  }
+@media (max-width: 600px) and (orientation: portrait) {
+    /* Estilos para modo vertical */
+    .FormContainer{
+     margin-top: 0;
+     height: 35rem;
+  }
+    .FormContainer input{
+   
+   padding: 3px;
+ 
+  }
+}
+  /* Estilos para pantallas  en modo horizontal */
+  @media (max-width: 600px) and (orientation: landscape) {
+    /* Estilos para modo horizontal */
+   
+  }
+@media (max-width: 300px) and (orientation: portrait) {
+    /* Estilos para modo vertical */
+    .FormContainer{
+     margin-top: -50%;
+     height: auto;
+     width: 90%;
+  }
+  .FormContainer > :nth-child(1) button {
+  height: 20px;
+
+  }
+  .FormContainer h1{
+    font-size: 20px;
+  
+  }
+  .Form label{
+    font-size: 11px;
+  }
+  .Form span{
+    font-size: 12px;
+  }
+  .Form input{
+    padding: 2px;
+  }
+  .Form button{
+    height: 2rem;
+  }
+  .googleButtonSection button{
     width: 70%;
-    margin: 0 auto;
+    font-size: 15px;
+    padding: 5px;
+  }
+  .googleButtonSection button  > :nth-child(1){   
+    font-size:25px
+  }
 }
-  .googleButton{
- 
-    cursor: pointer;
-    font-size: 4vw;
+  /* Estilos para pantallas  en modo horizontal */
+  @media (max-width: 300px) and (orientation: landscape) {
+    /* Estilos para modo horizontal */
    
-   }
-   .Registerbutton{
-    height: 12%;
-   
-    font-size: 5vw;
-   }
-}
-@media (max-width:375px){
- .secondContainer{
-    height: fit-content
-  
- }
-
-}
+  }

@@ -2,7 +2,7 @@ import { AUTH_MODAL_TYPE } from '@/utils';
 import styles from '../../styles/register.module.css'
 import { useState } from 'react'
 import { registerError } from './FormsErrors';
-import { IoMdClose } from 'react-icons/io';
+import { IoMdClose,IoMdEye,IoMdEyeOff} from 'react-icons/io';
 import { FcGoogle } from 'react-icons/fc';
 
 interface RegisterProps {
@@ -33,8 +33,11 @@ interface ErrorProps {
     firstName: "",
   });
 
-  const [error, setError] = useState<ErrorProps>({});
+  const [error, setError] = useState<ErrorProps>({
+    global :"Todos los campos son obligatorios"
+  });
   const [visibleErrors,setVisibleErrors]=useState<boolean>(false)
+  const [visiblePassword,setVisiblePassword]=useState<boolean>(false)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -66,80 +69,92 @@ interface ErrorProps {
 
   function showPassword(): void {
     const passwordInput = document.getElementById("password") as HTMLInputElement;
+
     if (passwordInput.type === "password") {
       passwordInput.type = "text";
     } else {
       passwordInput.type = "password";
     }
+    setVisiblePassword(!visiblePassword)
   }
   
    return (
-    <div className={styles.Container}>
-          
-    <section className={`${styles.secondContainer} bg-white`}>
-      
-        <article className='flex justify-end '>
-        <button
-              className={'m-1'}
-              onClick={() => handleOpen(AUTH_MODAL_TYPE.REGISTER)}
-            > 
-              <IoMdClose
-                className="text-3xl cursor-pointer hover:text-blue hover:scale-110
-                ease-in-out transition-all"
-              />
-            </button>
-          </article>
-
-         <form className={styles.inputsContainer} onSubmit={handleSubmit}>
-         <h1 className='m-5 mb-7 text-2xl'>CREA UN USUARIO:</h1>
-              
-             <label htmlFor="">NOMBRE</label>
+    <div className={`${styles.Container} fixed h-full w-full z-50 flex top-0 justify-center items-center overflow-auto`} >
+     
+            <div className= { `${styles.FormContainer}  bg-slate-300 border border-solid border-black rounded-xl overflow-hidden  flex flex-col items-center `}>
+                <div className='flex justify-end w-full'>
+          <button className='text-black'  onClick={() => handleOpen(AUTH_MODAL_TYPE.REGISTER)}>
+            <IoMdClose
+              className={`${styles.CloseButton} text-3xl  cursor-pointer hover:text-blue hover:scale-110
+              ease-in-out transition-all`}
+            />
+          </button>
+        </div>
+       
+              <section className='w-full p-2'>
+            <h1 className=' text-2xl  text-black ml-3'>Crea un usuario: </h1>  
+        </section>
+       
+            <form className={`${styles.Form}  flex flex-col  w-5/6 justify-evenly`} onSubmit={handleSubmit}>
+        
+             <label className=' text-sm' htmlFor="">NOMBRE </label>
              <input type="text" onChange={handleChange} name='firstName' /> 
              {visibleErrors&&error.firstName&&<span className='text-red-500'>{error.firstName}</span>}
-             <label htmlFor="">APELLIDO</label>
+             <label className=' text-sm' htmlFor="">APELLIDO</label>
              <input type="text" onChange={handleChange} name='lastName' /> 
              {visibleErrors&&error.lastName&&<span className='text-red-500'>{error.lastName}</span>}
 
-             <label htmlFor="">CORREO ELECTRÓNICO</label>
+             <label className=' text-sm' htmlFor="">CORREO ELECTRÓNICO</label>
              <input type="text" onChange={handleChange} name='email'/> 
              {visibleErrors&&error.email&&<span className='text-red-500'>{error.email}</span>}
 
-             <label htmlFor="">CONTRASEÑA</label> 
-             <input type="password" onChange={handleChange} name='password' id='password' />
+             <label className=' text-sm' htmlFor="">CONTRASEÑA</label> 
+             <section className='flex items-center relative' >
+             <input type="password" className=' w-full' onChange={handleChange} name='password' id='password' />
+             
+             {visiblePassword?<IoMdEye className=' absolute right-0 cursor-pointer'onClick={showPassword}/>:
+             <IoMdEyeOff className=' absolute right-0 cursor-pointer'onClick={showPassword}/>} 
+             
+             </section>
              {visibleErrors&&error.password&&<span className='text-red-500'>{error.password}</span>}
 
-               <section><label  >mostrar contraseña</label> <input type="checkbox" onChange={showPassword} /></section> 
-            <section className={styles.paswwordSection}>
-             <input type="checkbox" name="" className={styles.checkBox} id="Passwordvisible" />
-             <label htmlFor="">recuerdame </label>   
-             <span className={styles.Modal} onClick={() => {
-            handleOpen(AUTH_MODAL_TYPE.LOGIN)
-            handleOpen(AUTH_MODAL_TYPE.REGISTER)
-          }}>ya tengo cuenta</span>
-            </section>
+              <section className='flex justify-between'>
+              <article >  
+                <input type="checkbox" name="" id="recurdame"/>
+                <label className=' text-sm' htmlFor="">recuerdame </label>
+              </article>
+              <article className={`${styles.pwforgot} flex items-center`}>
+                <span className="cursor-pointer " onClick={() => {
+                  handleOpen(AUTH_MODAL_TYPE.LOGIN)
+                  handleOpen(AUTH_MODAL_TYPE.REGISTER)
+                  }}>ya tengo cuenta
+                </span>
+              </article>
+             </section>
 
-             <button type='submit' className={styles.loginButton} >
-              Crear
-              </button>
-          
-               <div className={styles.aux}>
-                 <section></section>
-                 <h5>O</h5>
-                 <section></section>
-               </div>
-               <button
-            type="button"
-            className={`${styles.googleButton} flex items-center font-bold justify-center mb-32
-          py-3 w-3/4`}
-        
-          >
-            <FcGoogle className="text-3xl mr-2" />
-            Login with google
-          </button>
-         </form>
-    </section>
+             <section className={`${styles.SubmitSection} flex justify-center items-center h-1/6 max-h-12` }>
+              <button type="submit" className='bg-secondOrange w-3/4 h-full rounded-md hover:bg-yellow-300'> Crear </button>
+             </section>
 
- </div>
+        </form>
+   
+
+              <div className='flex justify-center items-center w-3/4'>
+            <section className=" border-b border-solid w-full  border-black"></section>
+            <h5>O</h5>
+            <section className=" border-b border-solid w-full  border-black"></section>
+         </div>
+
+                  <section className={ `${styles.googleButtonSection} w-full flex justify-center  items-center`}>
+            <button  type="button" className='border border-solid rounded-md border-black w-7/12 h-3/4 flex justify-center items-center ' >
+              <FcGoogle className='text-3xl' /> 
+              <span className='text-black font-bold'>
+                Login with google
+              </span> 
+            </button>
+          </section>
+      </div>
+    </div>
    )
 }
 
