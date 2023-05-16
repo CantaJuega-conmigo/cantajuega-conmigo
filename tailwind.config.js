@@ -40,6 +40,8 @@ module.exports = {
         blue: "#26798e",
         green: "#63caa7",
         cream: "#ffe3b3",
+        grayicons:'#687076',
+        orangeicons:'#FF3D00'
       },
       fontFamily: {
         main: ["./public/fonts/ITCKRIST/ITCKRIST.ttf"],
