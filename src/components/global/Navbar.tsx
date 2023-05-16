@@ -10,14 +10,18 @@ import Resgister from "./Register";
 import { AUTH_MODAL_TYPE } from "@/utils";
 
 //ICONS
-import { HiOutlineMenu } from "react-icons/hi";
+import { HiOutlineMenu, HiOutlineUserAdd, HiUser, HiUserAdd } from "react-icons/hi";
 import {
   AiOutlineMobile,
   AiOutlineClose,
   AiOutlineUserAdd,
+  AiOutlineUsergroupAdd,
+  AiFillFacebook,
+  AiOutlineFacebook,
 } from "react-icons/ai";
-import { BsFacebook, BsYoutube } from "react-icons/bs";
-import { TiMail } from "react-icons/ti";
+import { BsFacebook, BsTelephone, BsYoutube } from "react-icons/bs";
+import { TiMail, TiSocialFacebook, TiSocialFacebookCircular, TiUser, TiUserAdd, TiUserAddOutline } from "react-icons/ti";
+import { IoLogoFacebook, IoMdMail } from "react-icons/io";
 
 const Navbar = () => {
   const items = [
@@ -50,33 +54,38 @@ const Navbar = () => {
   return (
     <nav className="shadow-md w-full h-auto  top-0 left-0">
       {/* top nav */}
-      <div className="hidden md:flex md:top-0 md:w-auto md:px-4 md:py-2 md:justify-between md:items-center md:bg-gray-100  md:border-b-2 md:border-dashed  md:border-amber-500">
-        <div className=""></div>
+      <div className="hidden bg-white 2xl:w-full font-sans font-normal md:pb-5 md:flex md:top-0 md:w-auto md:px-4
+       md:py-2 md:justify-end md:items-center  md:border-b-2 md:border-dashed 
+        md:border-orangeicons  2xl:text-2xl   xl:text-xl lg:text-lg  sm:text-sm ">
+        <section className="flex w-full justify-between lg:w-11/12 ">
+          <div className="flex   justify-evenly w-7/12  ">
+            <a href="" className="flex items-center">
+            <BsTelephone className="fill-current h-4 w-4 flex-shrink-0 mr-2 text-orangeicons" />
+            <span className="">+502 5430-1174 </span>
+            </a >
+            <a href="" className="flex items-center">
+            <IoMdMail className="fill-current h-4 w-4 flex-shrink-0 mr-2  text-orangeicons" />
+            <span className="">info@cantajuegaconmigo</span>
+            </a >
+          </div>
 
-        <div className="flex justify-start md:text-xs">
-          <span className="mr-6">ALGUNA PREGUNTA? </span>
-
-          <AiOutlineMobile className="fill-current h-4 w-4 flex-shrink-0 mr-2 text-yellow-300" />
-          <span className="mr-6">+502 5430-1174 </span>
-
-          <TiMail className="fill-current h-4 w-4 flex-shrink-0 mr-2  text-yellow-300" />
-          <span className="mr-6">info@cantajuegaconmigo</span>
-        </div>
-
-        <div className="flex justify-end space-x-4 font-semibold text-base cursor-pointer">
-          <BsFacebook className="text-[#3b5998] rounded-full" size={25} />
-          <BsYoutube className="text-[#c4302b] rounded-full" size={25} />
-          <div className="border border-gray-400 h-6 w-0"></div>
-          <AiOutlineUserAdd className="text-blue rounded-full" size={25} />
-          <span
-            className="hover:text-[#FFC172] cursor-pointer"
-            onClick={() => handleOpen(AUTH_MODAL_TYPE.LOGIN)}
-          >
-            Iniciar Sesión
-          </span>
-        </div>
+          <div className="flex  space-x-4  cursor-pointer items-center">
+            <BsYoutube className="text-[#FF0302] text-2xl"  />
+            <TiSocialFacebook className="text-[#1877F2] text-2xl" />
+            <HiUserAdd className=" text-orangeicons transform scale-x-[-1] text-2xl" />
+            <span
+              className="hover:text-[#FFC172] cursor-pointer"
+              onClick={() => handleOpen(AUTH_MODAL_TYPE.LOGIN)}
+            >
+              Iniciar Sesión
+            </span>
+          </div>
+        </section>
       </div>
       {/* top nav */}
+
+
+
       <div className="md:flex items-center justify-between bg-white py-4 md:px-10 px-7">
         <div
           className="font-bold text-2xl cursor-pointer flex items-center 
