@@ -1,0 +1,27 @@
+.Container h1{
+    font-family:'Kristen ITC'
+}
+.Container p{
+    font-family:'Kristen ITC';
+    font-size: 15px;
+    line-height: 24px;
+    font-weight: 400;
+    font-style: normal;
+/* or 160% */
+
+display: flex;
+align-items: center;
+text-align: center
+}
+.Container span{
+    font-family:'Kristen ITC';
+    font-weight: 400;
+}
+.CoursesSection article{
+border-radius: 10px;
+cursor: pointer;
+}
+.CoursesSection section:hover{
+    border: 1px dashed orange;    
+    border-radius: 10px;
+}

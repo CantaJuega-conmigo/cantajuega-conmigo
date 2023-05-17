@@ -41,7 +41,9 @@ module.exports = {
         green: "#63caa7",
         cream: "#ffe3b3",
         grayicons:'#687076',
-        orangeicons:'#FF3D00'
+        orangeicons:'#FF3D00',
+        violet:'#9510B8',
+        red:'#FF0303'
       },
       fontFamily: {
         main: ["./public/fonts/ITCKRIST/ITCKRIST.ttf"],
