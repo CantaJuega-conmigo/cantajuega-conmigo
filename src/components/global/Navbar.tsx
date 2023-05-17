@@ -29,7 +29,7 @@ const Navbar = () => {
     { name: "Metodología", href: "#metodologia" },
     { name: "Cancionero", href: "/cancionero" },
     { name: "Membresías", href: "/membresias" },
-    { name: "Cursos", href: "/cursos" },
+    { name: "Cursos", href: "/Cursos" },
     { name: "Contacto", href: "/contacto" },
   ];
 
