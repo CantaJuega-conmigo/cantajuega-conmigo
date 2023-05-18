@@ -11,7 +11,7 @@ export default function Cursos(){
              <Image src={image1} alt='' className={`${styles.Image1}` }/>
              <Image src={image2} alt=''  className={`${styles.Image2}`}/>
            
-             <h1 className=" z-50 text-4xl 2xl:text-8xl   xl:text-6xl lg:text-5xl  sm:text-5xl">Cursos</h1>
+             <h1 className="  z-30 text-4xl 2xl:text-8xl   xl:text-6xl lg:text-5xl  sm:text-5xl">Cursos</h1>
              <div className={`${styles.Imageblue} absolute`}>
              <Image src={image4} alt=''  className=" w-[auto] absolute bottom-[2.7rem]  right-6  h-[3rem] "/>
              <Image src={image3} alt=''  className=" w-[auto] absolute bottom-[3.2rem]  right-[1.2rem] h-[3.5rem] "/>

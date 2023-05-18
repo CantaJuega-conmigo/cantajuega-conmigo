@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-
+import styles from '../../styles/Navbar.module.css'
 // USER
 import Login from "./Login";
 import Resgister from "./Register";
@@ -31,6 +31,7 @@ const Navbar = () => {
     { name: "Membresías", href: "/membresias" },
     { name: "Cursos", href: "/Cursos" },
     { name: "Contacto", href: "/contacto" },
+    {name:"Mis cursos",href:"/Miscursos"}
   ];
 
   interface OpenInterface {
@@ -123,12 +124,12 @@ const Navbar = () => {
         </div>
 
         <ul
-          className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static bg-white md:z-auto z-[20] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${
-            openMenu ? "top-20 " : "top-[-490px]"
+          className={` ${styles.List} md:flex md:items-center md:pb-0 pb-12 absolute md:static bg-white md:z-auto z-[50] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${
+            openMenu ? "top-20 " : "top-[-600px]"
           }`}
         >
           {items.map((item) => (
-            <li key={item.name} className="md:ml-8 text-2xl md:my-0 my-7">
+            <li key={item.name} className="md:ml-8 text-2xl md:my-0 my-7 w-fit z-50">
               <Link
                 href={item.href}
                 className="text-gray-800 hover:text-yellow-500 duration-500"
