@@ -8,10 +8,10 @@ import style from '../../styles/Footer.module.css'
 
 const Footer = () => {
   return (
-    <footer className= {`${style.Footer} bg-white flex justify-between items-center pt-10 pb-4 w-full flex-wrap `}>
+    <footer className= {`${style.Footer} bg-white flex justify-between items-center pt-10 pb-1 w-full flex-wrap `}>
         
        <section className=" w-fit">
-        <Image src={logo} alt="logo" className=" w-56 2xl:w-96 xl:w-80 lg:w-72 md:w-64 sm:w-60 "/>
+        <Image src={logo} alt="logo" className=" w-56 2xl:w-96 xl:w-64 lg:w-72 md:w-64 sm:w-60 "/>
        </section>
        
 
