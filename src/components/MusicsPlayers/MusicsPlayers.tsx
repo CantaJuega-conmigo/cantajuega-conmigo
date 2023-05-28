@@ -1,5 +1,5 @@
 import { HiVolumeOff, HiVolumeUp } from "react-icons/hi";
-import { useEffect, useState } from "react";
+import { useEffect, useState ,MouseEvent,ChangeEvent} from "react";
 import styles from '../../styles/Cancionero.module.css'
 import { BsFastForwardFill,BsPlayCircle, BsRewindFill, BsStopBtn} from "react-icons/bs";
 interface props{
@@ -7,10 +7,10 @@ interface props{
 }
 export default function MusicsPlayers({Musics}:props){
     const [mute,setMute]=useState<boolean>(false)
-    const [actualAudio,setActualAudio]=useState('')
+    const [actualAudio,setActualAudio]=useState<string>('')
   
     useEffect(()=>{
-        const musicsDurations = Array.from(document.getElementsByClassName('AudioDurations')) as HTMLSpanElement[];
+        const musicsDurations= Array.from(document.getElementsByClassName('AudioDurations')) as HTMLSpanElement[];
         const allaudios = Array.from(document.getElementsByClassName('audios')) as HTMLAudioElement[];
         allaudios.forEach((audio, index) => {
           if (!isNaN(audio.duration) && isFinite(audio.duration)) {
@@ -45,7 +45,7 @@ export default function MusicsPlayers({Musics}:props){
       
     const colors=['#FF3D00','#FFC172','#26798E','#9510B8']
 
-    const play=(key:any)=>{
+    const play=(key:string)=>{
         stopallaudios()///parar audios anteriores
         
         const audio = document.getElementById(`cancion ${key}`) as HTMLAudioElement;///seleccionamos el audio actual, 
@@ -55,13 +55,13 @@ export default function MusicsPlayers({Musics}:props){
         silenceAudios()//ocultamos los iconos de sonido de los otros audios para que solo se vea el actual
     
         controlssound.style.display='block'//ponemos la seccion de iconos de sonido en block para que sea visible el actual
-        const progressInput:any = document.getElementById(`progreso ${key}`);//seleccionamos el input del audio actual que muestra el progreso de la musica
+        const progressInput = document.getElementById(`progreso ${key}`) as HTMLInputElement;//seleccionamos el input del audio actual que muestra el progreso de la musica
         audio.play()//ponemos en play el audio actual
         setActualAudio(`${key}`)// actualizamos nuestro audio actual
 
         audio&&audio.addEventListener('timeupdate', ()=>{
            const progress = (audio.currentTime / audio.duration) * 100;//tomamos el progreso de la musica actual
-           progressInput.value = progress;///actualizamos el porcentaje en del input que muestra el progreso y que se actualize conforme al progreso de la musica
+           progressInput.value = `${progress}`;///actualizamos el porcentaje en del input que muestra el progreso y que se actualize conforme al progreso de la musica
            const gradient = `linear-gradient(to right, #FF3D00 ${progress}%,#000000 0%,#000000 50%, #000000 100%)`;//le damos un color naranja al progreso y un color negro a lo que falta 
            progressInput.style.background = gradient;//aqui le pasamos el color al input del progreso
  
@@ -81,14 +81,14 @@ export default function MusicsPlayers({Musics}:props){
     setMute(false)///para evitar bug que muestra mal iconos del sonido/mute
       
    }
-   
-   const updateAudioProgress=(e:any)=> {    
-    const audio = document.getElementById(`cancion ${e.target.name}`) as HTMLAudioElement;
-    const progress = e.target.value / 100;
+
+   const updateAudioProgress=(event:ChangeEvent<HTMLInputElement>)=> {    
+    const audio = document.getElementById(`cancion ${event.currentTarget.name}`) as HTMLAudioElement;
+    const progress = parseInt( event.currentTarget.value)/ 100;
     audio.currentTime = progress * audio.duration;
   }
    
-   const pause=(key:any)=>{       
+   const pause=(key:string)=>{       
     let audio = document.getElementById(`cancion ${key}`) as HTMLAudioElement;
     audio.pause()
     setActualAudio(``)
