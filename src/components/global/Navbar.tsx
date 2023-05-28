@@ -10,27 +10,22 @@ import Resgister from "./Register";
 import { AUTH_MODAL_TYPE } from "@/utils";
 
 //ICONS
-import { HiOutlineMenu, HiOutlineUserAdd, HiUser, HiUserAdd } from "react-icons/hi";
+import { HiOutlineMenu, HiUserAdd } from "react-icons/hi";
 import {
-  AiOutlineMobile,
   AiOutlineClose,
-  AiOutlineUserAdd,
-  AiOutlineUsergroupAdd,
-  AiFillFacebook,
-  AiOutlineFacebook,
 } from "react-icons/ai";
-import { BsFacebook, BsTelephone, BsYoutube } from "react-icons/bs";
-import { TiMail, TiSocialFacebook, TiSocialFacebookCircular, TiUser, TiUserAdd, TiUserAddOutline } from "react-icons/ti";
-import { IoLogoFacebook, IoMdMail } from "react-icons/io";
+import {  BsTelephone, BsYoutube } from "react-icons/bs";
+import {  TiSocialFacebook} from "react-icons/ti";
+import {  IoMdMail } from "react-icons/io";
 
 const Navbar = () => {
   const items = [
     { name: "Nosotros", href: "/nosotros" },
     { name: "Metodología", href: "#metodologia" },
-    { name: "Cancionero", href: "/cancionero" },
+    { name: "Contacto", href: "/contacto" },
+    { name: "Cancionero", href: "/Cancionero" },
     { name: "Membresías", href: "/membresias" },
     { name: "Cursos", href: "/Cursos" },
-    { name: "Contacto", href: "/contacto" },
     {name:"Mis cursos",href:"/Miscursos"}
   ];
 

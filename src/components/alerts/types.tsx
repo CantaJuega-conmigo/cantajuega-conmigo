@@ -9,6 +9,14 @@ export enum MembresiasAlerts{
   Alert2='Alert2',
   Alert3='Alert3'
 }
+export enum PagosAlerts{
+  SALDOINSUFICIENTE='SALDOINSUFICIENTE',
+  ERRORDEPAGO='ERRORDEPAGO',
+  ERROR3='ERROR3'
+}
+export enum CuestionarioAlerts{
+  Confirm='Confirm'
+}
 
 export interface Alertsprops{
     Personalizado?:{
@@ -16,7 +24,9 @@ export interface Alertsprops{
         text2?:string,
     },
     Miscursos?:MiscursosAlerts,
-    Membresias?:MiscursosAlerts,
+    Membresias?:MembresiasAlerts,
+    Pagos?:PagosAlerts,
+    Cuestionario?:CuestionarioAlerts,
     close?:MouseEventHandler<HTMLButtonElement>
   }
 
