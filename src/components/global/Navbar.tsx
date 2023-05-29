@@ -14,15 +14,15 @@ import { HiOutlineMenu, HiUserAdd } from "react-icons/hi";
 import {
   AiOutlineClose,
 } from "react-icons/ai";
-import {  BsTelephone, BsYoutube } from "react-icons/bs";
-import {  TiSocialFacebook} from "react-icons/ti";
+import {  BsArrow90DegDown, BsArrowBarDown, BsArrowDown, BsTelephone, BsYoutube } from "react-icons/bs";
+import {  TiArrowDown, TiSocialFacebook} from "react-icons/ti";
 import {  IoMdMail } from "react-icons/io";
 
 const Navbar = () => {
   const items = [
     { name: "Nosotros", href: "/nosotros" },
-    { name: "Metodología", href: "#metodologia" },
-    { name: "Contacto", href: "/contacto" },
+    { name: "Metodología", href: "/#metodologia" },
+    { name: "Contacto", href: "/contacto" ,subhref:'/Cuestionario'},
     { name: "Cancionero", href: "/Cancionero" },
     { name: "Membresías", href: "/membresias" },
     { name: "Cursos", href: "/Cursos" },
@@ -124,13 +124,19 @@ const Navbar = () => {
           }`}
         >
           {items.map((item) => (
-            <li key={item.name} className="md:ml-8 text-2xl md:my-0 my-7 w-fit z-50">
+            <li key={item.name} className="md:ml-8 text-2xl md:my-0 my-7 w-fit z-50 relative">
               <Link
                 href={item.href}
-                className="text-gray-800 hover:text-yellow-500 duration-500"
+                className="text-gray-800 hover:text-yellow-500 duration-500 flex items-center "
               >
                 {item.name}
+                {item.subhref&&<TiArrowDown className=""/>}
               </Link>
+              {item.subhref&&
+                 <Link href={item.subhref}className={`${styles.SubHrefs} absolute hidden w-full bg-white h-[4rem] `} >
+                 <span className=" text-lg border border-orange rounded-lg">  Cuestionario </span>
+                 </Link>
+                 }
             </li>
           ))}
           <button

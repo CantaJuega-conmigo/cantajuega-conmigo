@@ -4,6 +4,11 @@
     border-radius:10px ;
 }
 .List li{
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     padding:5px;
 }
+.List li:nth-child(3):hover .SubHrefs{ /* al pasar el mouse por el elemento li numero 3 se mostrara un submenu   */
+ display: flex;
+ align-items: flex-end;
+}
+
