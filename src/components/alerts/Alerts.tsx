@@ -1,14 +1,32 @@
-import { useState} from 'react'
+import { useState,MouseEvent} from 'react'
 import { Alertsprops, MiscursosAlerts ,MembresiasAlerts,PagosAlerts, CuestionarioAlerts} from './types'
 import Login from '../global/Login'
 import { AUTH_MODAL_TYPE } from '@/utils/constants';
 import Register from '../global/Register';
 import Link from 'next/link';
+///importar el componente Alerts donde vayamos a usarlo ej: import Alerts from "@/components/alerts/Alerts";
+/*    
+declarar un estado para poder usar como modal al alert que querramos, si vamos a usar mas de un alerta agregaremos mas alert al estado en false inicialmente
+const [seeAlert,setSeeAlerts]=useState<alertsState>({///Traer la interface alertsState para tipar 
+  alert1:false,
+  alert2:false,
+  texte1:'',///esto podemos agregar si deseamos un alert personalizado
+ })
+
+ --  const closeAlert=()=>{//crear la funcion reset para cerrar los alerts
+    setSeeAlerts({})
+  }
+  Cuando usamos el componente , le indicamos el tipo de alerta como propiedad(Miscursos,Membresias,Personalizado,Pagos,Cuestionario)
+  Y le pasamos algun ENUM del archivo type, que indica el El alerta espesifico del tipo de alerta que que queremos usar ej:
+  {seeAlert.alert1&&<Alerts close={closeAlert} Miscursos={MiscursosAlerts.Alert1} /> ejemplo de renderizado 
+
+*/
+
 interface OpenInterface {
     LOGIN: boolean;
     REGISTER: boolean;
   }
-export default function Alerts({Miscursos,Membresias,Personalizado,Pagos,Cuestionario,close}:Alertsprops){
+export default function Alerts({Miscursos,Membresias,Personalizado,Pagos,Cuestionario,close,submitFunction}:Alertsprops){
     const [open, setOpen] = useState<OpenInterface>({
         LOGIN: false,
         REGISTER: false,
@@ -21,6 +39,12 @@ export default function Alerts({Miscursos,Membresias,Personalizado,Pagos,Cuestio
         }));
       };
     
+      const submit=(event:MouseEvent<HTMLButtonElement>,callback:Function)=>{
+       submitFunction&&submitFunction(event)
+        setTimeout(() => {
+          callback()
+        }, 1000);
+      }
     
  return(
     <div id='alert' className="bg-[#D9D9D9A1] absolute w-full h-full justify-center items-center top-0 z-50 flex" >
@@ -92,7 +116,7 @@ export default function Alerts({Miscursos,Membresias,Personalizado,Pagos,Cuestio
              </h1>
              <div className='flex '>
              <button className="p-2 rounded-lg m-2 border border-orangeicons" onClick={close}>No</button>
-             <button className="bg-orange p-2 rounded-lg m-2">SI</button>        
+             <button className="bg-orange p-2 rounded-lg m-2" onClick={(event)=>submit(event,close)}>SI</button>        
              </div>
          </section>}
        

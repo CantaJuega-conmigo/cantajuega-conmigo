@@ -27,7 +27,8 @@ export interface Alertsprops{
     Membresias?:MembresiasAlerts,
     Pagos?:PagosAlerts,
     Cuestionario?:CuestionarioAlerts,
-    close?:MouseEventHandler<HTMLButtonElement>
+    close:MouseEventHandler<HTMLButtonElement>,
+    submitFunction?:MouseEventHandler<HTMLButtonElement>
   }
 
 export interface alertsState{
