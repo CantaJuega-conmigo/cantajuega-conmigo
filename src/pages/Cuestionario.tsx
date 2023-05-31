@@ -138,12 +138,12 @@ export default function Cuestionario (){
         const Yescheck=document.getElementById(`YesAnswerQ${checksid}`) as HTMLInputElement;
         const Nocheck=document.getElementById(`NoAnswerQ${checksid}`) as HTMLInputElement;
         const OtherOption=document.getElementById(`OtherAnswerQ${checksid}`) as HTMLInputElement
-       
+                                                   
         event.target.value===Answers.No?
-        (Yescheck.checked=false,OtherOption? OtherOption.checked=false :null):
+        (Yescheck.checked=false,(OtherOption? OtherOption.checked=false :null)):
         event.target.value===Answers.Si?
-        (OtherOption? OtherOption.checked=false :null,Nocheck.checked=false):
-        (Yescheck.checked=false, OtherOption? OtherOption.checked=false :null)
+        ((OtherOption? OtherOption.checked=false :null),Nocheck.checked=false):
+        (Yescheck.checked=false, Nocheck.checked=false)
 
          setForm({
                 ...form,
@@ -246,8 +246,7 @@ export default function Cuestionario (){
                             <input type="text" id="DetailQuestionOne" className="border border-gray-400" 
                             name="Detail" value={form.Question1.Detail} onChange={setQuestion1} disabled/>
                            </article>
-                           <span>{form.Question1.Answer}</span>
-                           <span>{form.Question1.Detail}</span>
+            
                     </article>
 
        {/*CAJA 2*/ }<article className="    justify-evenly h-full flex flex-col items-center w-5/12">
