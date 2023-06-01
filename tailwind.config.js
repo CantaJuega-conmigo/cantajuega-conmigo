@@ -48,6 +48,7 @@ module.exports = {
       fontFamily: {
         main: ["./public/fonts/ITCKRIST/ITCKRIST.ttf"],
         sans: ["Roboto", "sans-serif"],
+        fredoka: ['Fredoka One']
       },
     },
   },

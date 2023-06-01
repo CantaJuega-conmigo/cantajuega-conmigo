@@ -27,7 +27,7 @@ export default function Cancionero(){
     ]
 
     return (
-        <div className={`${login?`h-[55rem]`:` ${styles.Container} h-full `} bg-white`} >
+        <div className={`${login?`h-[55rem]`:` h-full `} bg-white ${styles.Container}`} >
               <section className=" relative bg-violet h-[10rem] w-full flex justify-center items-center ">
                 <Image src={image1} alt="blueimage" className={`${styles.Image1}`}/>
                  <div className={`${styles.StarsContainer}`}>

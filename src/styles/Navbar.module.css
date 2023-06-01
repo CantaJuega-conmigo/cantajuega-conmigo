@@ -1,6 +1,14 @@
+@font-face {
+    font-family: 'Fredoka One';
+    src: url('../../public/fonts/Fredoka/Fredoka.ttf') format('truetype');
+  }
+.List a{
+    font-family: 'Fredoka One';
+    font-weight: 600;
+}
 .List li:nth-child(7){
     background-color:#FF3D00;
-    font:'Fredoka One';
+    
     border-radius:10px ;
 }
 .List li{

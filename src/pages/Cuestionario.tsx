@@ -67,7 +67,6 @@ export default function Cuestionario (){
     }
     const setParentsInfo=(event:ChangeEvent<HTMLInputElement>)=>{
      
-
       const updatedForm = {
         ...form,
         Adult: {
@@ -132,8 +131,9 @@ export default function Cuestionario (){
                 }
             })
         }   
+        !valor&&(inputDetails.disabled=true)
     } 
-      const setQuestions=(event:ChangeEvent<HTMLInputElement>,NumberQuestion:keyof FormQuestions,checksid:string)=>{
+    const setQuestions=(event:ChangeEvent<HTMLInputElement>,NumberQuestion:keyof FormQuestions,checksid:string)=>{
         const value= event.target.value===form[NumberQuestion].Answer?Answers.initial:event.target.value
         const Yescheck=document.getElementById(`YesAnswerQ${checksid}`) as HTMLInputElement;
         const Nocheck=document.getElementById(`NoAnswerQ${checksid}`) as HTMLInputElement;
@@ -144,7 +144,6 @@ export default function Cuestionario (){
         event.target.value===Answers.Si?
         ((OtherOption? OtherOption.checked=false :null),Nocheck.checked=false):
         (Yescheck.checked=false, Nocheck.checked=false)
-
          setForm({
                 ...form,
                 [NumberQuestion]:{

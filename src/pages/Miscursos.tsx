@@ -1,6 +1,6 @@
 import Alerts from '@/components/alerts/Alerts'
 import {ChangeEvent, useState,MouseEvent, useEffect} from 'react'
-
+import styles from '../styles/Miscursos.module.css'
 import { Alertsprops, MiscursosAlerts,alertsState } from '@/components/alerts/types'
 
 export default function Miscursos(){
@@ -59,7 +59,7 @@ export default function Miscursos(){
     const actualtitlecolor={background:'#FFC172' ,borderRadius:'10px'}
     
     return(
-        <div className={` flex bg-white`}>
+        <div className={`${styles.Container} flex bg-white `}>
          
              
             {seeAlert.alert1&&<Alerts close={closeAlert} Miscursos={MiscursosAlerts.Alert1} />/* usamos modales espesificos para los alerts*/}

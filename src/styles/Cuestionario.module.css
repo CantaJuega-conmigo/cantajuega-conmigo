@@ -1,6 +1,18 @@
 /* .Cuestionario{
 
 } */
+@font-face {
+  font-family: 'Fredoka One';
+  src: url('../../public/fonts/Fredoka/Fredoka.ttf') format('truetype');
+}
+.Cuestionario h1{
+  font-family:'Fredoka One';
+  font-weight: 500;
+}
+.Cuestionario label{
+  font-family:'Fredoka One';
+  font-weight:500 ;
+}
 .Cuestionario select{
     background-color: white;
     padding: 5px;
