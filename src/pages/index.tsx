@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import Head from "next/head";
 import NewsletterSuscription from "@/components/home/NewsletterSuscription";
 import Hero from "@/components/home/Hero";
-import ImageSection from "@/components/home/ImageSection";
 import Trailer from "@/components/home/Trailer";
 import Metodologia from "@/components/home/Metodologia";
 import Layout from "@/components/global/Layaout";
@@ -51,8 +50,7 @@ export default function Home() {
           <Hero />
           <Metodologias />
           {/* <ImageSection images={'sad'} /> */}
-          <Trailer />
-          <ImageSection images={"asd"} />
+          <Trailer /> 
           {/* <Metodologia /> */}
           <NewsletterSuscription />
         </Layout>
