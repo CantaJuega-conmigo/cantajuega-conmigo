@@ -7,6 +7,7 @@ import Metodologia from "@/components/home/Metodologia";
 import Layout from "@/components/global/Layaout";
 import Metodologias from "@/components/home/metodologia/Metodologias";
 import { authUser } from "@/functions/user.query";
+import Nosotros from "@/components/home/Nosotros";
 
 export default function Home() {
   useEffect(() => {
@@ -48,6 +49,7 @@ export default function Home() {
       <main className="flex text-black overflow-x-hidden min-h-screen m-0">
         <Layout className="p-0">
           <Hero />
+          <Nosotros/>
           <Metodologias />
           {/* <ImageSection images={'sad'} /> */}
           <Trailer /> 

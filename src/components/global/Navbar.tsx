@@ -20,7 +20,7 @@ import {  IoMdMail } from "react-icons/io";
 
 const Navbar = () => {
   const items = [
-    { name: "Nosotros", href: "/nosotros" },
+    { name: "Nosotros", href: "/#Nosotros" },
     { name: "Metodología", href: "/#metodologia" },
     { name: "Contacto", href: "/contacto" ,subhref:'/Cuestionario'},
     { name: "Cancionero", href: "/Cancionero" },
