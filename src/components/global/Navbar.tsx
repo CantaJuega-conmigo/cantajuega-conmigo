@@ -22,7 +22,7 @@ const Navbar = () => {
   const items = [
     { name: "Nosotros", href: "/#Nosotros" },
     { name: "Metodología", href: "/#metodologia" },
-    { name: "Contacto", href: "/contacto" ,subhref:'/Cuestionario'},
+    { name: "Contacto", href: "/#contacto" ,subhref:'/Cuestionario'},
     { name: "Cancionero", href: "/Cancionero" },
     { name: "Membresías", href: "/membresias" },
     { name: "Cursos", href: "/Cursos" },

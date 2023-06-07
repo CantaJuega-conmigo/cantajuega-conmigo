@@ -4,7 +4,7 @@ import Image from 'next/image'
 import image from '../../../public/img/img.png'
 export default function NewsletterSuscription(){
     return(
-    <div className={`${styles.Container} h-[39rem] bg-secondOrange flex flex-col items-center justify-center pb-7 relative`}>
+    <div id='contacto' className={`${styles.Container} h-[39rem] bg-secondOrange flex flex-col items-center justify-center pb-7 relative`}>
       <Image src={image} alt='cjimgs' className=' absolute top-[20%] left-0 h-[70%] w-auto z-0 ' />
      <div className={`${styles.Aux} h-[2rem] w-full absolute top-0`}>
      
