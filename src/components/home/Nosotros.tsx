@@ -3,6 +3,8 @@ import {HiArrowDown } from "react-icons/hi";
 import image from '../../../public/img/image3.png'
 import {useState} from 'react'
 import styles from '../../styles/Nosotros.module.css'
+import YouTube from "react-youtube";
+const videoId = "jqLaRv0fuXc";
 export default function Nosotros(){
     const [seeAbout,setSeeAbout]=useState(false);
     const [seeUsDream,setSeeUsDream]=useState(false);
@@ -59,8 +61,17 @@ export default function Nosotros(){
 
             </section>
 
-            <section className=" flex items-center justify-center">
-                <Image alt="cjimage" src={image}  className="h-5/6 w-10/12" />
+            <section className="  flex items-center justify-center w-5/12">
+                {/* <Image alt="cjimage" src={image}  className="h-5/6 w-10/12" /> */}
+                <YouTube
+            videoId={videoId}
+            opts={{
+              height: "100%",
+              width: "100%",
+              playerVars: {},
+            }}
+            className="h-5/6 w-full"
+          />
             </section>
         </div>
     )

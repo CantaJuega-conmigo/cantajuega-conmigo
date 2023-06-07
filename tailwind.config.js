@@ -43,7 +43,8 @@ module.exports = {
         grayicons:'#687076',
         orangeicons:'#FF3D00',
         violet:'#9510B8',
-        red:'#FF0303'
+        red:'#FF0303',
+        yellow:'#F9A825'
       },
       fontFamily: {
         main: ["./public/fonts/ITCKRIST/ITCKRIST.ttf"],

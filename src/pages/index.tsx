@@ -3,7 +3,6 @@ import Head from "next/head";
 import NewsletterSuscription from "@/components/home/NewsletterSuscription";
 import Hero from "@/components/home/Hero";
 import Trailer from "@/components/home/Trailer";
-import Metodologia from "@/components/home/Metodologia";
 import Layout from "@/components/global/Layaout";
 import Metodologias from "@/components/home/metodologia/Metodologias";
 import { authUser } from "@/functions/user.query";
@@ -51,9 +50,7 @@ export default function Home() {
           <Hero />
           <Nosotros/>
           <Metodologias />
-          {/* <ImageSection images={'sad'} /> */}
-          <Trailer /> 
-          {/* <Metodologia /> */}
+          {/* <Trailer />  */}
           <NewsletterSuscription />
         </Layout>
       </main>
