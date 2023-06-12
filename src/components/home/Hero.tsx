@@ -18,7 +18,6 @@ const Hero = () => {
   const [reloadAnimation,setReloadAnimation]=useState<boolean>(true)
  
   const cambiarTexto = () => {
-    // Crea una nueva copia del objeto texto y actualiza solo la propiedad que deseas cambiar
     const firstText={
       N:1,
       title: "Aprende jugando",
@@ -37,9 +36,6 @@ const Hero = () => {
     }, 1);
 
   };
-
-  // setInterval(cambiarTexto, 3000);
-
   return (
     <div className={` ${styles.Container} h-[27rem]  min-[380px]:h-[24rem] min-[940px]:h-[20rem] xl:h-[25rem] flex flex-col items-center relative  `}>
     
