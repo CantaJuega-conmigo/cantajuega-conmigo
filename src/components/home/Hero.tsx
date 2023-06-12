@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
-import { HiArrowNarrowRight, HiArrowRight } from "react-icons/hi";
-import { motion } from "framer-motion";
+import { HiArrowRight } from "react-icons/hi";
+
 import artwork from "../../../public/img/Untitled_Artwork-4-6.png";
 import artwork2 from "../../../public/img/Untitled_Artwork-3-1.png"
 import Image from "next/image";
