@@ -31,10 +31,10 @@ export default function Nosotros(){
                     min-[400px]:w-[15rem] 
                     sm:w-[18rem] 
                     md:w-[20rem]
-                     lg:w-[28rem] 
-                     xl:w-[33rem]
+                    lg:w-[28rem] lg:h-[5rem] 
+                    xl:w-[33rem]
                     2xl:w-[35rem] 
-                     lg:h-[5rem] ">
+                     ">
                         <span className=" text-2xl sm:text-3xl md:text-4xl  xl:text-6xl lg:text-5xl">
                         Nosotros
                         </span>
@@ -42,8 +42,8 @@ export default function Nosotros(){
                     </button>
                     
                 { seeAbout&&
-                    <article className="absolute bg-[#FAFAFA] z-30 h-[12rem] border flex justify-center items-center">
-                        <span className="w-9/12 text-center text-black">
+                    <article className="absolute bg-[#FAFAFA] z-30  h-auto lg:h-[12rem] border flex justify-center items-center">
+                        <span className=" w-10/12 p-1 lg:p-0 lg:w-9/12 text-center text-black">
                         CantaJuega Conmigo ha sido creado a partir del interés por el desarrollo y 
                         estimulación oportuna de la primera infancia con dificultades de aprendizaje 
                         y socialización debidos a una condición que afecta o altera su capacidad de hablar y comunicar. 
@@ -57,10 +57,9 @@ export default function Nosotros(){
                     min-[400px]:w-[15rem] 
                     sm:w-[18rem] 
                     md:w-[20rem]
-                     lg:w-[28rem] 
-                     xl:w-[33rem]
+                    lg:w-[28rem]  lg:h-[5rem] 
+                    xl:w-[33rem]
                     2xl:w-[35rem] 
-                     lg:h-[5rem]
                     ">
                         <span className=" text-2xl sm:text-3xl md:text-4xl  xl:text-6xl lg:text-5xl">
                         Nuestro sueño
@@ -68,7 +67,7 @@ export default function Nosotros(){
                         <HiArrowDown className="absolute right-0 bottom-[20%] text-4xl text-orangeicons "/>
                     </button>
                     { seeUsDream&&
-                    <article className="absolute bg-[#FAFAFA] z-30 h-[12rem] border flex justify-center items-center">
+                    <article className="absolute bg-[#FAFAFA] z-30  h-auto lg:h-[12rem] border flex justify-center items-center">
                         <span className="w-9/12 text-center ">
                         Teniendo como sueño grupal proporcionar un novedoso método terapéutico especializado, 
                         con el más alto nivel en neuro educación,música, arte y el modelado 
@@ -80,7 +79,6 @@ export default function Nosotros(){
             </section>
 
             <section className="  flex justify-center items-center w-full h-[50%] bg-white
-            
             min-[500px]:items-center 
             min-[500px]:h-full
             min-[500px]:justify-center

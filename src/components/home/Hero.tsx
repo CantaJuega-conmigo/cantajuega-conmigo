@@ -82,7 +82,7 @@ const Hero = () => {
      {texto.N===2&& <Image alt="Cjimage"  src={artwork2} className={`${styles.Image}  absolute w-auto  z-10 h-[50%] mt-10  right-[2%]  top-0
 
       min-[390px]:mt-0  min-[390px]:h-[55%]
-      min-[940px]:w-[26%] min-[940px]:h-auto  min-[940px]:top-[12%] min-[1050px]:top-[5%] min-[940px]:right-[0%] min-[945px]:mt-0
+      min-[940px]:w-[26%] min-[940px]:h-auto  min-[940px]:top-[12%] min-[1050px]:top-[5%] min-[1120px]:top-[0%] min-[940px]:right-[0%] min-[945px]:mt-0
       max-[940px]:static 
       xl:right-[0%]  xl:w-auto xl:h-full xl:top-0
       2xl:h-[105%] 2xl:right-[5%]`} />}
