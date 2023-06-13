@@ -1,6 +1,4 @@
-import Image from "next/image";
 import {HiArrowDown } from "react-icons/hi";
-import image from '../../../public/img/image3.png'
 import {useState} from 'react'
 import styles from '../../styles/Nosotros.module.css'
 import YouTube from "react-youtube";
@@ -20,8 +18,8 @@ export default function Nosotros(){
    
 
     return (
-        <div className={`${styles.Container}  h-[30rem] w-full flex flex-col items-center justify-between
-        min-[500px]:h-[20rem] min-[500px]:items-stretch min-[500px]:justify-between  min-[500px]:flex-row `} id="Nosotros">
+        <div className={`${styles.Container} mt-2  h-[30rem] w-full flex flex-col items-center justify-between
+        min-[500px]:h-[25rem] min-[500px]:items-stretch min-[500px]:justify-between  min-[500px]:flex-row `} id="Nosotros">
             
             <section className="flex flex-col w-full h-[50%] justify-around  items-center  
             min-[500px]:w-6/12 min-[500px]:h-auto min-[500px]:justify-evenly ">
