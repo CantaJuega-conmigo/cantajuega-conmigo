@@ -104,7 +104,7 @@ export default function MusicsPlayers({Musics}:props){
   } 
 
    return(
-    <div className={`${styles.LoggedContainer} border  w-3/6 h-[45rem] overflow-x-auto flex justify-center  `}>
+    <div className={`${styles.LoggedContainer} border  w-full h-[45rem] overflow-x-auto flex justify-center  `}>
     <ul className=" flex flex-col ">
 
      {Musics?.map((i:any,key)=>

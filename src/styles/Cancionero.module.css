@@ -55,14 +55,7 @@
     bottom: 40%;
     left: 10%;
 }
-.Image3{
-    position: absolute;
-    height:23.5rem;
-    width:23.5rem;
-    z-index: 1;
-    right: 15%;
-    top: 0%;
-}
+
 .Image3B{
     width: 25rem;
     margin: 0 auto;

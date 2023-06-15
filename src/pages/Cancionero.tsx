@@ -27,8 +27,8 @@ export default function Cancionero(){
     ]
 
     return (
-        <div className={`${login?`h-[55rem]`:` h-full `} bg-white ${styles.Container}`} >
-              <section className=" relative bg-violet h-[10rem] w-full flex justify-center items-center ">
+        <div className={`h-full bg-white ${styles.Container}`} >
+            <section className=" relative bg-violet h-[10rem] w-full flex justify-center items-center ">
                 <Image src={image1} alt="blueimage" className={`${styles.Image1}`}/>
                  <div className={`${styles.StarsContainer}`}>
                 <Image className={`${styles.Star1}`} src={image2} alt="stars"/>
@@ -38,25 +38,40 @@ export default function Cancionero(){
                 <h1 className="  z-30 text-[#FFFFFF] text-4xl 2xl:text-8xl   xl:text-6xl lg:text-5xl  sm:text-5xl">Cancionero</h1>
             </section>
           
-            <div className={`${login?'flex':'flex flex-col ' }`}>
+            <section className={`${login?'  flex flex-col-reverse sm:flex-row ':
+            'flex flex-col ' }`}>
 
-               { login&& <MusicsPlayers Musics={fakeaudios}/>}
+               { login&&
+             <div className=" w-full sm:w-6/12 ">
+                 <MusicsPlayers Musics={fakeaudios}/>
+               </div> 
+               }
 
-            <div className={`${styles.PublicContainer}`}>
+             <div className={`${login?` w-full sm:w-6/12 border-8   `:`w-full`} bg-white`}>
            
-            <section className='flex flex-col relative'>
-                 <article className={`${login?``:`w-full h-[25rem] flex flex-col justify-center`}`}>
-                   <p className=" z-50  text-center text-sm flex w-[45rem] 2xl:text-2xl   xl:text-xl lg:text-lg  sm:text-sm">
-                   Nuestro cancionero es una colección de canciones únicas y originales creadas por nuestro 
-                   talentoso equipo de cantantes y nuestro productor musical. Cada letra y melodía ha sido escrita 
-                   específicamente para adaptarse a la etapa de desarrollo en la que se encuentran las niñas y niños,
-                   lo que las hace hermosas, divertidas y sobre todo educativas. Nos enorgullece decir que nuestras canciones
-                   están llenas de amor y pasión por lo que hacemos, y esperamos que puedan disfrutarlas tanto como 
-                   nosotros disfrutamos en su creación.
+               <section className=' flex-col relative items-center border-2  '>
+
+                 <article className={`${login?` w-full flex justify-center`:
+                 `w-full max-h-max h-[25rem] flex  md:flex-col md:items-start  items-center justify-center  `}`}>
+
+                   <p className={` md:z-20  text-center text-sm flex items-center
+                                2xl:text-2xl   xl:text-xl lg:text-lg  sm:text-sm 
+                   ${login?` h-full p-8`:
+                   `h-auto min-h-full  md:w-[45rem]  md:max-w-[50%] md:ml-[2%]`} 
+                   `}>
+                    Nuestro cancionero es una colección de canciones únicas y originales creadas por nuestro 
+                    talentoso equipo de cantantes y nuestro productor musical. Cada letra y melodía ha sido escrita 
+                    específicamente para adaptarse a la etapa de desarrollo en la que se encuentran las niñas y niños,
+                    lo que las hace hermosas, divertidas y sobre todo educativas. Nos enorgullece decir que nuestras canciones
+                    están llenas de amor y pasión por lo que hacemos, y esperamos que puedan disfrutarlas tanto como 
+                    nosotros disfrutamos en su creación.
                    </p>
                  </article>
-                 <Image className={`${login?styles.Image3B :styles.Image3} z-1`} src={image3} alt="bg-cj"/>
-                 <article className="w-full flex justify-center">
+
+                 <Image className={`${login?styles.Image3B :
+                  ` hidden md:block md:absolute md:min-w-[21rem]  md:top-[3%] md:w-[26%] md:h-auto  2xl:h-5/6  2xl:w-auto right-0 2xl:right-[15%]`} z-1`} src={image3} alt="bg-cj"/>
+
+                 <article className="w-full flex justify-center ">
                    {login?
                    <button className="flex items-center justify-center border-[2px] bg-[#FFFFFF] border-orangeicons w-[18rem] rounded-lg p-2 ">
                         <span className=" w-8/12">Descargar cancionero</span>
@@ -70,7 +85,7 @@ export default function Cancionero(){
                  </article>
             </section>
             </div>
-       </div>
+       </section>
           <button onClick={loginfalso}>Vista de logueado</button>
         </div>
     )
