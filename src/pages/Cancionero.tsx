@@ -54,10 +54,10 @@ export default function Cancionero(){
                  <article className={`${login?` w-full flex justify-center`:
                  `w-full max-h-max h-[25rem] flex  md:flex-col md:items-start  items-center justify-center  `}`}>
 
-                   <p className={` md:z-20  text-center text-sm flex items-center
+                   <p className={` md:z-20  text-center  text-sm min-[300px]:leading-7 min-[300px]:text-base flex items-center
                                 2xl:text-2xl   xl:text-xl lg:text-lg  sm:text-sm 
                    ${login?` h-full p-8`:
-                   `h-auto min-h-full  md:w-[45rem]  md:max-w-[50%] md:ml-[2%]`} 
+                   `h-auto min-h-full   0 md:w-[45rem]  md:max-w-[50%] md:ml-[2%]`} 
                    `}>
                     Nuestro cancionero es una colección de canciones únicas y originales creadas por nuestro 
                     talentoso equipo de cantantes y nuestro productor musical. Cada letra y melodía ha sido escrita 
