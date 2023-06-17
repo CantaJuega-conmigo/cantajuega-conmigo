@@ -39,21 +39,21 @@ export default function Cancionero(){
                 <h1 className="  z-30 text-[#FFFFFF] text-4xl 2xl:text-8xl   xl:text-6xl lg:text-5xl  sm:text-5xl">Cancionero</h1>
             </main>
           
-            <div className={`${login?'flex flex-col items-center sm:items-stretch sm:flex-row ':
+            <div className={`${login?`flex  ${styles.SecondContainer} flex-col items-center justify-between sm:items-stretch md:flex-row   md:h-[60rem]`:
             `${styles.SecondContainer} relative
                  min-[420px]:h-[34rem] sm:landscape:h-[40rem] sm:h-[33rem] md:h-[36rem] lg:h-[34rem] 
              xl:h-[35rem] 2xl:h-[45rem] min-[2000px]:h-[50rem] ` }`}>
 
                 { login&&
-              <section className=" w-full sm:w-6/12 ">
+              <section className=" w-full h-[20rem] sm:h-[30rem] md:w-6/12  md:h-auto">
                   <MusicsPlayers Musics={fakeaudios}/>
               </section>}
 
-             <section className={`${login?` flex flex-col w-full sm:w-6/12 `:
+             <section className={`${login?` flex flex-col w-full md:w-6/12 `:
              `  h-full flex items-center relative p-1 `}`}>
            
              
-                 <article className={`${login?` text-center h-3/6 flex justify-center items-center`:
+                 <article className={`${login?` text-center  h-3/6 flex justify-center items-center`:
                  `  flex items-center justify-center
                       h-auto
                      md:w-[55%] md:ml-2
@@ -61,8 +61,16 @@ export default function Cancionero(){
                      xl:w-[56%]
                      2xl:ml-2 2xl:w-7/12 ` }`}>
 
-                   <p className={`${login?`flex `:
-                   `  text-center 
+                   <p className={`${login?`flex  
+                     text-base p-0
+                     min-[300px]:text-lg min-[300px]:p-5
+                     sm:text-xl sm:p-8
+                     md:p-0
+                    lg:text-lg
+                     xl:text-xl 
+                     2xl:text-2xl `:
+
+                   ` 
                     w-full p-4 text-base
                      min-[300px]:p-8 min-[300px]:text-lg
                     sm:p-0 sm:w-7/12 sm:text-xl sm:leading-8
@@ -80,7 +88,8 @@ export default function Cancionero(){
                    </p>
                  </article>
 
-                 <Image src={image3} alt="bg-cj" className={`${login?`w-6/12 h-auto  m-auto`:
+                 <Image src={image3} alt="bg-cj" className={`${login?` hidden w-8/12 h-auto min-w-[20rem]
+                     min-[970px]:h-4/6  min-[970px]:w-auto md:block min-[970px]:max-h-[23rem] lg:max-h-[25rem]  xl:max-h-[28rem] 2xl:max-h-[30rem]  m-auto`:
                  `  absolute right-0 h-3/6 w-auto  hidden
                   
                    md:w-[43%] md:h-auto  md:block
