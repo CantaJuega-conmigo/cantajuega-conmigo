@@ -79,25 +79,43 @@
     right: 25%;
 }
 .Star1{
-    position: absolute;
-    height: 3rem;
-    width: 3rem;
-    top: 5%;
-    right: 7%;
+  position: absolute;
+  height: 3rem;
+  width: 3rem;
+  top: 5%;
+  right: 7%;
 }
 .Star2{
-    position: absolute;
-    height: 3rem;
-    width: 3rem;
-    left: 50%;
-    top: 55%;
+  position: absolute;
+  height: 3rem;
+  width: 3rem;
+  left: 50%;
+  top: 55%;
 }
 .Star3{
-    position: absolute;
-    height: 3rem;
-    width: 3rem;
-    bottom: 40%;
-    left: 10%;
+  position: absolute;
+  height: 3rem;
+  width: 3rem;
+  bottom: 40%;
+  left: 10%;
+}
+@media (max-width:465px) {
+  .Star1{
+    
+    height: 2rem;
+    width: 2rem;
+
+}
+.Star2{
+  
+    height: 2rem;
+    width: 2rem;
+   
+}
+.Star3{
+    height: 2rem;
+    width: 2rem;
+}
 }
 
 

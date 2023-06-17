@@ -29,9 +29,11 @@ export default function Cancionero(){
     return (
         <div className={`  bg-white ${styles.Container}`} >
           
-            <main className=" relative bg-violet h-[10rem] w-full flex justify-center items-center ">
-                <Image src={image1} alt="blueimage" className={`${styles.Image1}`}/>
-                 <div className={`${styles.StarsContainer}`}>
+            <main className=" relative bg-violet  h-[7rem] min-[520px]:h-[8rem] sm:h-[10rem] w-full flex justify-center items-center ">
+                <Image src={image1} alt="blueimage" className={`absolute top-0 h-full w-auto left-0 hidden min-[475px]:block lg:left-[9%] xl:left-[12%] 2xl:left-[15%]`}/>
+
+                 <div className={` absolute hidden w-[5rem] min-[360px]:block h-[70%] min-[450px]:w-[8rem] min-[450px]:h-[85%] right-[0%] sm:w-[10rem] sm:h-full sm:right-[5%] 
+                                 md:right-[10%] lg:right-[13%] xl:right-[15%] 2xl:right-[20%]  `}>
                 <Image className={`${styles.Star1}`} src={image2} alt="stars"/>
                 <Image className={`${styles.Star2}`} src={image2} alt="stars"/>
                 <Image className={`${styles.Star3}`} src={image2} alt="stars"/>
@@ -71,7 +73,7 @@ export default function Cancionero(){
                      2xl:text-2xl `:
 
                    ` 
-                    w-full p-4 text-base
+                    text-center w-full p-4 text-base
                      min-[300px]:p-8 min-[300px]:text-lg
                     sm:p-0 sm:w-7/12 sm:text-xl sm:leading-8
                     md:w-full
