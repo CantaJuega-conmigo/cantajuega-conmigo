@@ -2,6 +2,50 @@
   font-family: 'Fredoka One';
   src: url('../../public/fonts/Fredoka/Fredoka.ttf') format('truetype');
 }
+
+
+
+@media(min-height:1000px) and (orientation: portrait){ /* mas alto que ancho */
+  .SecondContainer{
+    height: 50rem;
+    /* border: yellow 8px solid; */
+  }
+}
+
+@media(min-height:1000px) and (orientation:landscape){/* pantallas horizontales */
+  .SecondContainer{
+     height: 45rem;
+     /* border: blue solid 5px; */
+  }
+}
+@media(min-height:1100px) and (orientation: portrait){ /* mas alto que ancho */
+  .SecondContainer{
+    height: 58rem;
+    /* border: #FF3D00 8px solid; */
+  }
+}
+
+@media(min-height:1100px) and (orientation:landscape){/* pantallas horizontales */
+  .SecondContainer{
+     height: 50rem;
+     /* border: violet solid 8px; */
+  }
+}
+
+@media(min-height:1200px) and (orientation: portrait){ /* mas alto que ancho */
+  .SecondContainer{
+    height: 60rem;
+    /* border: white 8px solid; */
+  }
+}
+@media(min-height:1200px) and (orientation: landscape){ /* mas alto que ancho */
+  .SecondContainer{
+    height: 65rem;
+    /* border: white 8px solid; */
+  }
+}
+
+
 .Container p{
     font-family:'Kristen ITC'
 }
@@ -56,10 +100,7 @@
     left: 10%;
 }
 
-.Image3B{
-    width: 25rem;
-    margin: 0 auto;
-}
+
 
 .ProgresBar{
     appearance: none;

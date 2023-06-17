@@ -27,8 +27,9 @@ export default function Cancionero(){
     ]
 
     return (
-        <div className={`h-full bg-white ${styles.Container}`} >
-            <section className=" relative bg-violet h-[10rem] w-full flex justify-center items-center ">
+        <div className={`  bg-white ${styles.Container}`} >
+          
+            <main className=" relative bg-violet h-[10rem] w-full flex justify-center items-center ">
                 <Image src={image1} alt="blueimage" className={`${styles.Image1}`}/>
                  <div className={`${styles.StarsContainer}`}>
                 <Image className={`${styles.Star1}`} src={image2} alt="stars"/>
@@ -36,29 +37,39 @@ export default function Cancionero(){
                 <Image className={`${styles.Star3}`} src={image2} alt="stars"/>
                  </div>
                 <h1 className="  z-30 text-[#FFFFFF] text-4xl 2xl:text-8xl   xl:text-6xl lg:text-5xl  sm:text-5xl">Cancionero</h1>
-            </section>
+            </main>
           
-            <section className={`${login?'  flex flex-col-reverse sm:flex-row ':
-            'flex flex-col ' }`}>
+            <div className={`${login?' ':
+            `${styles.SecondContainer}
+                 min-[420px]:h-[34rem] sm:h-[33rem] md:h-[36rem] lg:h-[34rem] 
+             xl:h-[35rem] 2xl:h-[45rem] min-[2000px]:h-[50rem] ` }`}>
 
-               { login&&
-             <div className=" w-full sm:w-6/12 ">
-                 <MusicsPlayers Musics={fakeaudios}/>
-               </div> 
-               }
+                { login&&
+              <section className="  ">
+                  <MusicsPlayers Musics={fakeaudios}/>
+              </section>}
 
-             <div className={`${login?` w-full sm:w-6/12 border-8   `:`w-full`} bg-white`}>
+             <section className={`${login?``:
+             `  h-full flex items-center relative p-1 `}`}>
            
-               <section className=' flex-col relative items-center border-2  '>
+             
+                 <article className={`${login?` `:
+                 `  flex items-center justify-center
+                      h-auto
+                     md:w-[55%] md:ml-2
+                     lg:w-[56%] lg:ml-0
+                     xl:w-[56%]
+                     2xl:ml-2 2xl:w-7/12 ` }`}>
 
-                 <article className={`${login?` w-full flex justify-center`:
-                 `w-full max-h-max h-[25rem] flex  md:flex-col md:items-start  items-center justify-center  `}`}>
-
-                   <p className={` md:z-20  text-center  text-sm min-[300px]:leading-7 min-[300px]:text-base flex items-center
-                                2xl:text-2xl   xl:text-xl lg:text-lg  sm:text-sm 
-                   ${login?` h-full p-8`:
-                   `h-auto min-h-full   0 md:w-[45rem]  md:max-w-[50%] md:ml-[2%]`} 
-                   `}>
+                   <p className={`${login?``:
+                   `  text-center 
+                     w-10/12 text-lg leading-8
+                     sm:w-7/12 sm:text-xl sm:leading-8
+                    md:w-full
+                   
+                    lg:text-lg
+                    xl:w-full xl:text-xl xl:leading-9
+                    2xl:w-full  2xl:text-2xl 2xl:leading-10`}`}>
                     Nuestro cancionero es una colección de canciones únicas y originales creadas por nuestro 
                     talentoso equipo de cantantes y nuestro productor musical. Cada letra y melodía ha sido escrita 
                     específicamente para adaptarse a la etapa de desarrollo en la que se encuentran las niñas y niños,
@@ -68,11 +79,20 @@ export default function Cancionero(){
                    </p>
                  </article>
 
-                 <Image className={`${login?styles.Image3B :
-                  ` hidden md:block md:absolute md:min-w-[21rem]  md:top-[3%] md:w-[26%] md:h-auto  2xl:h-5/6  2xl:w-auto right-0 2xl:right-[15%]`} z-1`} src={image3} alt="bg-cj"/>
+                 <Image src={image3} alt="bg-cj" className={`${login?``:
+                 `  absolute right-0 h-3/6 w-auto  hidden
+                  
+                   md:w-[43%] md:h-auto  md:block
+                   min-[940px]:top-[18%]  min-[940px]:right-[5%] min-[940px]:w-[38%] min-[940px]:h-auto
+                  lg:top-[18%]   lg:right-[5%] lg:h-[65%] lg:w-auto lg:max-h-[25rem]
+                  xl:top-[15%]  xl:right-[5%]  xl:h-[70%] xl:max-h-[32rem]
+                  2xl:top-[10%] 2xl:right-[5%]  2xl:h-[80%] 2xl:max-h-[36rem]
+                   min-[2000px]:max-h-[48rem] `}`} />
 
-                 <article className="w-full flex justify-center ">
-                   {login?
+                 <article className={`${login?``:
+                 ` absolute bottom-[3%] w-full flex justify-center  text-white`}`}>
+
+                  {login?
                    <button className="flex items-center justify-center border-[2px] bg-[#FFFFFF] border-orangeicons w-[18rem] rounded-lg p-2 ">
                         <span className=" w-8/12">Descargar cancionero</span>
                         <span className=" text-black  w-1/12"> <IoMdDownload className=" text-2xl" /> </span>
@@ -83,10 +103,10 @@ export default function Cancionero(){
                    </button>
                     }
                  </article>
-            </section>
-            </div>
-       </section>
-          <button onClick={loginfalso}>Vista de logueado</button>
+              
+             </section>
+          </div>
+          {/* <button onClick={loginfalso}>Vista de logueado</button> */}
         </div>
     )
 }
