@@ -39,21 +39,21 @@ export default function Cancionero(){
                 <h1 className="  z-30 text-[#FFFFFF] text-4xl 2xl:text-8xl   xl:text-6xl lg:text-5xl  sm:text-5xl">Cancionero</h1>
             </main>
           
-            <div className={`${login?' ':
+            <div className={`${login?'flex flex-col items-center sm:items-stretch sm:flex-row ':
             `${styles.SecondContainer} relative
                  min-[420px]:h-[34rem] sm:landscape:h-[40rem] sm:h-[33rem] md:h-[36rem] lg:h-[34rem] 
              xl:h-[35rem] 2xl:h-[45rem] min-[2000px]:h-[50rem] ` }`}>
 
                 { login&&
-              <section className="  ">
+              <section className=" w-full sm:w-6/12 ">
                   <MusicsPlayers Musics={fakeaudios}/>
               </section>}
 
-             <section className={`${login?``:
+             <section className={`${login?` flex flex-col w-full sm:w-6/12 `:
              `  h-full flex items-center relative p-1 `}`}>
            
              
-                 <article className={`${login?` `:
+                 <article className={`${login?` text-center h-3/6 flex justify-center items-center`:
                  `  flex items-center justify-center
                       h-auto
                      md:w-[55%] md:ml-2
@@ -61,7 +61,7 @@ export default function Cancionero(){
                      xl:w-[56%]
                      2xl:ml-2 2xl:w-7/12 ` }`}>
 
-                   <p className={`${login?``:
+                   <p className={`${login?`flex `:
                    `  text-center 
                     w-full p-4 text-base
                      min-[300px]:p-8 min-[300px]:text-lg
@@ -80,7 +80,7 @@ export default function Cancionero(){
                    </p>
                  </article>
 
-                 <Image src={image3} alt="bg-cj" className={`${login?``:
+                 <Image src={image3} alt="bg-cj" className={`${login?`w-6/12 h-auto  m-auto`:
                  `  absolute right-0 h-3/6 w-auto  hidden
                   
                    md:w-[43%] md:h-auto  md:block
@@ -89,25 +89,27 @@ export default function Cancionero(){
                   xl:top-[15%]  xl:right-[5%]  xl:h-[70%] xl:max-h-[32rem]
                   2xl:top-[10%] 2xl:right-[5%]  2xl:h-[80%] 2xl:max-h-[36rem]
                    min-[2000px]:max-h-[48rem] `}`} />
-
+                   
+                   {login&&
+                 <button className="flex items-center justify-center border-[2px] m-auto bg-[#FFFFFF] border-orangeicons w-5/6 min-w-[15rem] max-w-[18rem]  rounded-lg p-2 ">
+                    <span className=" w-8/12">Descargar cancionero</span>
+                    <span className=" text-black  w-1/12"> <IoMdDownload className=" text-2xl" /> </span>
+                 </button>
+                 }
               
              </section>
+
+                  {!login&&
                  <article className={`${login?``:
                  `  min-[500px]:absolute bottom-[0%]  w-full flex justify-center  text-white`}`}>
-
-                  {login?
-                   <button className="flex items-center justify-center border-[2px] bg-[#FFFFFF] border-orangeicons w-[18rem] rounded-lg p-2 ">
-                        <span className=" w-8/12">Descargar cancionero</span>
-                        <span className=" text-black  w-1/12"> <IoMdDownload className=" text-2xl" /> </span>
-                     </button>:
                    <button className="flex items-center justify-center bg-blue w-[20rem] rounded-full text-[#FFFFFF]">
                         <span className=" text-orangeicons w-1/12"><BsArrowLeft/> </span>
                         <span className=" w-10/12">Inscríbete para acceder a nuestro contenido</span>
                    </button>
-                    }
                  </article>
+                    }
           </div>
-          {/* <button onClick={loginfalso}>Vista de logueado</button> */}
+          <button onClick={loginfalso}>Vista de logueado</button>
         </div>
     )
 }
