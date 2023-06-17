@@ -40,8 +40,8 @@ export default function Cancionero(){
             </main>
           
             <div className={`${login?' ':
-            `${styles.SecondContainer}
-                 min-[420px]:h-[34rem] sm:h-[33rem] md:h-[36rem] lg:h-[34rem] 
+            `${styles.SecondContainer} relative
+                 min-[420px]:h-[34rem] sm:landscape:h-[40rem] sm:h-[33rem] md:h-[36rem] lg:h-[34rem] 
              xl:h-[35rem] 2xl:h-[45rem] min-[2000px]:h-[50rem] ` }`}>
 
                 { login&&
@@ -63,8 +63,9 @@ export default function Cancionero(){
 
                    <p className={`${login?``:
                    `  text-center 
-                     w-10/12 text-lg leading-8
-                     sm:w-7/12 sm:text-xl sm:leading-8
+                    w-full p-4 text-base
+                     min-[300px]:p-8 min-[300px]:text-lg
+                    sm:p-0 sm:w-7/12 sm:text-xl sm:leading-8
                     md:w-full
                    
                     lg:text-lg
@@ -89,8 +90,10 @@ export default function Cancionero(){
                   2xl:top-[10%] 2xl:right-[5%]  2xl:h-[80%] 2xl:max-h-[36rem]
                    min-[2000px]:max-h-[48rem] `}`} />
 
+              
+             </section>
                  <article className={`${login?``:
-                 ` absolute bottom-[3%] w-full flex justify-center  text-white`}`}>
+                 `  min-[500px]:absolute bottom-[0%]  w-full flex justify-center  text-white`}`}>
 
                   {login?
                    <button className="flex items-center justify-center border-[2px] bg-[#FFFFFF] border-orangeicons w-[18rem] rounded-lg p-2 ">
@@ -103,8 +106,6 @@ export default function Cancionero(){
                    </button>
                     }
                  </article>
-              
-             </section>
           </div>
           {/* <button onClick={loginfalso}>Vista de logueado</button> */}
         </div>
