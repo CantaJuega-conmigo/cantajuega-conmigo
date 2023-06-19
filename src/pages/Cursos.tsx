@@ -20,7 +20,7 @@ export default function Cursos(){
          </section>
 
          <section className="">
-            <div className=" flex justify-center"> 
+            <div className=" flex justify-center  p-5"> 
                 <p className={`${styles.Text}  text-xs p-4 min-[500px]:text-sm min-[500px]:p-0 flex min-[500px]:w-[80%] 2xl:text-2xl   xl:text-xl lg:text-lg  sm:text-sm`}>
                 Nuestra metodología terapéutica es una experiencia única y emocionante que se adapta a las diferentes etapas
                 de desarrollo de cada niña y niño. En cada etapa las niñas y niños explorarán canciones infantiles que estimularán 
