@@ -1,11 +1,11 @@
 import { useState,MouseEvent, useEffect} from 'react'
-import { Alertsprops, MiscursosAlerts ,MembresiasAlerts,PagosAlerts, CuestionarioAlerts} from './types'
+import { Alertsprops, MiscursosAlerts ,MembresiasAlerts,PagosAlerts, CuestionarioAlerts, AdminAlerts} from './types'
 import Login from '../global/Login'
 import { AUTH_MODAL_TYPE } from '@/utils/constants';
 import Register from '../global/Register';
 import Link from 'next/link';
 ///importar el componente Alerts donde vayamos a usarlo ej: import Alerts from "@/components/alerts/Alerts";
-/*    
+/*    s
 declarar un estado para poder usar como modal al alert que querramos, si vamos a usar mas de un alerta agregaremos mas alert al estado en false inicialmente
 const [seeAlert,setSeeAlerts]=useState<alertsState>({///Traer la interface alertsState para tipar 
   alert1:false,
@@ -26,7 +26,7 @@ interface OpenInterface {
     LOGIN: boolean;
     REGISTER: boolean;
   }
-export default function Alerts({Miscursos,Membresias,Personalizado,Pagos,Cuestionario,close,submitFunction}:Alertsprops){
+export default function Alerts({Miscursos,Membresias,Personalizado,Pagos,Cuestionario,close,onClick,Admin}:Alertsprops){
     const [open, setOpen] = useState<OpenInterface>({
         LOGIN: false,
         REGISTER: false,
@@ -40,7 +40,7 @@ export default function Alerts({Miscursos,Membresias,Personalizado,Pagos,Cuestio
       };
     
       const submit=(event:MouseEvent<HTMLButtonElement>,callback:Function)=>{
-       submitFunction&&submitFunction(event)
+       onClick&&onClick(event)
         setTimeout(() => {
           callback()
         }, 1000);
@@ -131,8 +131,24 @@ export default function Alerts({Miscursos,Membresias,Personalizado,Pagos,Cuestio
        <section className="bg-white w-6/12 max-w-[40rem] h-3/6 max-h-[20rem] flex flex-col items-center justify-evenly">
             <h1>{Personalizado.text1}</h1>
             <h1>{Personalizado.text2}</h1>
-            <button className="bg-orange  w-3/12 max-w-[10rem] p-2 rounded-lg" onClick={close}>CONTINUAR</button>
+            <div className='flex justify-center gap-3 w-full'>
+              <button className="bg-orange  w-3/12 max-w-[10rem] p-2  rounded-xl m-2" onClick={close}>{Personalizado.CancelText}</button>
+              {onClick&&<button className="bg-orangeicons text-[#ffffff]  w-3/12 max-w-[10rem] p-2  rounded-xl m-2" onClick={(event)=>submit(event,close)}>{Personalizado.AcceptTText}</button>        
+}
+            </div>
+
         </section>}
+{/* 
+       {Admin===AdminAlerts.Confirm&&
+       <section className="bg-white w-6/12 max-w-[40rem] h-3/6 max-h-[20rem] flex flex-col items-center justify-evenly">
+            <h1>Desea guardar los canmbios.</h1>
+            <h1>Los cambios se aplicaran en la pagina web</h1>
+            <div>
+
+            </div>
+            <button className="bg-orange  w-3/12 max-w-[10rem] p-2 rounded-lg" onClick={close}>Cancelar</button>
+            <button className="bg-orange  w-3/12 max-w-[10rem] p-2 rounded-lg" onClick={(event)=>submit(event,close)}>Guardar</button>
+        </section>} */}
         
         
     </div>
