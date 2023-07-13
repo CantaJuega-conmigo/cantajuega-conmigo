@@ -1,24 +1,52 @@
-import { useState } from "react"
-import style from '../../styles/Admin.module.css'
-import Image from "next/image"
-import logo from '../../../public/img/Logo.png'
-import example from '../../../public/img/Star 9.png'
+import { useEffect } from "react"
 import CardsStatistics from "@/components/Admin/CardsStatistics"
 import AdminHeader from "@/components/Admin/AdminHeader"
+import { useAppSelector } from "@/context/store"
+import Link from "next/link"
+import Loader from "@/components/Loader/Loader"
+
+
 export default function Admin(){
-    const [isadmin,setIsAdmin]=useState<boolean>(true)
-    
-    if(!isadmin){
+    const user=useAppSelector(state=>state.userReducer.user)
+    const auth=useAppSelector(state=>state.authReducer.isAuthenticated)
+    const isLoading=useAppSelector(state=>state.userReducer.isLoading)
+   useEffect(()=>{
+     const NavMenu=document.getElementById('NavMenu') as HTMLElement;
+     const footer=document.getElementById('footer') as HTMLElement;
+
+     NavMenu.style.display='none';
+     footer.style.display='none';
+     return()=>{
+        NavMenu.style.display='flex'
+        footer.style.display='flex'
+     }
+   },[]);
+   
+    if(isLoading){
+        
         return(
-            <div className=" min-h-screen flex items-center justify-center"> <h1>Debe ser un usuario administrador para acceder aqui.</h1></div>
+            <div className=" min-h-screen flex items-center justify-center">
+                 <Loader />
+            </div>
+        )
+    }
+    if(user?.email!=='joakig6@gmail.com'){
+      
+        return(
+            <div className=" min-h-screen flex items-center justify-center">
+                 <h1>Debe ser un usuario administrador para acceder aqui.</h1>
+            </div>
         )
     }
   
+    
     return(
         <div className=" min-h-screen  w-full   h-auto gap-8 min-[400px]:gap-5  
         sm:gap-20 md:gap-8 sm:h-full 
         flex flex-col  items-center">
-
+            <Link href={'/'}>
+              <h1>Salir de panel de admin</h1>
+            </Link>
             <AdminHeader statistics={true} />
 
             <main className="text-black min-h-[33rem] sm:min-h-[25rem] gap-4  h-auto flex flex-col justify-evenly sm:flex-row 

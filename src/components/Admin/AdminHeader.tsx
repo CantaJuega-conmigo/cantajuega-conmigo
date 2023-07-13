@@ -3,11 +3,14 @@ import Image from "next/image"
 import logo from '../../../public/img/Logo.png'
 import example from '../../../public/img/Star 9.png'
 import CardsStatistics from "./CardsStatistics";
+import { useAppSelector } from '@/context/store';
 
 interface options{
  statistics:boolean
 }
 export default function AdminHeader({statistics}:options){
+  const Admin=useAppSelector((state)=>state.userReducer.user)
+  const isLoading=useAppSelector((state)=>state.userReducer.isLoading)
     const fakeapi={
         New_Members:15,
         Courses_Completed:32,
@@ -25,7 +28,7 @@ export default function AdminHeader({statistics}:options){
                 <article className="text-black h-3/6  sm:h-auto  sm:text-white text-3xl w-full sm:w-11/12 flex  justify-center sm:justify-end  ">
                     <div className="relative flex flex-col items-center w-full sm:w-auto ">
                       <Image alt="admin" className="  sm:absolute border-black  border rounded-full w-10 left-[-50%] text-[0rem]" src={example}/>
-                      <h1 className=" h-full sm:h-auto max-sm:bg-white w-full text-center" >Hola kathy</h1>
+                      <h1 className=" h-full sm:h-auto max-sm:bg-white w-full text-center" >Hola {Admin.firstName}</h1>
                     </div>
                 </article>
                 {/* <h1 onClick={()=>setIsAdmin(false)}>Exit</h1> */}

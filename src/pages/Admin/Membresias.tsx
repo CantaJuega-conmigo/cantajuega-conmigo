@@ -5,55 +5,27 @@ import firstbackground from "../../../public/img/Untitled_Artwork 3.png";
 import secondbackground from "../../public/img/Untitled_Artwork 5.png";
 import Alerts from "@/components/alerts/Alerts";
 import { AdminAlerts, alertsState } from "@/components/alerts/types";
-import { useState ,MouseEvent} from "react";
+import { useState ,MouseEvent, useEffect,MouseEventHandler, SVGProps} from "react";
 import Link from "next/link";
+import { deleteSubscribeMembreship, getAllMebreships } from "@/functions/memership.query";
 export default function Membresias(){
-    let fake:Membership[]=[
+    const [membership,setMemberships]=useState<Membership[]>([
         {
         id: '',
-        name: 'Mensual',
-        description: 'string',
+        name: '',
+        description: '',
         price: 5,
         duration: 5,
-        therapeuticTools: true,
-        music: true,
-        videos: true,
-        recurrenteId: 'string',
-        status: 'string'},
-        {
-        id: '',
-        name: 'Semestral',
-        description: 'string',
-        price: 5,
-        duration: 5,
-        therapeuticTools: true,
-        music: true,
-        videos: true,
-        recurrenteId: 'string',
-        status: 'string'},
-        {
-        id: '',
-        name: 'Anual',
-        description: 'string',
-        price: 5,
-        duration: 5,
-        therapeuticTools: true,
-        music: true,
-        videos: true,
-        recurrenteId: 'string',
-        status: 'string'},
-        {
-        id: '',
-        name: 'Anual',
-        description: 'noseeeee',
-        price: 5,
-        duration: 5,
-        therapeuticTools: true,
-        music: true,
-        videos: true,
-        recurrenteId: 'string',
-        status: 'string'}
-    ] 
+        therapeuticTools: false,
+        music: false,
+        videos: false,
+        recurrenteId: '',
+        status: ''},
+    ])
+    const [DeleteList,setDeleteList]=useState<string[]>([])
+    useEffect(()=>{
+      getAllMebreships(setMemberships)
+    },[])
     const [seeAlert,setSeeAlerts]=useState<alertsState>({///Traer la interface alertsState para tipar 
         alert1:false,
         text1:'',    
@@ -72,27 +44,46 @@ export default function Membresias(){
        console.log('guardado')
 
     }
+
+    const color: string[] = ["#f08d0d", "#39a1bb", "#5e139c", "#eb2f06"];
+    
+
+    const deleteInComponent=(event:MouseEvent<any>)=>{
+        event.preventDefault()        
+        setDeleteList([...DeleteList,event.currentTarget.id])
+        console.log(DeleteList);
+        
+        const deleted=membership.filter(i=>i.id!==event.currentTarget.id)
+        console.log(deleted,event.currentTarget.id);
+        setMemberships(deleted)
+
+    }
+    const cancelChanges=()=>getAllMebreships(setMemberships)
+    const deleteMembershipsDB=()=>{
+       DeleteList.length&&DeleteList.forEach(value=>deleteSubscribeMembreship(value))
+    }
     return (
         <div className="  min-h-screen flex flex-col gap-40" >
             <AdminHeader statistics={false} />
+            <button onClick={()=>{console.log(DeleteList)}}>ver lista </button>
     
             <section className=" w-[70%] m-auto  grid grid-flow-row  grid-cols-2  gap-8 ">
-            {fake.map((i,key)=>
+            {membership.map((i,key)=>
             <article key={key} className=" m-auto">
-                <MembershipCard  membership={i} color="#b62525" image={firstbackground} Admin={true}/>
+                <MembershipCard onClick={(event)=>deleteInComponent(event)}  membership={i} color={color[key]} image={firstbackground} Admin={true}/>
             </article>
             )}
             </section>
             <section className="w-full flex flex-col items-center gap-5">
                 <button className="text-white bg-black text-3xl h-[3rem] w-[3rem] rounded-full">+</button>
                 <article className="w-full flex justify-center gap-5">
-                    <Link href={'/Admin'} >
-                    <button className="border-2 border-black p-3 w-[10rem]">Cancelar</button>
-                    </Link>
+                  
+                    <button className="border-2 border-black p-3 w-[10rem]" onClick={cancelChanges}>Cancelar</button>
+        
                     <button className="border-2 border-black p-3 w-[10rem]" onClick={PreConfirm}>Guardar</button>
                 </article>
             </section>
-          {seeAlert.text1&&  <Alerts Personalizado={seeAlert}  close={closeAlert} onClick={SaveChanges}/>}
+          {seeAlert.text1&&  <Alerts Personalizado={seeAlert}  close={closeAlert} onClick={deleteMembershipsDB}/>}
         </div>
     )
 }

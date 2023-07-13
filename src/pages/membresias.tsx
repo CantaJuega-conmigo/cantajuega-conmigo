@@ -9,15 +9,15 @@ export default function Membresias() {
   const [memberships, setMemberships] = useState<Membership[]>([
     {
       id: '',
-      name: 'Anual',
-      description: 'string',
-      price: 5,
-      duration: 5,
+      name: '',
+      description: '',
+      price: 0,
+      duration: 0,
       therapeuticTools: true,
       music: true,
       videos: true,
-      recurrenteId: 'string',
-      status: 'string'
+      recurrenteId: '',
+      status: ''
     }
   ]);
   useEffect(() => {
@@ -32,7 +32,7 @@ export default function Membresias() {
   ];
 
   return (
-    <main className="flex flex-col gap-5">
+    <main className="flex flex-col gap-5 " id="MembresiasPage">
 
       <header>
         <div className="h-60 bg-[#fada4d]">
@@ -47,14 +47,6 @@ export default function Membresias() {
           </div>
         </div>
       </header>
-
-      <main className="flex justify-around">
-        <MembershipCard image={firstbackground} color="#fada4d" membership={memberships[0]} />
-        <MembershipCard image={firstbackground} color="#fada4d" membership={memberships[0]} />
-      </main>
-
-
-
       <section>
         <div className="container mx-auto px-4 lg:px-2 ">
           <header className="my-6">
@@ -66,6 +58,17 @@ export default function Membresias() {
           
         </div>
       </section>
+
+      <main className="flex justify-around">
+        {memberships.map((i,key)=>
+        <article key={key}>
+          <MembershipCard membership={i} image={image[key]} color={color[key]} />
+        </article>
+        )}
+      </main>
+
+
+
 
     </main>
   );

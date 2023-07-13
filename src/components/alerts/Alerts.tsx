@@ -26,7 +26,10 @@ interface OpenInterface {
     LOGIN: boolean;
     REGISTER: boolean;
   }
-export default function Alerts({Miscursos,Membresias,Personalizado,Pagos,Cuestionario,close,onClick,Admin}:Alertsprops){
+interface props extends Alertsprops{
+  Page?:string
+}
+export default function Alerts({Miscursos,Membresias,Personalizado,Pagos,Cuestionario,close,onClick,Admin,Page}:props){
     const [open, setOpen] = useState<OpenInterface>({
         LOGIN: false,
         REGISTER: false,
@@ -47,13 +50,34 @@ export default function Alerts({Miscursos,Membresias,Personalizado,Pagos,Cuestio
       }
       useEffect(()=>{
         const body= document.getElementById('Body') as HTMLBodyElement;
+        
         body.style.overflow='hidden';
+        const mainhome= document.getElementById('mainhome') as HTMLElement;
+        const nav= document.getElementById('menunav') as HTMLElement;
+        const CancioneroPage= document.getElementById('CancioneroPage') as HTMLElement;
+        const MisCursosPage= document.getElementById('MisCursosPage') as HTMLElement;
+        const CursosPage= document.getElementById('CursosPage') as HTMLElement;
+        const MembresiasPage= document.getElementById('MembresiasPage') as HTMLElement;
+     
+        body.style.overflow='hidden';
+        mainhome&&( mainhome.style.position='relative', mainhome.style.zIndex='-1')
+        CancioneroPage&&( CancioneroPage.style.position='relative', CancioneroPage.style.zIndex='-1')
+        CursosPage&&( CursosPage.style.position='relative', CursosPage.style.zIndex='-1')
+        MembresiasPage&&( MembresiasPage.style.position='relative', MembresiasPage.style.zIndex='-1')
+        Page !=='Miscursos'&& MisCursosPage&&( MisCursosPage.style.position='relative', MisCursosPage.style.zIndex='-1')
+        nav.style.zIndex='-1'
         return()=>{
            body.style.overflow='auto'
+           mainhome&&( mainhome.style.position='static',mainhome.style.zIndex='50')
+           CancioneroPage&&( CancioneroPage.style.position='static',CancioneroPage.style.zIndex='50')
+           CursosPage&&( CursosPage.style.position='static',CursosPage.style.zIndex='50')
+           MembresiasPage&&( MembresiasPage.style.position='static',MembresiasPage.style.zIndex='50')
+           MisCursosPage&&( MisCursosPage.style.position='static',MisCursosPage.style.zIndex='50')
+          nav.style.zIndex='50'
           }
       },[])
  return(
-    <div id='alert' className="bg-[#D9D9D9A1] fixed w-full h-full justify-center items-center top-0 z-50 flex" >
+    <div id='alert' className="bg-[#D9D9D9A1] fixed w-full h-full justify-center items-center top-0 z-[500000] flex" >
 
        {Miscursos===MiscursosAlerts.Alert1&&
        <section className="bg-white w-6/12 max-w-[40rem] h-3/6 max-h-[20rem] flex flex-col items-center justify-evenly">
