@@ -43,8 +43,6 @@ const Navbar = () => {
     };
     document.addEventListener("click", getIdElements);
     !menu && document.removeEventListener("click", getIdElements);
-    console.log('me ejecuto bro,todo anda bien');
-    
 
     return () => {
       body.style.overflow = "auto";
@@ -68,7 +66,7 @@ const Navbar = () => {
 
   const openMenu = () => {
     console.log(menu);
-    
+
     setMenu(!menu);
   };
   const closeMenu = () => {
