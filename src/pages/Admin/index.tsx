@@ -20,7 +20,7 @@ export default function Admin(){
         NavMenu.style.display='flex'
         footer.style.display='flex'
      }
-   },[]);
+   },[isLoading]);
    
     if(isLoading){
         

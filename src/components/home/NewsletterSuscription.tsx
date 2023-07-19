@@ -2,6 +2,7 @@ import { BsArrowLeftShort } from 'react-icons/bs'
 import styles from '../../styles/NewsletterSuscription.module.css'
 import Image from 'next/image'
 import image from '../../../public/img/img.png'
+import Link from 'next/link'
 export default function NewsletterSuscription(){
   
     return(
@@ -29,7 +30,8 @@ export default function NewsletterSuscription(){
           </form>
         </section>
         <div className='absolute  w-full h-[10%] bottom-0'>
-
+       <Link href={'/'}>
+       
         <button className=' z-10 absolute left-[24%]
 
          min-[300px]:left-[28%]
@@ -40,6 +42,7 @@ export default function NewsletterSuscription(){
           Inicio
           <BsArrowLeftShort className='text-[1.7rem] max-sm:top-[18%] max-sm:left-[15%] absolute top-[30%] left-[20%] text-orangeicons'/>
         </button>
+       </Link>
 
         </div>
     </div>

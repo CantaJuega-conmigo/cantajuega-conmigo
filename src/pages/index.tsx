@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Head from "next/head";
 import NewsletterSuscription from "@/components/home/NewsletterSuscription";
 import Hero from "@/components/home/Hero";
-import Trailer from "@/components/home/Trailer";
+// import Trailer from "@/components/home/Trailer";
 import Layout from "@/components/global/Layaout";
 import Metodologias from "@/components/home/metodologia/Metodologias";
 import { authUser } from "@/functions/user.query";

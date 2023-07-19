@@ -5,8 +5,12 @@ import { Membership } from "@/types/membership.type";
 import { useEffect, useState } from "react";
 import { getAllMebreships } from "@/functions/memership.query";
 import MembershipCard from "@/components/membership/MembershipCard";
+import Loader from "@/components/Loader/Loader";
+interface state extends Membership{
+  isLoading?:boolean
+}
 export default function Membresias() {
-  const [memberships, setMemberships] = useState<Membership[]>([
+  const [memberships, setMemberships] = useState<state[]>([
     {
       id: '',
       name: '',
@@ -17,12 +21,21 @@ export default function Membresias() {
       music: true,
       videos: true,
       recurrenteId: '',
-      status: ''
+      status: '',
+      isLoading:true
     }
   ]);
   useEffect(() => {
     getAllMebreships(setMemberships);
   }, []);
+  
+  if(memberships[0]?.isLoading) {
+    return (
+      <div>
+        <Loader />
+      </div>
+    )
+  }
   const color: string[] = ["#f08d0d", "#39a1bb", "#5e139c", "#eb2f06"];
   const image: any[] = [
     firstbackground,
@@ -30,7 +43,7 @@ export default function Membresias() {
     firstbackground,
     secondbackground,
   ];
-
+  
   return (
     <main className="flex flex-col gap-5 " id="MembresiasPage">
 

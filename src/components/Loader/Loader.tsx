@@ -4,9 +4,22 @@ import image2 from '../../../public/img/loader/image 2.png'
 import image3 from '../../../public/img/loader/image 3.png'
 import image4 from '../../../public/img/loader/image 4.png'
 import bluecircle from '../../../public/img/loader/bluecircle.png'
+import { useEffect } from "react";
 export default function Loader(){
      const rotate= '[--tw-rotate:-30deg]'
      const rotatestar2= '[--tw-rotate:-65deg]'
+     useEffect(() => {
+      const NavMenu=document.getElementById('NavMenu') as HTMLElement;
+      const footer=document.getElementById('footer') as HTMLElement;
+  
+      NavMenu.style.display='none';
+      footer.style.display='none';
+   
+      return()=>{
+          NavMenu.style.display='flex'
+          footer.style.display='flex'
+       }
+    }, []);
     return (
        <div className=" bg-yellow fixed z-50 h-full w-full min-h-full">
           <Image src={image1} alt="loaderimg1" className="  absolute w-[15rem] md:w-[20rem]"/>
