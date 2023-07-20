@@ -38,10 +38,12 @@ const Navbar = () => {
 
     const getIdElements = (e: any) => {
       const element = e.target.id;
-      const menunav = ["openmenu", "MenuOptions"];
+
+      const menunav = ["openmenu", "MenuOptions", "menupath"];
       !menunav.includes(element) && menu && setMenu(!menu);
     };
     document.addEventListener("click", getIdElements);
+
     !menu && document.removeEventListener("click", getIdElements);
 
     return () => {
@@ -63,10 +65,7 @@ const Navbar = () => {
       window.removeEventListener("resize", ejecutarEnPantallaCompleta);
     };
   }, [menu]);
-
   const openMenu = () => {
-    console.log(menu);
-
     setMenu(!menu);
   };
   const closeMenu = () => {
@@ -89,15 +88,32 @@ const Navbar = () => {
         <Topnav />
       </div>
 
-      <div
+      <div id="menucontainer"
         className="flex w-full h-4/6 items-center relative
-         min-[940px]:hidden"
+         min-[940px]:hidden  "
       >
-        <HiOutlineMenu
+        <svg
+          stroke="currentColor"
+          fill="none"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
           id="openmenu"
           className=" text-5xl cursor-pointer"
           onClick={openMenu}
-        />
+          height="1em"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          {/*tuve que usar este modo xq el path interferia en el onclick al momento de usar el menu*/}
+          <path
+            id="menupath"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M4 6h16M4 12h16M4 18h16"
+          ></path>
+        </svg>
+
         <Image
           src={logo}
           alt="logo-cj"

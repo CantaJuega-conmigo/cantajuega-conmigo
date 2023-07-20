@@ -11,7 +11,7 @@ import Login from "../global/Login";
 import { AUTH_MODAL_TYPE } from "@/utils/constants";
 import Register from "../global/Register";
 import Link from "next/link";
-import Alertaux from "@/utils/auxfunctions";
+import { Alertaux } from "@/utils/auxfunctions";
 ///importar el componente Alerts donde vayamos a usarlo ej: import Alerts from "@/components/alerts/Alerts";
 /*    s
 declarar un estado para poder usar como modal al alert que querramos, si vamos a usar mas de un alerta agregaremos mas alert al estado en false inicialmente
@@ -69,10 +69,7 @@ export default function Alerts({
   useEffect(() => {
     const list = ["mainhome", "CancioneroPage", "CursosPage", "MembresiasPage"];
     const exptionspages = [{ id: "MisCursosPage", pagename: "Miscursos" }];
-    const body = document.getElementById("Body") as HTMLElement;
-    const nav = document.getElementById("menunav") as HTMLElement;
-    body.style.overflow = "hidden";
-    nav.style.zIndex = "-1";
+
     Alertaux({
       effect: true,
       elementsid: list,
@@ -80,8 +77,6 @@ export default function Alerts({
       exeptionspages: exptionspages,
     });
     return () => {
-      body.style.overflow = "auto";
-      nav.style.zIndex = "50";
       Alertaux({
         effect: false,
         elementsid: list,
@@ -228,7 +223,7 @@ export default function Alerts({
 
       {Personalizado && (
         <section
-          className="bg-white w-11/12 h-3/6 flex flex-col items-center max-h-[20rem] justify-evenly md:w-[40rem] 
+          className="bg-white w-11/12 h-3/6  min-h-[15rem] flex flex-col items-center max-h-[20rem] justify-evenly md:w-[40rem] 
          text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl  2xl:text-2xl  "
         >
           <h1>{Personalizado.text1}</h1>

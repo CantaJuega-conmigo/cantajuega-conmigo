@@ -2,10 +2,7 @@ import { goToSubscribeMembreship } from "@/functions/memership.query";
 import { Membership } from "@/types/membership.type";
 import Image from "next/image";
 import React, { MouseEventHandler } from "react";
-import { BsFillPencilFill, BsPencil, BsPencilFill, BsPencilSquare, BsTrash, BsTrash2Fill, BsTrash3Fill } from "react-icons/bs";
-import { FcDeleteColumn } from "react-icons/fc";
-import { HiOutlinePencil, HiOutlinePencilAlt, HiPencil, HiPencilAlt } from "react-icons/hi";
-import { TiDelete, TiDeleteOutline, TiEdit, TiPencil } from "react-icons/ti";
+import { BsFillPencilFill, BsTrash3Fill } from "react-icons/bs";
 
 interface Props {
   membership: Membership;
