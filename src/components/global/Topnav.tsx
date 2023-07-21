@@ -1,14 +1,7 @@
-import {
-  HiLogout,
-  HiOutlineLogout,
-  HiUser,
-  HiUserAdd,
-  HiUserCircle,
-  HiUsers,
-} from "react-icons/hi";
+import { HiOutlineLogout, HiUserAdd } from "react-icons/hi";
 import { BsTelephone, BsYoutube } from "react-icons/bs";
-import { TiSocialFacebook, TiUser, TiUserOutline } from "react-icons/ti";
-import { IoIosLogOut, IoMdLogOut, IoMdMail } from "react-icons/io";
+import { TiSocialFacebook } from "react-icons/ti";
+import { IoMdMail } from "react-icons/io";
 import Login from "./Login";
 import Resgister from "./Register";
 import { AUTH_MODAL_TYPE } from "@/utils";
@@ -18,11 +11,7 @@ import { logoutUser } from "@/functions/user.query";
 import Alerts from "../alerts/Alerts";
 import { alertsState } from "../alerts/types";
 import Link from "next/link";
-import {
-  AiOutlineLogout,
-  AiOutlineUserAdd,
-  AiOutlineUserSwitch,
-} from "react-icons/ai";
+import { AiOutlineUserSwitch } from "react-icons/ai";
 
 interface OpenInterface {
   LOGIN: boolean;
@@ -70,33 +59,33 @@ export default function Topnav() {
          border-b-2 border-dashed border-orangeicons h-full "
     >
       <section className="flex w-full justify-between ">
-        <div className="flex   w-5/12 md:w-6/12 sm:justify-evenly">
+        <div className="flex justify-center gap-5  min-[490px]:gap-8 w-3/12   min-[490px]:w-5/12 md:w-7/12 sm:justify-evenly">
           <a
             href="https://wa.me/+50254301174?"
             target="_blank"
-            className="flex items-center"
+            className="flex items-center gap-2"
           >
-            <BsTelephone className="fill-current h-4 w-4 flex-shrink-0 mr-2 text-orangeicons" />
-            <span className="">+502 5430-1174 </span>
+            <BsTelephone className="fill-current text-lg text-orangeicons" />
+            <span className=" hidden min-[490px]:flex">+502 5430-1174 </span>
           </a>
 
           <a
             href="mailto:info@cantajuegaconmigo.com"
             target="_blank"
-            className={`hidden md:flex md:items-center`}
+            className={`flex  items-center  gap-2`}
           >
-            <IoMdMail className="fill-current h-4 w-4 flex-shrink-0 mr-2  text-orangeicons" />
-            <span>info@cantajuegaconmigo</span>
+            <IoMdMail className="fill-current  text-2xl   text-orangeicons" />
+            <span className=" hidden md:flex" >info@cantajuegaconmigo</span>
           </a>
         </div>
 
-        <div className=" flex justify-around items-center md:w-3/12 w-7/12  ">
-          <div className="flex justify-between items-center w-4/12 md:w-3/12   ">
+        <div className=" flex justify-around items-center w-8/12 md:w-5/12  min-[490px]:w-7/12    ">
+          <div className="flex justify-between items-center w-5/12 min-[390px]:w-3/12  min-[490px]:w-3/12 md:w-4/12 ">
             <a
               href="https://www.youtube.com/@cantajuegaconmigo1543"
               target="_blank"
             >
-              <BsYoutube className="text-[#FF0302] text-3xl  md:text-2xl" />
+              <BsYoutube className="text-[#FF0302] text-2xl  md:text-2xl" />
             </a>
             <a
               href="https://www.facebook.com/cantajuegaconmigo"
@@ -108,7 +97,7 @@ export default function Topnav() {
 
           {!auth && (
             <span
-              className="hover:text-[#FFC172] cursor-pointer flex items-center "
+              className="hover:text-[#FFC172] cursor-pointer flex items-center text-xs md:text-base sm:text-sm "
               onClick={() => handleOpen(AUTH_MODAL_TYPE.LOGIN)}
             >
               <HiUserAdd className=" text-orangeicons transform scale-x-[-1] text-2xl" />
@@ -118,9 +107,12 @@ export default function Topnav() {
           {auth && (
             <span
               onClick={preconfirmLogout}
-              className=" cursor-pointer flex items-center gap-2"
+              className=" cursor-pointer flex items-center gap-2 text-sm sm:text-base"
             >
-              Cerrar sesion
+              <span className="hidden min-[390px]:flex">
+
+               Cerrar sesion
+              </span>
               <HiOutlineLogout className=" text-orangeicons text-xl" />
             </span>
           )}

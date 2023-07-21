@@ -5,7 +5,6 @@ import {
   MembresiasAlerts,
   PagosAlerts,
   CuestionarioAlerts,
-  AdminAlerts,
 } from "./types";
 import Login from "../global/Login";
 import { AUTH_MODAL_TYPE } from "@/utils/constants";

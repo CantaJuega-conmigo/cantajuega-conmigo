@@ -95,7 +95,7 @@ const Navbar = () => {
         <svg
           stroke="currentColor"
           fill="none"
-          stroke-width="2"
+          strokeWidth="2"
           viewBox="0 0 24 24"
           aria-hidden="true"
           id="openmenu"
@@ -108,8 +108,9 @@ const Navbar = () => {
           {/*tuve que usar este modo xq el path interferia en el onclick al momento de usar el menu*/}
           <path
             id="menupath"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeLinecap="round"
+             strokeLinejoin="round"
+          
             d="M4 6h16M4 12h16M4 18h16"
           ></path>
         </svg>
