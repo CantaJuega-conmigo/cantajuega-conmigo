@@ -118,7 +118,7 @@ const Navbar = () => {
         <Image
           src={logo}
           alt="logo-cj"
-          className="absolute right-0 h-full w-auto z-[-1100]"
+          className="absolute  right-0 h-5/6 w-auto z-[-1100]"
         />
       </div>
 
@@ -141,7 +141,7 @@ const Navbar = () => {
           <Image
             src={logo}
             alt="cj-logo"
-            className="absolute left-0  top-0 hidden
+            className="absolute left-0  top-0 hidden 
           min-[940px]:absolute  min-[940px]:left-0  min-[940px]:top-0  min-[940px]:block
           md:w-[24%] md:top-[3%] md:h-auto md:max-h-[100%] 
           xl:w-auto xl:h-full xl:left-[5%] 2xl:left-[5%]  "

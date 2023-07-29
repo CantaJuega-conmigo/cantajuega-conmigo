@@ -104,13 +104,7 @@ export default function Membresias() {
   return (
     <div className="  min-h-screen flex flex-col gap-40">
       <AdminHeader statistics={false} />
-      <button
-        onClick={() => {
-          console.log(DeleteList);
-        }}
-      >
-        ver lista{" "}
-      </button>
+      
 
       <section className=" w-[70%] m-auto  grid grid-flow-row  grid-cols-2  gap-8 ">
         {membership.map((i, key) => (

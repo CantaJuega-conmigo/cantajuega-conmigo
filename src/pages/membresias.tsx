@@ -1,4 +1,3 @@
-import styles from "../styles/Membresias.module.css";
 import firstbackground from "../../public/img/Untitled_Artwork 3.png";
 import secondbackground from "../../public/img/Untitled_Artwork 5.png";
 import { Membership } from "@/types/membership.type";
@@ -72,7 +71,7 @@ export default function Membresias() {
         </div>
       </section>
 
-      <main className="flex justify-around">
+      <main className="flex justify-around flex-wrap gap-4">
         {memberships.map((i,key)=>
         <article key={key}>
           <MembershipCard membership={i} image={image[key]} color={color[key]} />
