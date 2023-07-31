@@ -3,8 +3,12 @@ import {ChangeEvent, useState,MouseEvent, useEffect} from 'react'
 import styles from '../styles/Miscursos.module.css'
 import { Alertsprops, MiscursosAlerts,alertsState } from '@/components/alerts/types'
 import { useAppSelector } from '@/context/store'
+import { authUser } from '@/functions/user.query'
 
 export default function Miscursos(){
+    useEffect(()=>{
+        authUser()
+    },[])
     const [actualProgress,setActualProgress]=useState<number>(0)
     const [actualVideo,setActualVideo]=useState<string>('')
     const [videoPlay,setvideoPlay]=useState<boolean>(false)

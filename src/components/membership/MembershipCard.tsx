@@ -15,7 +15,8 @@ interface Props {
 const MembershipCard = ({ membership, color, image,Admin,onClick}: Props) => {
 
     const handleSelectMembership = () => {
-        goToSubscribeMembreship(membership.recurrenteId)
+      console.log(membership)
+        goToSubscribeMembreship(membership.id)
     }
     
   return (

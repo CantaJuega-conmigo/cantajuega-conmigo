@@ -75,13 +75,13 @@ interface ErrorProps {
     const nav= document.getElementById('menunav') as HTMLBodyElement;
  
     body.style.overflow='hidden';
-    mainhome.style.position='relative'
-    mainhome.style.zIndex='-1'
+    mainhome&&(mainhome.style.position='relative')
+    mainhome&& (mainhome.style.zIndex='-1')
     nav.style.zIndex='-1'
     return()=>{
        body.style.overflow='auto'
-       mainhome.style.position='static'
-       mainhome.style.zIndex='50'
+     mainhome&&  (mainhome.style.position='static')
+      mainhome&& (mainhome.style.zIndex='50')
        nav.style.zIndex='50'
       }
   },[])
